@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,33 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Lawxygen custom colors
+        		lawblue: {
+          			50: '#EBF5FF',
+          			100: '#D6EBFF',
+          			200: '#ADD6FF',
+          			300: '#84C1FF',
+          			400: '#5BACFF',
+          			500: '#3297FF',
+          			600: '#0A82FF',
+          			700: '#0069D9',
+          			800: '#0053AB',
+          			900: '#00397A',
+          			950: '#2A4365',
+        		},
+        		lawpurple: {
+          			50: '#F5F3FF',
+          			100: '#EDE9FE',
+          			200: '#DDD6FE',
+          			300: '#C4B5FD',
+          			400: '#A78BFA',
+          			500: '#8B5CF6',
+          			600: '#7C3AED',
+          			700: '#6D28D9',
+          			800: '#5B21B6',
+          			900: '#4C1D95',
+        		}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
