@@ -45,6 +45,18 @@ const Navbar = () => {
               <Link to="/job-posting" className="text-gray-600 hover:text-gray-900">
                 Post a Job
               </Link>
+              <Link to="/about" className="text-gray-600 hover:text-gray-900">
+                About
+              </Link>
+              <Link to="/contact" className="text-gray-600 hover:text-gray-900">
+                Contact
+              </Link>
+              <Link to="/blog" className="text-gray-600 hover:text-gray-900">
+                Blog
+              </Link>
+              <Link to="/faq" className="text-gray-600 hover:text-gray-900">
+                FAQ
+              </Link>
               <Link to="/dashboard" className="p-1 text-gray-600 hover:text-gray-900">
                 <Bell className="w-5 h-5" />
               </Link>
@@ -99,6 +111,30 @@ const Navbar = () => {
             className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-100"
           >
             Post a Job
+          </Link>
+          <Link
+            to="/about"
+            className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-100"
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-100"
+          >
+            Contact
+          </Link>
+          <Link
+            to="/blog"
+            className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-100"
+          >
+            Blog
+          </Link>
+          <Link
+            to="/faq"
+            className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-100"
+          >
+            FAQ
           </Link>
           <Link
             to="/dashboard"
