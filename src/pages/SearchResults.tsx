@@ -19,9 +19,8 @@ import Footer from "@/components/layout/Footer";
 import ProfessionalCard from "@/components/ui/ProfessionalCard";
 import ServiceCard from "@/components/ui/ServiceCard";
 
-// Mock data for professionals and services
-import { professionals } from "./mockData";
-import { services } from "./mockData";
+// Import mock data from the correct path
+import { professionals, services } from "@/mock/mockData";
 
 const SearchResults = () => {
   const location = useLocation();
