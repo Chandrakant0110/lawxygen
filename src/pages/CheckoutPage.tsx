@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
-import { Check, CreditCard, Info, Lock } from "lucide-react";
+import { Check, CreditCard, Info, Lock, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const CheckoutPage = () => {
