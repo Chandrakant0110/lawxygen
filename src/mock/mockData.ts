@@ -1,216 +1,280 @@
 
-// Professional data structure
-export interface Professional {
-  id: number;
-  name: string;
-  title: string;
-  rating: number;
-  reviewCount: number;
-  hourlyRate: number;
-  imageUrl: string;
-  location: string;
-  tags: string[];
-  description: string;
-}
-
-// Service data structure
-export interface Service {
-  id: number;
-  title: string;
-  provider: string;
-  providerImageUrl: string;
-  rating: number;
-  reviewCount: number;
-  price: number;
-  imageUrl: string;
-  tags: string[];
-  description: string;
-}
-
 // Mock data for professionals
-export const professionals: Professional[] = [
+export const professionals = [
   {
-    id: 1,
-    name: "Jane Smith",
-    title: "Corporate Lawyer",
+    id: "prof1",
+    name: "Jessica Reynolds",
+    title: "Corporate Lawyer • 7 yrs exp",
     rating: 4.9,
-    reviewCount: 156,
-    hourlyRate: 150,
-    imageUrl: "/placeholder.svg",
-    location: "New York, NY",
-    tags: ["Corporate Law", "Contract Review", "Intellectual Property"],
-    description: "Corporate attorney with 10+ years of experience in contract negotiations and intellectual property law."
+    reviews: 142,
+    hourlyRate: 120,
+    avatar: "https://randomuser.me/api/portraits/women/45.jpg",
+    specialties: ["Contract Law", "Corporate Law", "Business Formation"],
+    isTopRated: true,
+    category: "corporate",
+    location: "New York, NY"
   },
   {
-    id: 2,
-    name: "Michael Johnson",
-    title: "Real Estate Attorney",
+    id: "prof2",
+    name: "Marcus Chen",
+    title: "Intellectual Property Attorney • 5 yrs exp",
     rating: 4.8,
-    reviewCount: 132,
-    hourlyRate: 125,
-    imageUrl: "/placeholder.svg",
-    location: "Chicago, IL",
-    tags: ["Real Estate", "Property Law", "Transactions"],
-    description: "Specializing in residential and commercial real estate transactions and property disputes."
+    reviews: 89,
+    hourlyRate: 95,
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    specialties: ["Patent Law", "Copyright", "Trademark Registration"],
+    isTopRated: true,
+    category: "ip",
+    location: "San Francisco, CA"
   },
   {
-    id: 3,
-    name: "Sarah Williams",
-    title: "Family Law Specialist",
+    id: "prof3",
+    name: "Sophia Patel",
+    title: "Family Law Attorney • 9 yrs exp",
     rating: 4.7,
-    reviewCount: 98,
-    hourlyRate: 135,
-    imageUrl: "/placeholder.svg",
-    location: "Los Angeles, CA",
-    tags: ["Family Law", "Divorce", "Child Custody"],
-    description: "Compassionate family law attorney focusing on divorce, custody, and support arrangements."
+    reviews: 113,
+    hourlyRate: 85,
+    avatar: "https://randomuser.me/api/portraits/women/63.jpg",
+    specialties: ["Divorce", "Child Custody", "Family Mediation"],
+    category: "family",
+    location: "Chicago, IL"
   },
   {
-    id: 4,
-    name: "David Chen",
-    title: "Patent Attorney",
-    rating: 4.9,
-    reviewCount: 87,
-    hourlyRate: 175,
-    imageUrl: "/placeholder.svg",
-    location: "San Francisco, CA",
-    tags: ["Patents", "Trademarks", "IP Strategy"],
-    description: "Patent attorney with background in computer science and electrical engineering."
-  },
-  {
-    id: 5,
-    name: "Lisa Rodriguez",
-    title: "Immigration Lawyer",
-    rating: 4.8,
-    reviewCount: 124,
-    hourlyRate: 140,
-    imageUrl: "/placeholder.svg",
-    location: "Miami, FL",
-    tags: ["Immigration", "Visas", "Green Cards"],
-    description: "Immigration attorney helping individuals and businesses navigate the complex immigration system."
-  },
-  {
-    id: 6,
-    name: "James Wilson",
-    title: "Criminal Defense Attorney",
+    id: "prof4",
+    name: "Daniel Wilson",
+    title: "Real Estate Attorney • 6 yrs exp",
     rating: 4.6,
-    reviewCount: 76,
-    hourlyRate: 165,
-    imageUrl: "/placeholder.svg",
-    location: "Boston, MA",
-    tags: ["Criminal Defense", "DUI", "Felonies"],
-    description: "Former prosecutor now defending clients against criminal charges at state and federal levels."
-  }
+    reviews: 78,
+    hourlyRate: 110,
+    avatar: "https://randomuser.me/api/portraits/men/15.jpg",
+    specialties: ["Property Law", "Lease Agreements", "Real Estate Transactions"],
+    category: "realestate",
+    location: "Miami, FL"
+  },
+  {
+    id: "prof5",
+    name: "Aisha Johnson",
+    title: "Immigration Attorney • 8 yrs exp",
+    rating: 4.9,
+    reviews: 156,
+    hourlyRate: 100,
+    avatar: "https://randomuser.me/api/portraits/women/22.jpg",
+    specialties: ["Visa Applications", "Green Cards", "Citizenship"],
+    isTopRated: true,
+    category: "immigration",
+    location: "Washington, DC"
+  },
+  {
+    id: "prof6",
+    name: "Robert Garcia",
+    title: "Criminal Defense Attorney • 12 yrs exp",
+    rating: 4.8,
+    reviews: 201,
+    hourlyRate: 150,
+    avatar: "https://randomuser.me/api/portraits/men/83.jpg",
+    specialties: ["Criminal Defense", "DUI", "White Collar Crime"],
+    category: "criminal",
+    location: "Los Angeles, CA"
+  },
+  {
+    id: "prof7",
+    name: "Emily Zhang",
+    title: "Tax Attorney • 6 yrs exp",
+    rating: 4.7,
+    reviews: 91,
+    hourlyRate: 125,
+    avatar: "https://randomuser.me/api/portraits/women/91.jpg",
+    specialties: ["Tax Planning", "IRS Disputes", "Business Taxation"],
+    category: "tax",
+    location: "Boston, MA"
+  },
+  {
+    id: "prof8",
+    name: "James Washington",
+    title: "Employment Attorney • 9 yrs exp",
+    rating: 4.8,
+    reviews: 118,
+    hourlyRate: 115,
+    avatar: "https://randomuser.me/api/portraits/men/51.jpg",
+    specialties: ["Workplace Discrimination", "Wrongful Termination", "Employment Contracts"],
+    isTopRated: true,
+    category: "employment",
+    location: "Seattle, WA"
+  },
 ];
 
 // Mock data for services
-export const services: Service[] = [
+export const services = [
   {
-    id: 1,
-    title: "Contract Review & Analysis",
-    provider: "Jane Smith",
-    providerImageUrl: "/placeholder.svg",
-    rating: 4.9,
-    reviewCount: 112,
-    price: 250,
-    imageUrl: "/placeholder.svg",
-    tags: ["Contracts", "Legal Review", "Business"],
-    description: "Professional review of business contracts with detailed analysis and suggested revisions."
-  },
-  {
-    id: 2,
-    title: "Business Formation Package",
-    provider: "Michael Johnson",
-    providerImageUrl: "/placeholder.svg",
-    rating: 4.8,
-    reviewCount: 93,
-    price: 399,
-    imageUrl: "/placeholder.svg",
-    tags: ["Business Formation", "LLC", "Incorporation"],
-    description: "Complete legal package for forming your business entity, including all necessary filings."
-  },
-  {
-    id: 3,
-    title: "Trademark Registration",
-    provider: "David Chen",
-    providerImageUrl: "/placeholder.svg",
-    rating: 4.9,
-    reviewCount: 76,
-    price: 499,
-    imageUrl: "/placeholder.svg",
-    tags: ["Trademark", "IP Protection", "Brand"],
-    description: "Full trademark search and registration service to protect your brand identity."
-  },
-  {
-    id: 4,
-    title: "Last Will & Testament",
-    provider: "Sarah Williams",
-    providerImageUrl: "/placeholder.svg",
-    rating: 4.7,
-    reviewCount: 88,
-    price: 199,
-    imageUrl: "/placeholder.svg",
-    tags: ["Estate Planning", "Will", "Legal Document"],
-    description: "Legally binding will tailored to your specific needs and family situation."
-  },
-  {
-    id: 5,
-    title: "Immigration Consultation",
-    provider: "Lisa Rodriguez",
-    providerImageUrl: "/placeholder.svg",
-    rating: 4.8,
-    reviewCount: 105,
+    id: "serv1",
+    title: "Legal Contract Review",
+    description: "Professional review of legal contracts with expert recommendations and revisions.",
     price: 150,
-    imageUrl: "/placeholder.svg",
-    tags: ["Immigration", "Consultation", "Legal Advice"],
-    description: "60-minute consultation to discuss your immigration options and create a strategic plan."
+    providerId: "prof1",
+    providerName: "Jessica Reynolds",
+    providerAvatar: "https://randomuser.me/api/portraits/women/45.jpg",
+    rating: 4.9,
+    reviews: 142,
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80",
+    category: "legal",
+    tags: ["Contract", "Legal Review", "Business"]
   },
   {
-    id: 6,
-    title: "Lease Agreement Review",
-    provider: "Michael Johnson",
-    providerImageUrl: "/placeholder.svg",
+    id: "serv2",
+    title: "Trademark Registration",
+    description: "Complete trademark search, application preparation and filing with the USPTO.",
+    price: 350,
+    providerId: "prof2",
+    providerName: "Marcus Chen",
+    providerAvatar: "https://randomuser.me/api/portraits/men/32.jpg",
     rating: 4.8,
-    reviewCount: 79,
-    price: 175,
-    imageUrl: "/placeholder.svg",
-    tags: ["Real Estate", "Lease", "Legal Review"],
-    description: "Detailed review of residential or commercial lease agreements with explanations of terms."
+    reviews: 89,
+    image: "https://images.unsplash.com/photo-1569937372578-d4fe415f8d43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    category: "ip",
+    tags: ["Trademark", "Intellectual Property", "Brand Protection"]
   },
   {
-    id: 7,
-    title: "Patent Filing Assistance",
-    provider: "David Chen",
-    providerImageUrl: "/placeholder.svg",
+    id: "serv3",
+    title: "Business Incorporation",
+    description: "Formation of LLC, C-Corp, or S-Corp including all required documentation and filings.",
+    price: 500,
+    providerId: "prof1",
+    providerName: "Jessica Reynolds",
+    providerAvatar: "https://randomuser.me/api/portraits/women/45.jpg",
     rating: 4.9,
-    reviewCount: 64,
-    price: 799,
-    imageUrl: "/placeholder.svg",
-    tags: ["Patent", "Intellectual Property", "Innovation"],
-    description: "Professional assistance with preparing and filing utility patent applications."
+    reviews: 142,
+    image: "https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    category: "business",
+    tags: ["Incorporation", "Business Formation", "LLC"]
   },
   {
-    id: 8,
-    title: "Divorce Consultation",
-    provider: "Sarah Williams",
-    providerImageUrl: "/placeholder.svg",
+    id: "serv4",
+    title: "Tax Planning Consultation",
+    description: "Strategic tax planning session with a certified tax attorney to minimize liabilities.",
+    price: 275,
+    providerId: "prof7",
+    providerName: "Emily Zhang",
+    providerAvatar: "https://randomuser.me/api/portraits/women/91.jpg",
     rating: 4.7,
-    reviewCount: 81,
-    price: 199,
-    imageUrl: "/placeholder.svg",
-    tags: ["Family Law", "Divorce", "Consultation"],
-    description: "90-minute consultation to discuss divorce process, options, and potential outcomes."
+    reviews: 91,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2011&q=80",
+    category: "tax",
+    tags: ["Tax Planning", "Financial", "Consultation"]
   },
   {
-    id: 9,
-    title: "Business Contract Template",
-    provider: "Jane Smith",
-    providerImageUrl: "/placeholder.svg",
+    id: "serv5",
+    title: "Divorce Mediation",
+    description: "Professional mediation services to navigate divorce proceedings amicably.",
+    price: 400,
+    providerId: "prof3",
+    providerName: "Sophia Patel",
+    providerAvatar: "https://randomuser.me/api/portraits/women/63.jpg",
+    rating: 4.7,
+    reviews: 113,
+    image: "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+    category: "family",
+    tags: ["Divorce", "Mediation", "Family Law"]
+  },
+  {
+    id: "serv6",
+    title: "Real Estate Closing",
+    description: "Complete legal services for residential or commercial real estate transactions.",
+    price: 600,
+    providerId: "prof4",
+    providerName: "Daniel Wilson",
+    providerAvatar: "https://randomuser.me/api/portraits/men/15.jpg",
+    rating: 4.6,
+    reviews: 78,
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80",
+    category: "realestate",
+    tags: ["Real Estate", "Property", "Closing"]
+  },
+  {
+    id: "serv7",
+    title: "Immigration Consultation",
+    description: "Expert consultation on visa applications, green cards, and citizenship processes.",
+    price: 200,
+    providerId: "prof5",
+    providerName: "Aisha Johnson",
+    providerAvatar: "https://randomuser.me/api/portraits/women/22.jpg",
     rating: 4.9,
-    reviewCount: 97,
-    price: 125,
-    imageUrl: "/placeholder.svg",
-    tags: ["Contracts", "Templates", "Business"],
-    description: "Customizable legal contract templates for various business needs with usage guidelines."
-  }
+    reviews: 156,
+    image: "https://images.unsplash.com/photo-1618761818304-270d9a0e7c4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    category: "immigration",
+    tags: ["Immigration", "Visa", "Consultation"]
+  },
+  {
+    id: "serv8",
+    title: "Employment Contract Review",
+    description: "Thorough review of employment contracts, NDAs, and non-compete agreements.",
+    price: 175,
+    providerId: "prof8",
+    providerName: "James Washington",
+    providerAvatar: "https://randomuser.me/api/portraits/men/51.jpg",
+    rating: 4.8,
+    reviews: 118,
+    image: "https://images.unsplash.com/photo-1553708881-112abc53fe54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80",
+    category: "employment",
+    tags: ["Employment", "Contract", "Legal Review"]
+  },
+];
+
+// Categories data
+export const categories = [
+  {
+    id: "corporate",
+    name: "Corporate Law",
+    description: "Business formation, contracts, and compliance",
+    icon: "Briefcase",
+    color: "bg-blue-100 text-blue-700",
+  },
+  {
+    id: "litigation",
+    name: "Litigation",
+    description: "Court representation and dispute resolution",
+    icon: "Scale",
+    color: "bg-red-100 text-red-700",
+  },
+  {
+    id: "realestate",
+    name: "Real Estate",
+    description: "Property transactions and tenant matters",
+    icon: "Home",
+    color: "bg-green-100 text-green-700",
+  },
+  {
+    id: "family",
+    name: "Family Law",
+    description: "Divorce, custody, and family matters",
+    icon: "Users",
+    color: "bg-purple-100 text-purple-700",
+  },
+  {
+    id: "ip",
+    name: "Intellectual Property",
+    description: "Patents, copyrights, and trademarks",
+    icon: "FileText",
+    color: "bg-amber-100 text-amber-700",
+  },
+  {
+    id: "tax",
+    name: "Tax Law",
+    description: "Tax planning, compliance, and disputes",
+    icon: "Landmark",
+    color: "bg-teal-100 text-teal-700",
+  },
+  {
+    id: "immigration",
+    name: "Immigration",
+    description: "Visas, green cards, and citizenship",
+    icon: "Globe",
+    color: "bg-indigo-100 text-indigo-700",
+  },
+  {
+    id: "employment",
+    name: "Employment Law",
+    description: "Workplace issues and compliance",
+    icon: "Shield",
+    color: "bg-orange-100 text-orange-700",
+  },
 ];
