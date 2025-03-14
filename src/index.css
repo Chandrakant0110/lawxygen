@@ -14,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 267 75% 50%;
+    --primary: 173 80% 40%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 326 80% 55%;
+    --secondary: 209 100% 50%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 267 60% 95%;
+    --accent: 173 60% 95%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,18 +31,18 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 267 75% 50%;
+    --ring: 173 80% 40%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 267 30% 30%;
-    --sidebar-primary: 267 75% 50%;
+    --sidebar-foreground: 173 30% 30%;
+    --sidebar-primary: 173 75% 40%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 267 40% 95%;
-    --sidebar-accent-foreground: 267 30% 20%;
-    --sidebar-border: 267 30% 90%;
-    --sidebar-ring: 267 75% 50%;
+    --sidebar-accent: 173 40% 95%;
+    --sidebar-accent-foreground: 173 30% 20%;
+    --sidebar-border: 173 30% 90%;
+    --sidebar-ring: 173 75% 40%;
   }
 
   .dark {
@@ -55,7 +55,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 267 75% 50%;
+    --primary: 173 75% 40%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -76,7 +76,7 @@
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 267 75% 50%; 
+    --sidebar-primary: 173 75% 40%; 
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
@@ -97,7 +97,7 @@
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    background: linear-gradient(135deg, hsl(173, 80%, 40%) 0%, hsl(209, 100%, 50%) 100%);
   }
   
   .container-custom {
@@ -109,11 +109,11 @@
   }
   
   .btn-primary {
-    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-purple-600 hover:bg-purple-700;
+    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-teal-600 hover:bg-teal-700;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 font-medium transition-colors border rounded-md text-purple-800 border-purple-200 hover:bg-purple-50;
+    @apply px-6 py-3 font-medium transition-colors border rounded-md text-teal-800 border-teal-200 hover:bg-teal-50;
   }
 
   /* Add human-friendly design elements */
@@ -122,14 +122,14 @@
   }
   
   .input-humanized {
-    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200;
+    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200;
   }
   
   .btn-humanized {
-    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500;
+    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500;
   }
   
   .link-humanized {
-    @apply text-purple-600 hover:text-purple-800 transition-colors duration-200 underline-offset-2 hover:underline;
+    @apply text-teal-600 hover:text-teal-800 transition-colors duration-200 underline-offset-2 hover:underline;
   }
 }

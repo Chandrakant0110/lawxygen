@@ -17,56 +17,56 @@ const categories = [
     name: "Corporate Law",
     description: "Business formation, contracts, and compliance",
     icon: Briefcase,
-    color: "bg-purple-100 text-purple-700",
+    color: "bg-teal-100 text-teal-700",
   },
   {
     id: "litigation",
     name: "Litigation",
     description: "Court representation and dispute resolution",
     icon: Scale,
-    color: "bg-pink-100 text-pink-700",
+    color: "bg-blue-100 text-blue-700",
   },
   {
     id: "realestate",
     name: "Real Estate",
     description: "Property transactions and tenant matters",
     icon: Home,
-    color: "bg-indigo-100 text-indigo-700",
+    color: "bg-cyan-100 text-cyan-700",
   },
   {
     id: "family",
     name: "Family Law",
     description: "Divorce, custody, and family matters",
     icon: Users,
-    color: "bg-violet-100 text-violet-700",
+    color: "bg-teal-100 text-teal-700",
   },
   {
     id: "ip",
     name: "Intellectual Property",
     description: "Patents, copyrights, and trademarks",
     icon: FileText,
-    color: "bg-fuchsia-100 text-fuchsia-700",
+    color: "bg-blue-100 text-blue-700",
   },
   {
     id: "tax",
     name: "Tax Law",
     description: "Tax planning, compliance, and disputes",
     icon: Landmark,
-    color: "bg-rose-100 text-rose-700",
+    color: "bg-cyan-100 text-cyan-700",
   },
   {
     id: "immigration",
     name: "Immigration",
     description: "Visas, green cards, and citizenship",
     icon: Globe,
-    color: "bg-purple-100 text-purple-700",
+    color: "bg-teal-100 text-teal-700",
   },
   {
     id: "employment",
     name: "Employment Law",
     description: "Workplace issues and compliance",
     icon: Shield,
-    color: "bg-pink-100 text-pink-700",
+    color: "bg-blue-100 text-blue-700",
   },
 ];
 
@@ -88,7 +88,7 @@ const ServiceCategories = () => {
             <Link
               key={category.id}
               to={`/category/${category.id}`}
-              className="flex flex-col items-center p-6 text-center bg-white border rounded-lg card-humanized hover:border-purple-300 hover:shadow-lg transition-all"
+              className="flex flex-col items-center p-6 text-center bg-white border rounded-lg card-humanized hover:border-teal-300 hover:shadow-lg transition-all"
             >
               <div className={`p-3 rounded-full ${category.color}`}>
                 <category.icon className="w-8 h-8" />
