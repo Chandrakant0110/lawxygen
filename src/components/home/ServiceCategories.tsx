@@ -17,62 +17,62 @@ const categories = [
     name: "Corporate Law",
     description: "Business formation, contracts, and compliance",
     icon: Briefcase,
-    color: "bg-teal-100 text-teal-700",
+    color: "bg-purple-100 text-purple-700",
   },
   {
     id: "litigation",
     name: "Litigation",
     description: "Court representation and dispute resolution",
     icon: Scale,
-    color: "bg-sky-100 text-sky-700",
+    color: "bg-pink-100 text-pink-700",
   },
   {
     id: "realestate",
     name: "Real Estate",
     description: "Property transactions and tenant matters",
     icon: Home,
-    color: "bg-cyan-100 text-cyan-700",
+    color: "bg-indigo-100 text-indigo-700",
   },
   {
     id: "family",
     name: "Family Law",
     description: "Divorce, custody, and family matters",
     icon: Users,
-    color: "bg-blue-100 text-blue-700",
+    color: "bg-violet-100 text-violet-700",
   },
   {
     id: "ip",
     name: "Intellectual Property",
     description: "Patents, copyrights, and trademarks",
     icon: FileText,
-    color: "bg-emerald-100 text-emerald-700",
+    color: "bg-fuchsia-100 text-fuchsia-700",
   },
   {
     id: "tax",
     name: "Tax Law",
     description: "Tax planning, compliance, and disputes",
     icon: Landmark,
-    color: "bg-slate-100 text-slate-700",
+    color: "bg-rose-100 text-rose-700",
   },
   {
     id: "immigration",
     name: "Immigration",
     description: "Visas, green cards, and citizenship",
     icon: Globe,
-    color: "bg-teal-100 text-teal-700",
+    color: "bg-purple-100 text-purple-700",
   },
   {
     id: "employment",
     name: "Employment Law",
     description: "Workplace issues and compliance",
     icon: Shield,
-    color: "bg-sky-100 text-sky-700",
+    color: "bg-pink-100 text-pink-700",
   },
 ];
 
 const ServiceCategories = () => {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
@@ -88,7 +88,7 @@ const ServiceCategories = () => {
             <Link
               key={category.id}
               to={`/category/${category.id}`}
-              className="flex flex-col items-center p-6 text-center bg-white border rounded-lg card-humanized hover:border-teal-300 hover:shadow-lg transition-all"
+              className="flex flex-col items-center p-6 text-center bg-white border rounded-lg card-humanized hover:border-purple-300 hover:shadow-lg transition-all"
             >
               <div className={`p-3 rounded-full ${category.color}`}>
                 <category.icon className="w-8 h-8" />
