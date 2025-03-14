@@ -72,13 +72,13 @@ const categories = [
 
 const ServiceCategories = () => {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
             Legal Services Categories
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
             Browse our wide range of legal service categories to find the perfect match for your needs
           </p>
         </div>
@@ -88,7 +88,7 @@ const ServiceCategories = () => {
             <Link
               key={category.id}
               to={`/search-results?category=${category.id}`}
-              className="flex flex-col items-center p-6 text-center transition-all bg-white border rounded-lg hover:shadow-md hover:border-lawpurple-300"
+              className="flex flex-col items-center p-6 text-center bg-white border rounded-lg card-humanized hover:border-teal-300"
             >
               <div className={`p-3 rounded-full ${category.color}`}>
                 <category.icon className="w-8 h-8" />
