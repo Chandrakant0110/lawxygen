@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-lawblue-950 text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 gap-8 py-12 md:grid-cols-4">
           <div>
@@ -34,16 +34,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">For Clients</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="/search-results" className="text-gray-300 hover:text-white">Find Services</Link>
+                <Link to="/search-results" className="text-gray-300 hover:text-teal-300">Find Services</Link>
               </li>
               <li>
-                <Link to="/job-posting" className="text-gray-300 hover:text-white">Post a Job</Link>
+                <Link to="/job-posting" className="text-gray-300 hover:text-teal-300">Post a Job</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">How it Works</Link>
+                <Link to="#" className="text-gray-300 hover:text-teal-300">How it Works</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Success Stories</Link>
+                <Link to="#" className="text-gray-300 hover:text-teal-300">Success Stories</Link>
               </li>
             </ul>
           </div>
@@ -52,16 +52,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">For Professionals</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Join as a Professional</Link>
+                <Link to="#" className="text-gray-300 hover:text-teal-300">Join as a Professional</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Professional Resources</Link>
+                <Link to="#" className="text-gray-300 hover:text-teal-300">Professional Resources</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Community Guidelines</Link>
+                <Link to="#" className="text-gray-300 hover:text-teal-300">Community Guidelines</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Success Stories</Link>
+                <Link to="#" className="text-gray-300 hover:text-teal-300">Success Stories</Link>
               </li>
             </ul>
           </div>
@@ -70,16 +70,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Company</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">About Us</Link>
+                <Link to="/about" className="text-gray-300 hover:text-teal-300">About Us</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Careers</Link>
+                <Link to="/careers" className="text-gray-300 hover:text-teal-300">Careers</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Press</Link>
+                <Link to="/blog" className="text-gray-300 hover:text-teal-300">Press</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-white">Contact</Link>
+                <Link to="/contact" className="text-gray-300 hover:text-teal-300">Contact</Link>
               </li>
             </ul>
           </div>
@@ -88,9 +88,9 @@ const Footer = () => {
         <div className="py-6 text-sm text-center border-t border-gray-700 text-gray-300">
           <p>© {new Date().getFullYear()} Lawxygen. All rights reserved.</p>
           <div className="flex justify-center mt-2 space-x-4">
-            <Link to="#" className="hover:text-white">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white">Terms of Service</Link>
-            <Link to="#" className="hover:text-white">Legal</Link>
+            <Link to="/privacy" className="hover:text-teal-300">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-teal-300">Terms of Service</Link>
+            <Link to="/legal" className="hover:text-teal-300">Legal</Link>
           </div>
         </div>
       </div>

@@ -6,25 +6,25 @@ const steps = [
     icon: SearchCheck,
     title: "Find the Perfect Match",
     description: "Browse through our vast directory of legal professionals and services to find the perfect match for your specific needs.",
-    color: "bg-indigo-100 text-indigo-600",
+    color: "bg-teal-100 text-teal-600",
   },
   {
     icon: FileSignature,
     title: "Define Your Requirements",
     description: "Clearly communicate your legal requirements, budget, and timeline to ensure you get exactly what you need.",
-    color: "bg-purple-100 text-purple-600",
+    color: "bg-sky-100 text-sky-600",
   },
   {
     icon: MessageCircle,
     title: "Collaborate Seamlessly",
     description: "Use our integrated messaging system to communicate, share files, and work efficiently with your legal professional.",
-    color: "bg-blue-100 text-blue-600",
+    color: "bg-cyan-100 text-cyan-600",
   },
   {
     icon: Award,
     title: "Get Quality Results",
     description: "Receive high-quality legal services from verified professionals, backed by our satisfaction guarantee.",
-    color: "bg-violet-100 text-violet-600",
+    color: "bg-blue-100 text-blue-600",
   },
 ];
 
@@ -53,7 +53,7 @@ const HowItWorks = () => {
                 {step.description}
               </p>
               
-              <div className="mt-3 text-2xl font-bold text-indigo-600">
+              <div className="mt-3 text-2xl font-bold text-teal-600">
                 {index + 1}
               </div>
             </div>
@@ -70,13 +70,13 @@ const HowItWorks = () => {
           <div className="flex flex-col justify-center gap-4 mt-6 sm:flex-row">
             <a 
               href="/search-results" 
-              className="px-6 py-3 font-medium text-white rounded-md bg-indigo-600 hover:bg-indigo-700 transition-colors"
+              className="px-6 py-3 font-medium text-white rounded-md bg-teal-600 hover:bg-teal-700 transition-colors"
             >
               Find a Professional
             </a>
             <a 
               href="/job-posting" 
-              className="px-6 py-3 font-medium transition-colors border rounded-md bg-white text-indigo-700 border-indigo-200 hover:bg-indigo-50"
+              className="px-6 py-3 font-medium transition-colors border rounded-md bg-white text-teal-700 border-teal-200 hover:bg-teal-50"
             >
               Post a Job
             </a>
