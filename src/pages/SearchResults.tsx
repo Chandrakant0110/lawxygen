@@ -21,7 +21,7 @@ import { professionals, services } from "@/mock/mockData";
 
 const SearchResults = () => {
   const [view, setView] = useState<"grid" | "list">("grid");
-  const [searchType, setSearchType] = useState<"professionals" | "services">("professionals");
+  const [searchType, setSearchType] = useState<"professionals" | "services">("services");
   const [filterOpen, setFilterOpen] = useState(false);
 
   return (
@@ -149,10 +149,10 @@ const SearchResults = () => {
             )}
             
             <div className="mt-4">
-              <Tabs defaultValue="professionals" className="w-full" onValueChange={(value) => setSearchType(value as "professionals" | "services")}>
+              <Tabs defaultValue="services" className="w-full" onValueChange={(value) => setSearchType(value as "professionals" | "services")}>
                 <TabsList className="grid w-full grid-cols-2 mb-4">
-                  <TabsTrigger value="professionals">Professionals</TabsTrigger>
                   <TabsTrigger value="services">Services</TabsTrigger>
+                  <TabsTrigger value="professionals">Professionals</TabsTrigger>
                 </TabsList>
               </Tabs>
             </div>
