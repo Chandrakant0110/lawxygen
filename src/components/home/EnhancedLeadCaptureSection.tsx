@@ -8,14 +8,14 @@ const EnhancedLeadCaptureSection = () => {
   const [showForm, setShowForm] = React.useState(false);
   
   return (
-    <section className="py-16 bg-gradient-to-r from-purple-700 to-violet-700">
+    <section className="py-16 bg-gray-50">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="text-white">
+          <div className="text-black">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Need Expert Legal Assistance?
             </h2>
-            <p className="text-lg md:text-xl mb-8 opacity-90">
+            <p className="text-lg md:text-xl mb-8 text-gray-600">
               Our team of experienced legal professionals is ready to help you navigate 
               complex business and legal challenges. Get started with a free consultation.
             </p>
@@ -24,7 +24,7 @@ const EnhancedLeadCaptureSection = () => {
               <Button 
                 onClick={() => setShowForm(true)}
                 size="lg" 
-                className="bg-white text-purple-700 hover:bg-gray-100"
+                className="bg-black text-white hover:bg-gray-800"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -32,12 +32,12 @@ const EnhancedLeadCaptureSection = () => {
             )}
           </div>
           
-          <div className="bg-white rounded-xl shadow-xl p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             {showForm ? (
               <LeadCaptureForm variant="inline" className="bg-transparent border-0 shadow-none p-0" />
             ) : (
               <div className="text-center p-6">
-                <h3 className="text-2xl font-bold text-purple-800 mb-4">
+                <h3 className="text-2xl font-bold text-black mb-4">
                   How Can We Help You?
                 </h3>
                 <p className="text-gray-600 mb-6">
@@ -47,7 +47,7 @@ const EnhancedLeadCaptureSection = () => {
                 <Button 
                   onClick={() => setShowForm(true)}
                   size="lg" 
-                  className="bg-purple-600 text-white hover:bg-purple-700 w-full"
+                  className="bg-black text-white hover:bg-gray-800 w-full"
                 >
                   Start Your Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,19 +14,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    /* Updated to deeper purple */
-    --primary: 275 89% 50%;
+    /* Updated to black */
+    --primary: 0 0% 0%;
     --primary-foreground: 210 40% 98%;
 
-    /* Updated to deeper purple-violet */
-    --secondary: 285 84% 42%;
+    /* Updated to dark gray */
+    --secondary: 0 0% 15%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Updated to lighter purple */
-    --accent: 275 89% 94%;
+    /* Updated to light gray */
+    --accent: 0 0% 96%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,18 +34,18 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 275 89% 50%;
+    --ring: 0 0% 0%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 275 5.9% 98%;
-    --sidebar-foreground: 275 89% 40%;
-    --sidebar-primary: 275 89% 50%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 25%;
+    --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 275 89% 95%;
-    --sidebar-accent-foreground: 275 89% 20%;
-    --sidebar-border: 275 89% 90%;
-    --sidebar-ring: 275 89% 50%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
@@ -57,9 +58,9 @@
     --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 210 40% 98%;
 
-    /* Updated to purple */
-    --primary: 275 76% 48%;
-    --primary-foreground: 0 0% 98%;
+    /* Updated to white */
+    --primary: 0 0% 100%;
+    --primary-foreground: 240 5.9% 10%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -75,16 +76,16 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 275 76% 48%;
+    --ring: 0 0% 100%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 275 76% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 275 76% 48%;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
@@ -99,9 +100,9 @@
 }
 
 @layer components {
-  /* Updated gradient to use deeper purple */
+  /* Updated gradient to black and white */
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(275, 89%, 50%) 0%, hsl(285, 76%, 48%) 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   }
   
   .container-custom {
@@ -114,33 +115,33 @@
   
   /* Updated button colors */
   .btn-primary {
-    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-purple-600 hover:bg-purple-700;
+    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-black hover:bg-gray-800;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 font-medium transition-colors border rounded-md text-purple-800 border-purple-200 hover:bg-purple-50;
+    @apply px-6 py-3 font-medium transition-colors border rounded-md text-gray-800 border-gray-200 hover:bg-gray-50;
   }
 
   /* Add human-friendly design elements */
   .card-humanized {
-    @apply rounded-lg shadow-md transition-all duration-300 hover:shadow-lg border border-gray-100;
+    @apply rounded-lg shadow-sm transition-all duration-300 hover:shadow-md border border-gray-100;
   }
   
   .input-humanized {
-    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all duration-200;
+    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200;
   }
   
   .btn-humanized {
-    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500;
+    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black;
   }
   
   .link-humanized {
-    @apply text-violet-600 hover:text-violet-800 transition-colors duration-200 underline-offset-2 hover:underline;
+    @apply text-gray-700 hover:text-black transition-colors duration-200 underline-offset-2 hover:underline;
   }
 
   /* Service cards with new color scheme */
   .service-card {
-    @apply p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-slate-100;
+    @apply p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100;
   }
 
   .service-card-header {
@@ -148,15 +149,15 @@
   }
 
   .service-icon-container {
-    @apply p-3 rounded-full bg-purple-100 text-purple-700 mr-4;
+    @apply p-3 rounded-full bg-gray-100 text-gray-700 mr-4;
   }
 
   .service-title {
-    @apply text-xl font-bold text-slate-800;
+    @apply text-xl font-bold text-gray-800;
   }
 
   .service-description {
-    @apply text-slate-600 mb-4;
+    @apply text-gray-600 mb-4;
   }
 
   .service-features {
@@ -168,7 +169,7 @@
   }
 
   .service-feature-icon {
-    @apply text-violet-600 w-5 h-5 mr-2 mt-1 flex-shrink-0;
+    @apply text-gray-600 w-5 h-5 mr-2 mt-1 flex-shrink-0;
   }
 
   .service-cta {
@@ -177,15 +178,15 @@
 
   /* Lead form styling */
   .lead-form {
-    @apply p-6 bg-violet-50 rounded-xl border border-violet-100 shadow-sm;
+    @apply p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm;
   }
 
   .lead-form-title {
-    @apply text-xl font-bold text-violet-800 mb-4;
+    @apply text-xl font-bold text-gray-800 mb-4;
   }
 
   .lead-form-subtitle {
-    @apply text-slate-600 mb-6;
+    @apply text-gray-600 mb-6;
   }
 
   .form-field {
@@ -206,18 +207,18 @@
   }
 
   .dropdown-category-header {
-    @apply text-lg font-medium text-violet-700 mb-3 border-b pb-1 border-violet-100;
+    @apply text-lg font-medium text-gray-700 mb-3 border-b pb-1 border-gray-100;
   }
 
   .dropdown-item {
-    @apply flex items-center p-2 rounded-md hover:bg-violet-50 transition-colors;
+    @apply flex items-center p-2 rounded-md hover:bg-gray-50 transition-colors;
   }
 
   .dropdown-icon {
-    @apply mr-3 h-5 w-5 text-violet-500;
+    @apply mr-3 h-5 w-5 text-gray-500;
   }
 
   .dropdown-link-text {
-    @apply text-slate-700;
+    @apply text-gray-700;
   }
 }

@@ -16,14 +16,14 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-purple-700 to-violet-700 text-white">
+    <div className="bg-gray-50 text-black">
       <div className="container-custom py-16 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-black">
             Find Expert Legal Professionals
-            <span className="block mt-2 text-violet-100">For Your Specific Needs</span>
+            <span className="block mt-2 text-gray-700">For Your Specific Needs</span>
           </h1>
-          <p className="mt-6 text-lg text-white/90 md:text-xl">
+          <p className="mt-6 text-lg text-gray-600 md:text-xl">
             Connect with top-rated legal professionals and services. From contract review to full legal representation, 
             find the perfect match for your requirements.
           </p>
@@ -38,34 +38,34 @@ const Hero = () => {
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="block w-full py-3 pl-10 pr-4 text-gray-900 border-0 rounded-l-md focus:ring-2 focus:ring-violet-500"
+                  className="block w-full py-3 pl-10 pr-4 text-gray-900 border border-gray-200 rounded-l-md focus:ring-black focus:border-black"
                   placeholder="Search for legal services..."
                 />
               </div>
               <Button 
                 type="submit" 
-                className="px-6 rounded-l-none bg-violet-700 hover:bg-violet-800"
+                className="px-6 rounded-l-none bg-black hover:bg-gray-800 text-white"
               >
                 Search
               </Button>
             </form>
-            <div className="flex flex-wrap mt-3 gap-2 text-sm text-violet-100 justify-center">
+            <div className="flex flex-wrap mt-3 gap-2 text-sm text-gray-500 justify-center">
               <span>Popular:</span>
-              <Link to="/search-results?q=contract" className="hover:text-white">Contract Review</Link>
+              <Link to="/search-results?q=contract" className="hover:text-black">Contract Review</Link>
               <span>•</span>
-              <Link to="/search-results?q=consultation" className="hover:text-white">Legal Consultation</Link>
+              <Link to="/search-results?q=consultation" className="hover:text-black">Legal Consultation</Link>
               <span>•</span>
-              <Link to="/search-results?q=documents" className="hover:text-white">Document Preparation</Link>
+              <Link to="/search-results?q=documents" className="hover:text-black">Document Preparation</Link>
             </div>
           </div>
           
           {showLeadForm ? (
-            <div className="mt-8 bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 max-w-md mx-auto">
+            <div className="mt-8 bg-white p-6 rounded-lg border border-gray-200 shadow-sm max-w-md mx-auto">
               <LeadCaptureForm variant="popup" className="bg-transparent border-0 shadow-none p-0" />
               <Button 
                 onClick={() => setShowLeadForm(false)} 
                 variant="outline" 
-                className="mt-4 bg-transparent text-white border-white/30 hover:bg-white/10"
+                className="mt-4 border-gray-300 hover:bg-gray-50 text-gray-700"
               >
                 Cancel
               </Button>
@@ -75,11 +75,11 @@ const Hero = () => {
               <Button 
                 onClick={() => setShowLeadForm(true)} 
                 size="lg" 
-                className="bg-white hover:bg-gray-100 text-purple-700 font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-black hover:bg-gray-800 text-white font-medium shadow-sm hover:shadow-md transition-all duration-300"
               >
                 Get a Free Consultation
               </Button>
-              <Button asChild size="lg" className="bg-purple-800 hover:bg-purple-900 text-white">
+              <Button asChild size="lg" variant="outline" className="border-gray-300 hover:bg-gray-50 text-gray-800">
                 <Link to="/services/company-registration">Explore Our Services</Link>
               </Button>
             </div>
