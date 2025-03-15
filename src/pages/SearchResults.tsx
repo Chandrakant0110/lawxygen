@@ -12,12 +12,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import ProfessionalCard from "@/components/ui/ProfessionalCard";
 import ServiceCard from "@/components/ui/ServiceCard";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { professionals, services } from "@/mock/mockData";
+import { professionals, services, categories } from "@/mock/mockData";
 
 const SearchResults = () => {
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -82,14 +82,11 @@ const SearchResults = () => {
                   </label>
                   <select className="w-full rounded-md border-gray-300 py-2 px-3">
                     <option>All Categories</option>
-                    <option>Corporate Law</option>
-                    <option>Litigation</option>
-                    <option>Real Estate</option>
-                    <option>Family Law</option>
-                    <option>Intellectual Property</option>
-                    <option>Tax Law</option>
-                    <option>Immigration</option>
-                    <option>Employment Law</option>
+                    {categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 
@@ -154,6 +151,22 @@ const SearchResults = () => {
                   <TabsTrigger value="services">Services</TabsTrigger>
                   <TabsTrigger value="professionals">Professionals</TabsTrigger>
                 </TabsList>
+                
+                <TabsContent value="services" className="mt-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
+                    {categories.map((category) => (
+                      <Link 
+                        key={category.id} 
+                        to={`/service-category/${category.id}`}
+                        className={`flex flex-col items-center p-3 rounded-lg ${category.color} text-center hover:opacity-90 transition-opacity`}
+                      >
+                        <div className="mb-2 text-sm font-medium line-clamp-2 h-10 flex items-center">
+                          {category.name}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </TabsContent>
               </Tabs>
             </div>
           </div>
