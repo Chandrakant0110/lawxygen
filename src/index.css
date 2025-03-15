@@ -14,19 +14,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    /* Updated to indigo */
-    --primary: 245 79% 52%;
+    /* Updated to violet */
+    --primary: 265 89% 60%;
     --primary-foreground: 210 40% 98%;
 
-    /* Updated to teal */
-    --secondary: 175 84% 32%;
+    /* Updated to purple */
+    --secondary: 280 84% 32%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Updated to lighter indigo */
-    --accent: 245 79% 94%;
+    /* Updated to lighter violet */
+    --accent: 265 89% 94%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,18 +34,18 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 245 79% 52%;
+    --ring: 265 89% 60%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 245 5.9% 98%;
-    --sidebar-foreground: 245 79% 40%;
-    --sidebar-primary: 245 79% 52%;
+    --sidebar-background: 265 5.9% 98%;
+    --sidebar-foreground: 265 89% 40%;
+    --sidebar-primary: 265 89% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 245 79% 95%;
-    --sidebar-accent-foreground: 245 79% 20%;
-    --sidebar-border: 245 79% 90%;
-    --sidebar-ring: 245 79% 52%;
+    --sidebar-accent: 265 89% 95%;
+    --sidebar-accent-foreground: 265 89% 20%;
+    --sidebar-border: 265 89% 90%;
+    --sidebar-ring: 265 89% 60%;
   }
 
   .dark {
@@ -58,8 +58,8 @@
     --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 210 40% 98%;
 
-    /* Updated to violet */
-    --primary: 270 76% 58%;
+    /* Updated to purple */
+    --primary: 280 76% 58%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -76,16 +76,16 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 270 76% 58%;
+    --ring: 280 76% 58%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 270 76% 58%;
+    --sidebar-primary: 280 76% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 270 76% 58%;
+    --sidebar-ring: 280 76% 58%;
   }
 }
 
@@ -100,9 +100,9 @@
 }
 
 @layer components {
-  /* Updated gradient to use indigo-violet */
+  /* Updated gradient to use violet-purple */
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(245, 79%, 52%) 0%, hsl(270, 76%, 58%) 100%);
+    background: linear-gradient(135deg, hsl(265, 89%, 60%) 0%, hsl(280, 76%, 58%) 100%);
   }
   
   .container-custom {
@@ -115,11 +115,11 @@
   
   /* Updated button colors */
   .btn-primary {
-    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-indigo-600 hover:bg-indigo-700;
+    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-violet-600 hover:bg-violet-700;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 font-medium transition-colors border rounded-md text-indigo-800 border-indigo-200 hover:bg-indigo-50;
+    @apply px-6 py-3 font-medium transition-colors border rounded-md text-violet-800 border-violet-200 hover:bg-violet-50;
   }
 
   /* Add human-friendly design elements */
@@ -128,15 +128,15 @@
   }
   
   .input-humanized {
-    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200;
+    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all duration-200;
   }
   
   .btn-humanized {
-    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500;
   }
   
   .link-humanized {
-    @apply text-indigo-600 hover:text-indigo-800 transition-colors duration-200 underline-offset-2 hover:underline;
+    @apply text-violet-600 hover:text-violet-800 transition-colors duration-200 underline-offset-2 hover:underline;
   }
 
   /* Service cards with new color scheme */
@@ -149,7 +149,7 @@
   }
 
   .service-icon-container {
-    @apply p-3 rounded-full bg-indigo-100 text-indigo-700 mr-4;
+    @apply p-3 rounded-full bg-violet-100 text-violet-700 mr-4;
   }
 
   .service-title {
@@ -169,7 +169,7 @@
   }
 
   .service-feature-icon {
-    @apply text-teal-600 w-5 h-5 mr-2 mt-1 flex-shrink-0;
+    @apply text-violet-600 w-5 h-5 mr-2 mt-1 flex-shrink-0;
   }
 
   .service-cta {
@@ -178,11 +178,11 @@
 
   /* Lead form styling */
   .lead-form {
-    @apply p-6 bg-indigo-50 rounded-xl border border-indigo-100 shadow-sm;
+    @apply p-6 bg-violet-50 rounded-xl border border-violet-100 shadow-sm;
   }
 
   .lead-form-title {
-    @apply text-xl font-bold text-indigo-800 mb-4;
+    @apply text-xl font-bold text-violet-800 mb-4;
   }
 
   .lead-form-subtitle {
@@ -207,15 +207,15 @@
   }
 
   .dropdown-category-header {
-    @apply text-lg font-medium text-indigo-700 mb-3 border-b pb-1 border-indigo-100;
+    @apply text-lg font-medium text-violet-700 mb-3 border-b pb-1 border-violet-100;
   }
 
   .dropdown-item {
-    @apply flex items-center p-2 rounded-md hover:bg-indigo-50 transition-colors;
+    @apply flex items-center p-2 rounded-md hover:bg-violet-50 transition-colors;
   }
 
   .dropdown-icon {
-    @apply mr-3 h-5 w-5 text-indigo-500;
+    @apply mr-3 h-5 w-5 text-violet-500;
   }
 
   .dropdown-link-text {

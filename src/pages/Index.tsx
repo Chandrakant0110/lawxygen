@@ -6,6 +6,7 @@ import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
 import ServiceCategories from "@/components/home/ServiceCategories";
 import HowItWorks from "@/components/home/HowItWorks";
 import DetailedServiceList from "@/components/services/DetailedServiceList";
+import LeadCaptureSection from "@/components/home/LeadCaptureSection";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         <ServiceCategories />
         <DetailedServiceList />
+        <LeadCaptureSection />
         <FeaturedProfessionals />
         <HowItWorks />
       </main>

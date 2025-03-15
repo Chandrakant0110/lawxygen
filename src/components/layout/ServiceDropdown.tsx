@@ -162,7 +162,7 @@ interface ListItemProps {
 }
 
 const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
-  ({ className, title, icon, children, ...props }, ref) => {
+  ({ className, title, icon, children, to, ...props }, ref) => {
     return (
       <li>
         <NavigationMenuLink asChild>
@@ -172,6 +172,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
               "block select-none space-y-1 rounded-md p-3 hover:bg-violet-50 transition-colors no-underline outline-none",
               className
             )}
+            to={to}
             {...props}
           >
             <div className="flex items-center gap-2">
