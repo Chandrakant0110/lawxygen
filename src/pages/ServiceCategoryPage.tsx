@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ui/ServiceCard";
+import ServiceDetailsList from "@/components/services/ServiceDetailsList";
 import { services, categories } from "@/mock/mockData";
 import { 
   Briefcase, 
@@ -15,7 +16,13 @@ import {
   Landmark, 
   Globe, 
   Shield,
-  Search
+  Search,
+  Building,
+  DollarSign,
+  Check,
+  Copyright,
+  Info,
+  FileCheck
 } from "lucide-react";
 
 const iconMap: Record<string, any> = {
@@ -26,7 +33,13 @@ const iconMap: Record<string, any> = {
   FileText,
   Landmark,
   Globe,
-  Shield
+  Shield,
+  Building,
+  DollarSign,
+  Check,
+  Copyright,
+  Info,
+  FileCheck
 };
 
 const ServiceCategoryPage = () => {
@@ -135,8 +148,18 @@ const ServiceCategoryPage = () => {
           </div>
         </section>
         
+        {/* Service Details List */}
+        {categoryData.services && (
+          <ServiceDetailsList 
+            categoryId={categoryData.id}
+            categoryName={categoryData.name}
+            servicesList={categoryData.services}
+            colorClass={categoryData.color}
+          />
+        )}
+        
         {/* Services List */}
-        <section className="py-16">
+        <section className="py-16 bg-gray-50">
           <div className="container-custom">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900">
@@ -193,7 +216,7 @@ const ServiceCategoryPage = () => {
         </section>
         
         {/* Related Categories */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
           <div className="container-custom">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">Related Categories</h2>
             

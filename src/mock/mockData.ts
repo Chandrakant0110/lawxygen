@@ -1,4 +1,3 @@
-
 // Mock data for professionals
 export const professionals = [
   {
@@ -222,59 +221,256 @@ export const services = [
 // Categories data
 export const categories = [
   {
-    id: "corporate",
-    name: "Corporate Law",
-    description: "Business formation, contracts, and compliance",
+    id: "business-incorporation",
+    name: "Business Incorporation",
+    description: "Company registrations, LLPs, partnerships & more",
     icon: "Briefcase",
     color: "bg-blue-100 text-blue-700",
+    services: [
+      "Private Limited Company Registration",
+      "Limited Liability Partnership (LLP) Registration",
+      "One Person Company (OPC) Registration",
+      "Partnership Firm Registration",
+      "Sole Proprietorship Registration",
+      "Section 8 Company Registration",
+      "Nidhi Company Registration",
+      "Producer Company Registration",
+      "Society Registration",
+      "Trust Registration"
+    ]
+  },
+  {
+    id: "taxation-services",
+    name: "Taxation Services",
+    description: "Tax returns, planning & representation",
+    icon: "DollarSign",
+    color: "bg-teal-100 text-teal-700",
+    services: [
+      "Income Tax Return Filing for Individuals",
+      "Income Tax Return Filing for Businesses",
+      "Goods and Services Tax (GST) Registration",
+      "GST Return Filing",
+      "Tax Planning and Advisory",
+      "TDS Compliance and Filing",
+      "Tax Audit Services",
+      "Representation in Tax Assessments",
+      "Advance Tax Computation",
+      "International Taxation Advisory"
+    ]
+  },
+  {
+    id: "compliance-services",
+    name: "Compliance Services",
+    description: "Annual filings, accounting & regulatory compliance",
+    icon: "Check",
+    color: "bg-cyan-100 text-cyan-700",
+    services: [
+      "Annual ROC Filings for Companies",
+      "Annual ROC Filings for LLPs",
+      "Accounting and Bookkeeping Services",
+      "Statutory Audit Services",
+      "Internal Audit Services",
+      "Secretarial Compliance",
+      "Labor Law Compliance",
+      "ESI and PF Compliance",
+      "Environmental Compliance",
+      "Regulatory Compliance Advisory"
+    ]
+  },
+  {
+    id: "intellectual-property",
+    name: "Intellectual Property",
+    description: "Trademarks, patents, copyrights & design registration",
+    icon: "Copyright",
+    color: "bg-amber-100 text-amber-700",
+    services: [
+      "Trademark Search and Registration",
+      "Patent Search and Registration",
+      "Copyright Registration",
+      "Design Registration",
+      "Geographical Indication Registration",
+      "IPR Litigation Support",
+      "IP Portfolio Management",
+      "IP Assignment and Licensing",
+      "Trade Secret Protection",
+      "Domain Name Dispute Resolution"
+    ]
+  },
+  {
+    id: "legal-documents",
+    name: "Legal Documentation",
+    description: "Agreements, contracts & legal document drafting",
+    icon: "FileText",
+    color: "bg-purple-100 text-purple-700",
+    services: [
+      "Shareholders Agreements",
+      "Founders Agreements",
+      "Non-Disclosure Agreements (NDA)",
+      "Employment Contracts",
+      "Service Level Agreements (SLA)",
+      "Terms and Conditions",
+      "Privacy Policies",
+      "Lease and Rental Agreements",
+      "Franchise Agreements",
+      "Vendor Contracts"
+    ]
+  },
+  {
+    id: "government-registrations",
+    name: "Government Registrations",
+    description: "Licenses & statutory registrations",
+    icon: "FileCheck",
+    color: "bg-indigo-100 text-indigo-700",
+    services: [
+      "Import Export Code (IEC) Registration",
+      "Professional Tax Registration",
+      "Shops and Establishments Registration",
+      "FSSAI (Food License) Registration",
+      "MSME (Udyam) Registration",
+      "PSARA License for Security Agencies",
+      "Trade License",
+      "Drug License",
+      "BARCODE Registration",
+      "BIS Certification"
+    ]
+  },
+  {
+    id: "advisory-services",
+    name: "Advisory Services",
+    description: "Legal consultation & business advisory",
+    icon: "Info",
+    color: "bg-rose-100 text-rose-700",
+    services: [
+      "Legal Consultation",
+      "Business Structuring Advisory",
+      "Regulatory Compliance Advisory",
+      "Investment and Funding Advisory",
+      "Mergers and Acquisitions Advisory",
+      "Corporate Governance Advisory",
+      "Risk Management Advisory",
+      "Succession Planning",
+      "CSR Advisory",
+      "Startup Mentorship"
+    ]
   },
   {
     id: "litigation",
-    name: "Litigation",
+    name: "Litigation & Dispute Resolution",
     description: "Court representation and dispute resolution",
     icon: "Scale",
     color: "bg-red-100 text-red-700",
+    services: [
+      "Civil Litigation",
+      "Criminal Litigation",
+      "Commercial Disputes",
+      "Arbitration Services",
+      "Mediation and Conciliation",
+      "Debt Recovery Services",
+      "Consumer Dispute Resolution",
+      "Employment Disputes",
+      "Real Estate Litigation",
+      "Family Law Disputes"
+    ]
   },
   {
-    id: "realestate",
-    name: "Real Estate",
-    description: "Property transactions and tenant matters",
+    id: "individual-services",
+    name: "Individual Legal Services",
+    description: "Property, wills & family law matters",
     icon: "Home",
     color: "bg-green-100 text-green-700",
-  },
-  {
-    id: "family",
-    name: "Family Law",
-    description: "Divorce, custody, and family matters",
-    icon: "Users",
-    color: "bg-purple-100 text-purple-700",
-  },
-  {
-    id: "ip",
-    name: "Intellectual Property",
-    description: "Patents, copyrights, and trademarks",
-    icon: "FileText",
-    color: "bg-amber-100 text-amber-700",
-  },
-  {
-    id: "tax",
-    name: "Tax Law",
-    description: "Tax planning, compliance, and disputes",
-    icon: "Landmark",
-    color: "bg-teal-100 text-teal-700",
-  },
-  {
-    id: "immigration",
-    name: "Immigration",
-    description: "Visas, green cards, and citizenship",
-    icon: "Globe",
-    color: "bg-indigo-100 text-indigo-700",
-  },
-  {
-    id: "employment",
-    name: "Employment Law",
-    description: "Workplace issues and compliance",
-    icon: "Shield",
-    color: "bg-orange-100 text-orange-700",
-  },
+    services: [
+      "Property Agreement Drafting",
+      "Will Drafting and Registration",
+      "Family Law Matters",
+      "Name Change Assistance",
+      "Power of Attorney",
+      "Succession Certificate",
+      "Legal Heir Certificate",
+      "Marriage Registration",
+      "Divorce Proceedings",
+      "Guardianship Matters"
+    ]
+  }
 ];
+
+// Detailed service descriptions for service detail pages
+export const serviceDetails = {
+  "Private Limited Company Registration": {
+    description: "Complete assistance in registering a private limited company, including name approval, Director Identification Number (DIN), Digital Signature Certificate (DSC), and incorporation certificate.",
+    process: [
+      "Name approval from MCA",
+      "Obtaining Digital Signature Certificates",
+      "Director Identification Number application",
+      "Filing incorporation documents",
+      "Obtaining Certificate of Incorporation",
+      "Post-incorporation compliances"
+    ],
+    documents: [
+      "Identity proof of directors (PAN, Aadhar)",
+      "Address proof of directors",
+      "Passport-sized photographs of directors",
+      "Address proof of registered office",
+      "NOC from property owner"
+    ],
+    timeline: "7-15 business days",
+    benefits: [
+      "Limited liability protection",
+      "Separate legal entity status",
+      "Perpetual succession",
+      "Enhanced credibility",
+      "Easier access to funding"
+    ]
+  },
+  "Trademark Registration": {
+    description: "Comprehensive trademark registration services to protect your brand identity, including trademark search, application filing, and prosecution.",
+    process: [
+      "Comprehensive trademark search",
+      "Trademark application preparation",
+      "Filing with Trademark Registry",
+      "Responding to examination reports",
+      "Publication in Trademark Journal",
+      "Registration certificate issuance"
+    ],
+    documents: [
+      "Clear representation of the mark",
+      "Proof of business/identity",
+      "Power of attorney",
+      "User affidavit (if applicable)",
+      "Priority documents (if applicable)"
+    ],
+    timeline: "12-18 months",
+    benefits: [
+      "Exclusive rights to use the mark",
+      "Legal protection against infringement",
+      "Brand value enhancement",
+      "Option to license the mark",
+      "Nationwide protection"
+    ]
+  },
+  "GST Registration": {
+    description: "Complete assistance with Goods and Services Tax (GST) registration to ensure compliance with Indian tax regulations.",
+    process: [
+      "Application for GST registration",
+      "Verification of business details",
+      "Document submission",
+      "Application tracking",
+      "Obtaining GSTIN",
+      "Setting up GST compliance systems"
+    ],
+    documents: [
+      "PAN of the business/proprietor",
+      "Identity and address proof of promoters",
+      "Business registration documents",
+      "Bank account details",
+      "Proof of business address"
+    ],
+    timeline: "3-7 business days",
+    benefits: [
+      "Legal compliance with tax laws",
+      "Ability to collect and claim GST",
+      "Access to input tax credits",
+      "Expansion of business across states",
+      "Enhanced business credibility"
+    ]
+  }
+};
