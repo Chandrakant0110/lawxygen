@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,10 +23,12 @@ import TermsPage from "./pages/TermsPage";
 import LegalPage from "./pages/LegalPage";
 import FindLawyer from "./pages/FindLawyer";
 import FindProfessional from "./pages/FindProfessional";
-// Import new service pages
+
 import CompanyRegistration from "./pages/services/CompanyRegistration";
 import HRPayrollCompliance from "./pages/services/HRPayrollCompliance";
 import FinancialCompliance from "./pages/services/FinancialCompliance";
+import TrademarkRegistration from "./pages/services/TrademarkRegistration";
+import PrivateLimitedCompany from "./pages/services/PrivateLimitedCompany";
 
 const queryClient = new QueryClient();
 
@@ -58,12 +59,12 @@ const App = () => (
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/legal" element={<LegalPage />} />
           
-          {/* New Service Pages */}
           <Route path="/services/company-registration" element={<CompanyRegistration />} />
           <Route path="/services/hr-payroll-compliance" element={<HRPayrollCompliance />} />
           <Route path="/services/financial-compliance" element={<FinancialCompliance />} />
+          <Route path="/services/trademark-registration" element={<TrademarkRegistration />} />
+          <Route path="/services/private-limited-company" element={<PrivateLimitedCompany />} />
           
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

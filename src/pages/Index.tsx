@@ -5,8 +5,8 @@ import Hero from "@/components/home/Hero";
 import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
 import ServiceCategories from "@/components/home/ServiceCategories";
 import HowItWorks from "@/components/home/HowItWorks";
-import DetailedServiceList from "@/components/services/DetailedServiceList";
-import LeadCaptureSection from "@/components/home/LeadCaptureSection";
+import EnhancedServiceList from "@/components/services/EnhancedServiceList";
+import EnhancedLeadCaptureSection from "@/components/home/EnhancedLeadCaptureSection";
 
 const Index = () => {
   return (
@@ -15,8 +15,8 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <ServiceCategories />
-        <DetailedServiceList />
-        <LeadCaptureSection />
+        <EnhancedServiceList />
+        <EnhancedLeadCaptureSection />
         <FeaturedProfessionals />
         <HowItWorks />
       </main>
