@@ -6,24 +6,27 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222.2 47.4% 11.2%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222.2 47.4% 11.2%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 173 80% 40%;
+    /* Updated to indigo */
+    --primary: 240 67% 58%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 209 100% 50%;
+    /* Updated to teal-cyan blend */
+    --secondary: 183 70% 45%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 173 60% 95%;
+    /* Updated to lighter indigo */
+    --accent: 240 67% 94%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,32 +34,33 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 173 80% 40%;
+    --ring: 240 67% 58%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 173 30% 30%;
-    --sidebar-primary: 173 75% 40%;
+    --sidebar-background: 240 5.9% 98%;
+    --sidebar-foreground: 240 67% 40%;
+    --sidebar-primary: 240 67% 58%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 173 40% 95%;
-    --sidebar-accent-foreground: 173 30% 20%;
-    --sidebar-border: 173 30% 90%;
-    --sidebar-ring: 173 75% 40%;
+    --sidebar-accent: 240 67% 95%;
+    --sidebar-accent-foreground: 240 67% 20%;
+    --sidebar-border: 240 67% 90%;
+    --sidebar-ring: 240 67% 58%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222.2 47.4% 11.2%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222.2 47.4% 11.2%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 173 75% 40%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Updated to violet */
+    --primary: 270 76% 58%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -72,16 +76,16 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 270 76% 58%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 173 75% 40%; 
+    --sidebar-primary: 270 76% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 270 76% 58%;
   }
 }
 
@@ -96,8 +100,9 @@
 }
 
 @layer components {
+  /* Updated gradient to use indigo-violet */
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(173, 80%, 40%) 0%, hsl(209, 100%, 50%) 100%);
+    background: linear-gradient(135deg, hsl(240, 67%, 58%) 0%, hsl(270, 76%, 58%) 100%);
   }
   
   .container-custom {
@@ -108,12 +113,13 @@
     @apply py-16 md:py-24;
   }
   
+  /* Updated button colors */
   .btn-primary {
-    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-teal-600 hover:bg-teal-700;
+    @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-indigo-600 hover:bg-indigo-700;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 font-medium transition-colors border rounded-md text-teal-800 border-teal-200 hover:bg-teal-50;
+    @apply px-6 py-3 font-medium transition-colors border rounded-md text-indigo-800 border-indigo-200 hover:bg-indigo-50;
   }
 
   /* Add human-friendly design elements */
@@ -122,14 +128,14 @@
   }
   
   .input-humanized {
-    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200;
+    @apply rounded-md border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200;
   }
   
   .btn-humanized {
-    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500;
+    @apply rounded-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
   }
   
   .link-humanized {
-    @apply text-teal-600 hover:text-teal-800 transition-colors duration-200 underline-offset-2 hover:underline;
+    @apply text-indigo-600 hover:text-indigo-800 transition-colors duration-200 underline-offset-2 hover:underline;
   }
 }
