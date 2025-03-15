@@ -40,10 +40,10 @@ const Footer = () => {
                 <Link to="/job-posting" className="text-gray-300 hover:text-teal-300">Post a Job</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-teal-300">How it Works</Link>
+                <Link to="/faq" className="text-gray-300 hover:text-teal-300">How it Works</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-teal-300">Success Stories</Link>
+                <Link to="/blog" className="text-gray-300 hover:text-teal-300">Success Stories</Link>
               </li>
             </ul>
           </div>
@@ -52,16 +52,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">For Professionals</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="#" className="text-gray-300 hover:text-teal-300">Join as a Professional</Link>
+                <Link to="/freelancer-profile/join" className="text-gray-300 hover:text-teal-300">Join as a Professional</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-teal-300">Professional Resources</Link>
+                <Link to="/blog" className="text-gray-300 hover:text-teal-300">Professional Resources</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-teal-300">Community Guidelines</Link>
+                <Link to="/legal" className="text-gray-300 hover:text-teal-300">Community Guidelines</Link>
               </li>
               <li>
-                <Link to="#" className="text-gray-300 hover:text-teal-300">Success Stories</Link>
+                <Link to="/blog" className="text-gray-300 hover:text-teal-300">Success Stories</Link>
               </li>
             </ul>
           </div>

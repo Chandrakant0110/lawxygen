@@ -143,14 +143,14 @@ const AboutPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-sm text-center">
                 <img 
-                  src="https://randomuser.me/api/portraits/men/32.jpg" 
-                  alt="Michael Anderson" 
-                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                  src="/lovable-uploads/67ebdc6c-78eb-483e-a497-997375701c88.png" 
+                  alt="Harsh Rao" 
+                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover object-center"
                 />
-                <h3 className="text-xl font-semibold mb-1">Michael Anderson</h3>
-                <p className="text-lawpurple-600 mb-3">CEO & Co-Founder</p>
+                <h3 className="text-xl font-semibold mb-1">Harsh Rao</h3>
+                <p className="text-lawpurple-600 mb-3">Founder & CEO</p>
                 <p className="text-gray-700">
-                  Former corporate attorney with 15+ years of experience in the legal industry, passionate about leveraging technology to improve legal services.
+                  Visionary entrepreneur with a strong background in legal tech, committed to making legal services more accessible and efficient for everyone.
                 </p>
               </div>
               

@@ -18,6 +18,10 @@ import Dashboard from "./pages/Dashboard";
 import ServiceCategoryPage from "./pages/ServiceCategoryPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MessagingPage from "./pages/MessagingPage";
+import CareersPage from "./pages/CareersPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
+import LegalPage from "./pages/LegalPage";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +45,10 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/checkout/:id" element={<CheckoutPage />} />
           <Route path="/messaging" element={<MessagingPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/legal" element={<LegalPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
