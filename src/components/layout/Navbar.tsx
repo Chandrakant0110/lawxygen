@@ -45,6 +45,9 @@ const Navbar = () => {
               <Link to="/job-posting" className="text-gray-600 hover:text-teal-700">
                 Post a Job
               </Link>
+              <Link to="/find-lawyer" className="text-gray-600 hover:text-teal-700">
+                Find Your Lawyer
+              </Link>
               <Link to="/about" className="text-gray-600 hover:text-teal-700">
                 About
               </Link>
@@ -107,10 +110,16 @@ const Navbar = () => {
             Browse Services
           </Link>
           <Link
-            to="/job-posting"
+            to="/find-professional"
             className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-teal-700 hover:bg-gray-100"
           >
-            Post a Job
+            Find Your Professional
+          </Link>
+          <Link
+            to="/find-lawyer"
+            className="block px-3 py-2 text-base font-medium text-gray-600 rounded-md hover:text-teal-700 hover:bg-gray-100"
+          >
+            Find Your Lawyer
           </Link>
           <Link
             to="/about"

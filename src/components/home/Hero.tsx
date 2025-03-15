@@ -59,10 +59,10 @@ const Hero = () => {
           
           <div className="flex flex-col md:flex-row gap-4 mt-8 justify-center">
             <Button asChild size="lg" className="bg-teal-700 hover:bg-teal-800 text-white">
-              <Link to="/search-results">Browse Services</Link>
+              <Link to="/find-lawyer">Find Your Lawyer</Link>
             </Button>
             <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-teal-700">
-              <Link to="/job-posting">Post a Job</Link>
+              <Link to="/find-professional">Find Your Professional</Link>
             </Button>
           </div>
         </div>

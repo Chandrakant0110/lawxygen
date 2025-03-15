@@ -37,7 +37,10 @@ const Footer = () => {
                 <Link to="/search-results" className="text-gray-300 hover:text-teal-300">Find Services</Link>
               </li>
               <li>
-                <Link to="/job-posting" className="text-gray-300 hover:text-teal-300">Post a Job</Link>
+                <Link to="/find-professional" className="text-gray-300 hover:text-teal-300">Find Your Professional</Link>
+              </li>
+              <li>
+                <Link to="/find-lawyer" className="text-gray-300 hover:text-teal-300">Find Your Lawyer</Link>
               </li>
               <li>
                 <Link to="/faq" className="text-gray-300 hover:text-teal-300">How it Works</Link>

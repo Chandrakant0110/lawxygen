@@ -22,6 +22,8 @@ import CareersPage from "./pages/CareersPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import LegalPage from "./pages/LegalPage";
+import FindLawyer from "./pages/FindLawyer";
+import FindProfessional from "./pages/FindProfessional";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,8 @@ const App = () => (
           <Route path="/search-results" element={<SearchResults />} />
           <Route path="/freelancer-profile/:id" element={<FreelancerProfile />} />
           <Route path="/job-posting" element={<JobPosting />} />
+          <Route path="/find-lawyer" element={<FindLawyer />} />
+          <Route path="/find-professional" element={<FindProfessional />} />
           <Route path="/service/:id" element={<ServicePage />} />
           <Route path="/category/:category" element={<ServiceCategoryPage />} />
           <Route path="/about" element={<AboutPage />} />

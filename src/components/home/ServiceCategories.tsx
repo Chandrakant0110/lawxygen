@@ -2,71 +2,88 @@
 import { Link } from "react-router-dom";
 import { 
   Briefcase, 
-  Scale, 
-  Home, 
-  Users, 
+  Building, 
+  FileCheck, 
+  DollarSign, 
+  Copyright, 
   FileText, 
-  Landmark, 
-  Globe, 
-  Shield 
+  Info, 
+  Handshake, 
+  Home,
+  Check,
+  Scale
 } from "lucide-react";
 
 const categories = [
   {
-    id: "corporate",
-    name: "Corporate Law",
-    description: "Business formation, contracts, and compliance",
-    icon: Briefcase,
+    id: "business-incorporation",
+    name: "Business Incorporation",
+    description: "Company registrations, LLP, partnerships & more",
+    icon: Building,
     color: "bg-teal-100 text-teal-700",
   },
   {
-    id: "litigation",
-    name: "Litigation",
-    description: "Court representation and dispute resolution",
+    id: "government-registrations",
+    name: "Government Registrations",
+    description: "GST, IEC, licenses & statutory registrations",
+    icon: FileCheck,
+    color: "bg-blue-100 text-blue-700",
+  },
+  {
+    id: "compliance-services",
+    name: "Compliance Services",
+    description: "Annual filings, accounting & regulatory compliance",
+    icon: Check,
+    color: "bg-cyan-100 text-cyan-700",
+  },
+  {
+    id: "taxation-services",
+    name: "Taxation Services",
+    description: "Tax returns, planning & representation",
+    icon: DollarSign,
+    color: "bg-teal-100 text-teal-700",
+  },
+  {
+    id: "intellectual-property",
+    name: "Intellectual Property",
+    description: "Trademarks, patents, copyrights & design registration",
+    icon: Copyright,
+    color: "bg-blue-100 text-blue-700",
+  },
+  {
+    id: "legal-documents",
+    name: "Legal Documents",
+    description: "Agreements, contracts & legal document drafting",
+    icon: FileText,
+    color: "bg-cyan-100 text-cyan-700",
+  },
+  {
+    id: "advisory-services",
+    name: "Advisory Services",
+    description: "Legal consultation & business advisory",
+    icon: Info,
+    color: "bg-teal-100 text-teal-700",
+  },
+  {
+    id: "specialized-services",
+    name: "Specialized Services",
+    description: "Litigation support & specialized legal assistance",
     icon: Scale,
     color: "bg-blue-100 text-blue-700",
   },
   {
-    id: "realestate",
-    name: "Real Estate",
-    description: "Property transactions and tenant matters",
+    id: "individual-services",
+    name: "Individual Services",
+    description: "Property agreements, wills & family law matters",
     icon: Home,
     color: "bg-cyan-100 text-cyan-700",
   },
   {
-    id: "family",
-    name: "Family Law",
-    description: "Divorce, custody, and family matters",
-    icon: Users,
+    id: "additional-services",
+    name: "Additional Services",
+    description: "Business plans, certifications & support services",
+    icon: Handshake,
     color: "bg-teal-100 text-teal-700",
-  },
-  {
-    id: "ip",
-    name: "Intellectual Property",
-    description: "Patents, copyrights, and trademarks",
-    icon: FileText,
-    color: "bg-blue-100 text-blue-700",
-  },
-  {
-    id: "tax",
-    name: "Tax Law",
-    description: "Tax planning, compliance, and disputes",
-    icon: Landmark,
-    color: "bg-cyan-100 text-cyan-700",
-  },
-  {
-    id: "immigration",
-    name: "Immigration",
-    description: "Visas, green cards, and citizenship",
-    icon: Globe,
-    color: "bg-teal-100 text-teal-700",
-  },
-  {
-    id: "employment",
-    name: "Employment Law",
-    description: "Workplace issues and compliance",
-    icon: Shield,
-    color: "bg-blue-100 text-blue-700",
   },
 ];
 
@@ -83,7 +100,7 @@ const ServiceCategories = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {categories.map((category) => (
             <Link
               key={category.id}
@@ -93,10 +110,10 @@ const ServiceCategories = () => {
               <div className={`p-3 rounded-full ${category.color}`}>
                 <category.icon className="w-8 h-8" />
               </div>
-              <h3 className="mt-4 text-xl font-medium text-gray-900">
+              <h3 className="mt-4 text-lg font-medium text-gray-900">
                 {category.name}
               </h3>
-              <p className="mt-2 text-gray-600">
+              <p className="mt-2 text-sm text-gray-600">
                 {category.description}
               </p>
             </Link>
