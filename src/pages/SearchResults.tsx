@@ -23,6 +23,83 @@ const SearchResults = () => {
   const [view, setView] = useState<"grid" | "list">("grid");
   const [searchType, setSearchType] = useState<"professionals" | "services">("services");
   const [filterOpen, setFilterOpen] = useState(false);
+  const [priceRange, setPriceRange] = useState("any");
+  const [rating, setRating] = useState("any");
+  const [category, setCategory] = useState("all");
+  const [sortBy, setSortBy] = useState("relevant");
+  const [location, setLocation] = useState("");
+
+  // Filter services based on selected filters
+  const filteredServices = services.filter(service => {
+    // Category filter
+    if (category !== "all" && service.category !== category) {
+      return false;
+    }
+    
+    // Price range filter
+    if (priceRange === "0-100" && service.price > 100) return false;
+    if (priceRange === "100-200" && (service.price < 100 || service.price > 200)) return false;
+    if (priceRange === "200-500" && (service.price < 200 || service.price > 500)) return false;
+    if (priceRange === "500+" && service.price < 500) return false;
+    
+    // Rating filter
+    if (rating === "4+" && service.rating < 4) return false;
+    if (rating === "3+" && service.rating < 3) return false;
+    if (rating === "2+" && service.rating < 2) return false;
+    
+    return true;
+  });
+
+  // Filter professionals based on selected filters
+  const filteredProfessionals = professionals.filter(professional => {
+    // Category filter
+    if (category !== "all" && professional.category !== category) {
+      return false;
+    }
+    
+    // Price range filter
+    if (priceRange === "0-100" && professional.hourlyRate > 100) return false;
+    if (priceRange === "100-200" && (professional.hourlyRate < 100 || professional.hourlyRate > 200)) return false;
+    if (priceRange === "200-500" && (professional.hourlyRate < 200 || professional.hourlyRate > 500)) return false;
+    if (priceRange === "500+" && professional.hourlyRate < 500) return false;
+    
+    // Rating filter
+    if (rating === "4+" && professional.rating < 4) return false;
+    if (rating === "3+" && professional.rating < 3) return false;
+    if (rating === "2+" && professional.rating < 2) return false;
+    
+    return true;
+  });
+
+  // Sort services and professionals
+  const sortedServices = [...filteredServices].sort((a, b) => {
+    if (sortBy === "highest") return b.rating - a.rating;
+    if (sortBy === "price-low") return a.price - b.price;
+    if (sortBy === "price-high") return b.price - a.price;
+    // Default: most relevant
+    return 0;
+  });
+
+  const sortedProfessionals = [...filteredProfessionals].sort((a, b) => {
+    if (sortBy === "highest") return b.rating - a.rating;
+    if (sortBy === "price-low") return a.hourlyRate - b.hourlyRate;
+    if (sortBy === "price-high") return b.hourlyRate - a.hourlyRate;
+    // Default: most relevant
+    return 0;
+  });
+
+  const handleApplyFilters = () => {
+    // Filters are already applied through state
+    setFilterOpen(false);
+  };
+
+  const handleResetFilters = () => {
+    setPriceRange("any");
+    setRating("any");
+    setCategory("all");
+    setSortBy("relevant");
+    setLocation("");
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -80,8 +157,12 @@ const SearchResults = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Service Category
                   </label>
-                  <select className="w-full rounded-md border-gray-300 py-2 px-3">
-                    <option>All Categories</option>
+                  <select 
+                    className="w-full rounded-md border-gray-300 py-2 px-3"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="all">All Categories</option>
                     {categories.map((category) => (
                       <option key={category.id} value={category.id}>
                         {category.name}
@@ -94,12 +175,16 @@ const SearchResults = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Price Range
                   </label>
-                  <select className="w-full rounded-md border-gray-300 py-2 px-3">
-                    <option>Any Price</option>
-                    <option>$0 - $100</option>
-                    <option>$100 - $200</option>
-                    <option>$200 - $500</option>
-                    <option>$500+</option>
+                  <select 
+                    className="w-full rounded-md border-gray-300 py-2 px-3"
+                    value={priceRange}
+                    onChange={(e) => setPriceRange(e.target.value)}
+                  >
+                    <option value="any">Any Price</option>
+                    <option value="0-100">$0 - $100</option>
+                    <option value="100-200">$100 - $200</option>
+                    <option value="200-500">$200 - $500</option>
+                    <option value="500+">$500+</option>
                   </select>
                 </div>
                 
@@ -107,11 +192,15 @@ const SearchResults = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Rating
                   </label>
-                  <select className="w-full rounded-md border-gray-300 py-2 px-3">
-                    <option>Any Rating</option>
-                    <option>4+ Stars</option>
-                    <option>3+ Stars</option>
-                    <option>2+ Stars</option>
+                  <select 
+                    className="w-full rounded-md border-gray-300 py-2 px-3"
+                    value={rating}
+                    onChange={(e) => setRating(e.target.value)}
+                  >
+                    <option value="any">Any Rating</option>
+                    <option value="4+">4+ Stars</option>
+                    <option value="3+">3+ Stars</option>
+                    <option value="2+">2+ Stars</option>
                   </select>
                 </div>
                 
@@ -127,6 +216,8 @@ const SearchResults = () => {
                       type="text" 
                       placeholder="Enter location..." 
                       className="pl-10"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
                     />
                   </div>
                 </div>
@@ -135,10 +226,11 @@ const SearchResults = () => {
                   <Button 
                     variant="outline" 
                     className="mr-2"
+                    onClick={handleResetFilters}
                   >
                     Reset
                   </Button>
-                  <Button>
+                  <Button onClick={handleApplyFilters}>
                     Apply Filters
                   </Button>
                 </div>
@@ -157,7 +249,23 @@ const SearchResults = () => {
                     {categories.map((category) => (
                       <Link 
                         key={category.id} 
-                        to={`/service-category/${category.id}`}
+                        to={`/category/${category.id}`}
+                        className={`flex flex-col items-center p-3 rounded-lg ${category.color} text-center hover:opacity-90 transition-opacity`}
+                      >
+                        <div className="mb-2 text-sm font-medium line-clamp-2 h-10 flex items-center">
+                          {category.name}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="professionals" className="mt-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
+                    {categories.map((category) => (
+                      <Link 
+                        key={category.id} 
+                        to={`/find-professional?category=${category.id}`}
                         className={`flex flex-col items-center p-3 rounded-lg ${category.color} text-center hover:opacity-90 transition-opacity`}
                       >
                         <div className="mb-2 text-sm font-medium line-clamp-2 h-10 flex items-center">
@@ -179,24 +287,28 @@ const SearchResults = () => {
               <h2 className="text-xl font-semibold text-gray-900">
                 {searchType === "professionals" ? "Professional Legal Experts" : "Legal Services"} 
                 <span className="text-gray-500 ml-2 text-lg font-normal">
-                  ({searchType === "professionals" ? professionals.length : services.length} results)
+                  ({searchType === "professionals" ? filteredProfessionals.length : filteredServices.length} results)
                 </span>
               </h2>
               
               <div className="flex items-center">
                 <span className="text-sm text-gray-500 mr-2">Sort by:</span>
-                <select className="text-sm border-gray-300 rounded-md py-1">
-                  <option>Most Relevant</option>
-                  <option>Highest Rated</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
+                <select 
+                  className="text-sm border-gray-300 rounded-md py-1"
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                >
+                  <option value="relevant">Most Relevant</option>
+                  <option value="highest">Highest Rated</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
                 </select>
               </div>
             </div>
             
             {searchType === "professionals" ? (
               <div className={`grid gap-6 ${view === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1"}`}>
-                {professionals.map((professional) => (
+                {sortedProfessionals.map((professional) => (
                   <ProfessionalCard 
                     key={professional.id}
                     id={professional.id}
@@ -213,7 +325,7 @@ const SearchResults = () => {
               </div>
             ) : (
               <div className={`grid gap-6 ${view === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1"}`}>
-                {services.map((service) => (
+                {sortedServices.map((service) => (
                   <ServiceCard 
                     key={service.id}
                     id={service.id}
