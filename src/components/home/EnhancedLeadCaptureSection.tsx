@@ -8,7 +8,7 @@ const EnhancedLeadCaptureSection = () => {
   const [showForm, setShowForm] = React.useState(false);
   
   return (
-    <section className="py-16 bg-gradient-to-r from-violet-700 to-purple-700">
+    <section className="py-16 bg-gradient-to-r from-purple-700 to-violet-700">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="text-white">
@@ -24,7 +24,7 @@ const EnhancedLeadCaptureSection = () => {
               <Button 
                 onClick={() => setShowForm(true)}
                 size="lg" 
-                className="bg-white text-violet-700 hover:bg-gray-100"
+                className="bg-white text-purple-700 hover:bg-gray-100"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -37,7 +37,7 @@ const EnhancedLeadCaptureSection = () => {
               <LeadCaptureForm variant="inline" className="bg-transparent border-0 shadow-none p-0" />
             ) : (
               <div className="text-center p-6">
-                <h3 className="text-2xl font-bold text-violet-800 mb-4">
+                <h3 className="text-2xl font-bold text-purple-800 mb-4">
                   How Can We Help You?
                 </h3>
                 <p className="text-gray-600 mb-6">
@@ -47,7 +47,7 @@ const EnhancedLeadCaptureSection = () => {
                 <Button 
                   onClick={() => setShowForm(true)}
                   size="lg" 
-                  className="bg-violet-600 text-white hover:bg-violet-700 w-full"
+                  className="bg-purple-600 text-white hover:bg-purple-700 w-full"
                 >
                   Start Your Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />

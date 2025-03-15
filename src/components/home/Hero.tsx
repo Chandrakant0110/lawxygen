@@ -16,7 +16,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-violet-600 to-purple-600 text-white">
+    <div className="bg-gradient-to-r from-purple-700 to-violet-700 text-white">
       <div className="container-custom py-16 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
@@ -75,11 +75,11 @@ const Hero = () => {
               <Button 
                 onClick={() => setShowLeadForm(true)} 
                 size="lg" 
-                className="bg-white hover:bg-gray-100 text-violet-700 font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white hover:bg-gray-100 text-purple-700 font-medium shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get a Free Consultation
               </Button>
-              <Button asChild size="lg" className="bg-violet-800 hover:bg-violet-900 text-white">
+              <Button asChild size="lg" className="bg-purple-800 hover:bg-purple-900 text-white">
                 <Link to="/services/company-registration">Explore Our Services</Link>
               </Button>
             </div>
