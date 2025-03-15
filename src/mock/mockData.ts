@@ -115,7 +115,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/women/45.jpg",
     rating: 4.9,
     reviews: 142,
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80",
+    image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
     category: "legal",
     tags: ["Contract", "Legal Review", "Business"]
   },
@@ -129,7 +129,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/men/32.jpg",
     rating: 4.8,
     reviews: 89,
-    image: "https://images.unsplash.com/photo-1569937372578-d4fe415f8d43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1611184100249-d891ea52c271?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     category: "ip",
     tags: ["Trademark", "Intellectual Property", "Brand Protection"]
   },
@@ -143,7 +143,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/women/45.jpg",
     rating: 4.9,
     reviews: 142,
-    image: "https://images.unsplash.com/photo-1664575602554-2087b04935a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     category: "business",
     tags: ["Incorporation", "Business Formation", "LLC"]
   },
@@ -157,7 +157,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/women/91.jpg",
     rating: 4.7,
     reviews: 91,
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2011&q=80",
+    image: "https://images.unsplash.com/photo-1635399860495-2a2bbec0eff1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     category: "tax",
     tags: ["Tax Planning", "Financial", "Consultation"]
   },
@@ -171,7 +171,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/women/63.jpg",
     rating: 4.7,
     reviews: 113,
-    image: "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+    image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
     category: "family",
     tags: ["Divorce", "Mediation", "Family Law"]
   },
@@ -185,7 +185,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/men/15.jpg",
     rating: 4.6,
     reviews: 78,
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80",
+    image: "https://images.unsplash.com/photo-1592595896616-c37162298647?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     category: "realestate",
     tags: ["Real Estate", "Property", "Closing"]
   },
@@ -199,7 +199,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/women/22.jpg",
     rating: 4.9,
     reviews: 156,
-    image: "https://images.unsplash.com/photo-1618761818304-270d9a0e7c4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1591291621164-2c6367723315?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
     category: "immigration",
     tags: ["Immigration", "Visa", "Consultation"]
   },
@@ -213,7 +213,7 @@ export const services = [
     providerAvatar: "https://randomuser.me/api/portraits/men/51.jpg",
     rating: 4.8,
     reviews: 118,
-    image: "https://images.unsplash.com/photo-1553708881-112abc53fe54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
     category: "employment",
     tags: ["Employment", "Contract", "Legal Review"]
   },
