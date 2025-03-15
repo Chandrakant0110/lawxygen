@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) =>
   return (
     <div className="relative flex-grow">
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <Search className="w-5 h-5 text-slate-400" />
+        <Search className="w-5 h-5 text-indigo-400" />
       </div>
       <Input 
         type="search" 
