@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Filter, MapPin, ChevronDown } from "lucide-react";
+import { Search, Filter, MapPin, ChevronDown, MessageSquare } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProfessionalCard from "@/components/ui/ProfessionalCard";
 import { professionals } from "@/mock/mockData";
