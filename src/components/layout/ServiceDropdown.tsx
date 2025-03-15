@@ -127,7 +127,7 @@ const ServiceDropdown = () => {
                       <ListItem
                         key={itemIndex}
                         title={item.title}
-                        to={item.href}
+                        href={item.href}
                         icon={item.icon}
                       >
                         {item.description}
@@ -156,19 +156,18 @@ const ServiceDropdown = () => {
 interface ListItemProps {
   className?: string;
   title: string;
-  to: string; // Changed from href to to to match React Router's Link component
+  href: string;
   icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
 const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
-  ({ className, title, to, icon, children, ...props }, ref) => {
+  ({ className, title, icon, children, ...props }, ref) => {
     return (
       <li>
         <NavigationMenuLink asChild>
           <Link
             ref={ref as any}
-            to={to} // Use to prop instead of href
             className={cn(
               "block select-none space-y-1 rounded-md p-3 hover:bg-indigo-50 transition-colors no-underline outline-none",
               className
