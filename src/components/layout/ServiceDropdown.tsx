@@ -29,7 +29,7 @@ interface ServiceCategory {
   items: {
     title: string;
     description: string;
-    href: string;
+    to: string;
     icon: React.ReactNode;
   }[];
 }
@@ -42,19 +42,19 @@ const serviceCategories: ServiceCategory[] = [
       {
         title: "Company Registration",
         description: "Register your business as a Private Limited, LLP, or OPC",
-        href: "/services/company-registration",
+        to: "/services/company-registration",
         icon: <Building className="h-5 w-5" />
       },
       {
         title: "Government Registrations",
         description: "GST, PAN, TAN, and other essential registrations",
-        href: "/services/government-registrations",
+        to: "/services/government-registrations",
         icon: <FileCheck className="h-5 w-5" />
       },
       {
         title: "Business Compliance",
         description: "Annual filings and regulatory compliance",
-        href: "/services/business-compliance",
+        to: "/services/business-compliance",
         icon: <Check className="h-5 w-5" />
       }
     ]
@@ -65,19 +65,19 @@ const serviceCategories: ServiceCategory[] = [
       {
         title: "Legal Document Drafting",
         description: "Contracts, agreements, and legal documents",
-        href: "/services/legal-document-drafting",
+        to: "/services/legal-document-drafting",
         icon: <FileText className="h-5 w-5" />
       },
       {
         title: "HR & Payroll Compliance",
         description: "Employee contracts, HR policies, and payroll",
-        href: "/services/hr-payroll-compliance",
+        to: "/services/hr-payroll-compliance",
         icon: <Users className="h-5 w-5" />
       },
       {
         title: "Financial Compliance",
         description: "Virtual CFO, accounting, and financial management",
-        href: "/services/financial-compliance",
+        to: "/services/financial-compliance",
         icon: <Calculator className="h-5 w-5" />
       }
     ]
@@ -88,19 +88,19 @@ const serviceCategories: ServiceCategory[] = [
       {
         title: "Intellectual Property",
         description: "Trademark, patent, and copyright registration",
-        href: "/services/ip-services",
+        to: "/services/ip-services",
         icon: <Copyright className="h-5 w-5" />
       },
       {
         title: "Legal Retainer Plans",
         description: "Monthly subscription for ongoing legal support",
-        href: "/services/legal-retainer-plans",
+        to: "/services/legal-retainer-plans",
         icon: <Clock className="h-5 w-5" />
       },
       {
         title: "Startup Legal Consultation",
         description: "Specialized legal services for startups",
-        href: "/services/startup-legal-consultation",
+        to: "/services/startup-legal-consultation",
         icon: <Shield className="h-5 w-5" />
       }
     ]
@@ -112,14 +112,14 @@ const ServiceDropdown = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-indigo-600 data-[state=open]:bg-transparent">
+          <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-violet-600 data-[state=open]:bg-transparent">
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-3 lg:w-[900px]">
               {serviceCategories.map((category, categoryIndex) => (
                 <div key={categoryIndex} className="space-y-3">
-                  <h3 className="text-lg font-medium text-indigo-700 border-b pb-1 mb-2">
+                  <h3 className="text-lg font-medium text-violet-700 border-b pb-1 mb-2">
                     {category.title}
                   </h3>
                   <ul className="space-y-1">
@@ -127,7 +127,7 @@ const ServiceDropdown = () => {
                       <ListItem
                         key={itemIndex}
                         title={item.title}
-                        href={item.href}
+                        to={item.to}
                         icon={item.icon}
                       >
                         {item.description}
@@ -140,7 +140,7 @@ const ServiceDropdown = () => {
             <div className="bg-slate-50 p-4 border-t">
               <Link 
                 to="/search-results" 
-                className="block text-center text-sm font-medium text-indigo-600 hover:text-indigo-700"
+                className="block text-center text-sm font-medium text-violet-600 hover:text-violet-700"
               >
                 Browse All Services
               </Link>
@@ -156,7 +156,7 @@ const ServiceDropdown = () => {
 interface ListItemProps {
   className?: string;
   title: string;
-  href: string;
+  to: string;
   icon?: React.ReactNode;
   children: React.ReactNode;
 }
@@ -169,13 +169,13 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
           <Link
             ref={ref as any}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 hover:bg-indigo-50 transition-colors no-underline outline-none",
+              "block select-none space-y-1 rounded-md p-3 hover:bg-violet-50 transition-colors no-underline outline-none",
               className
             )}
             {...props}
           >
             <div className="flex items-center gap-2">
-              <div className="text-indigo-600">
+              <div className="text-violet-600">
                 {icon}
               </div>
               <div className="text-base font-medium text-slate-900">{title}</div>
