@@ -31,7 +31,7 @@ const AuthButtons = () => {
             )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuContent align="end" className="w-56 bg-white">
           <div className="flex flex-col space-y-1 p-2">
             <p className="text-sm font-medium leading-none">{user.user_metadata?.first_name || "User"}</p>
             <p className="text-xs leading-none text-gray-500">{user.email}</p>
@@ -67,7 +67,7 @@ const AuthButtons = () => {
       <Button asChild variant="outline" className="font-medium">
         <Link to="/auth">Sign In</Link>
       </Button>
-      <Button asChild className="font-medium bg-black text-white hover:bg-gray-800">
+      <Button asChild className="font-medium bg-primary text-white hover:bg-secondary">
         <Link to="/auth">Sign Up</Link>
       </Button>
     </div>

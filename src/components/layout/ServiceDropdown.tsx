@@ -112,14 +112,14 @@ const ServiceDropdown = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-violet-600 data-[state=open]:bg-transparent">
+          <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent">
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-3 lg:w-[900px]">
+            <div className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-3 lg:w-[900px] bg-white">
               {serviceCategories.map((category, categoryIndex) => (
                 <div key={categoryIndex} className="space-y-3">
-                  <h3 className="text-lg font-medium text-violet-700 border-b pb-1 mb-2">
+                  <h3 className="text-lg font-medium text-primary border-b pb-1 mb-2">
                     {category.title}
                   </h3>
                   <ul className="space-y-1">
@@ -140,7 +140,7 @@ const ServiceDropdown = () => {
             <div className="bg-slate-50 p-4 border-t">
               <Link 
                 to="/search-results" 
-                className="block text-center text-sm font-medium text-violet-600 hover:text-violet-700"
+                className="block text-center text-sm font-medium text-primary hover:text-primary/80"
               >
                 Browse All Services
               </Link>
@@ -169,14 +169,14 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
           <Link
             ref={ref as any}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 hover:bg-violet-50 transition-colors no-underline outline-none",
+              "block select-none space-y-1 rounded-md p-3 hover:bg-accent transition-colors no-underline outline-none",
               className
             )}
             to={to}
             {...props}
           >
             <div className="flex items-center gap-2">
-              <div className="text-violet-600">
+              <div className="text-primary">
                 {icon}
               </div>
               <div className="text-base font-medium text-slate-900">{title}</div>

@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 import EnhancedServiceDropdown from "@/components/layout/EnhancedServiceDropdown";
 import { Menu, X } from "lucide-react";
 import AuthButtons from "./AuthButtons";
 
 const Navbar = () => {
-  const { isMobile } = useMobile();
+  const { isMobile } = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <div>
-          <Link to="/" className="text-2xl font-bold text-black">
+          <Link to="/" className="text-2xl font-bold text-primary">
             Lawxygen
           </Link>
         </div>
@@ -42,19 +42,19 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         {!isMobile && (
           <nav className="flex items-center space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-black">
+            <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
             <div className="relative group">
               <EnhancedServiceDropdown />
             </div>
-            <Link to="/find-lawyer" className="text-gray-700 hover:text-black">
+            <Link to="/find-lawyer" className="text-gray-700 hover:text-primary">
               Find a Lawyer
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-black">
+            <Link to="/about" className="text-gray-700 hover:text-primary">
               About
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-black">
+            <Link to="/contact" className="text-gray-700 hover:text-primary">
               Contact
             </Link>
           </nav>
@@ -71,7 +71,7 @@ const Navbar = () => {
         {isMobile && (
           <button
             onClick={toggleMenu}
-            className="text-gray-700 hover:text-black focus:outline-none"
+            className="text-gray-700 hover:text-primary focus:outline-none"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,7 +84,7 @@ const Navbar = () => {
         <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-6 flex flex-col space-y-4">
           <Link
             to="/"
-            className="text-gray-700 hover:text-black"
+            className="text-gray-700 hover:text-primary"
             onClick={toggleMenu}
           >
             Home
@@ -94,21 +94,21 @@ const Navbar = () => {
           </div>
           <Link
             to="/find-lawyer"
-            className="text-gray-700 hover:text-black"
+            className="text-gray-700 hover:text-primary"
             onClick={toggleMenu}
           >
             Find a Lawyer
           </Link>
           <Link
             to="/about"
-            className="text-gray-700 hover:text-black"
+            className="text-gray-700 hover:text-primary"
             onClick={toggleMenu}
           >
             About
           </Link>
           <Link
             to="/contact"
-            className="text-gray-700 hover:text-black"
+            className="text-gray-700 hover:text-primary"
             onClick={toggleMenu}
           >
             Contact
