@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   NavigationMenu,
@@ -6,6 +7,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { 
@@ -14,17 +16,23 @@ import {
   FileText, 
   Users, 
   Calculator, 
-  Shield, 
+  Scale, 
   Copyright,
   Clock,
   Check,
-  Scale,
   LandmarkIcon,
   BarChart,
   FileSignature,
   Award,
   GraduationCap,
-  Globe
+  Globe,
+  DollarSign,
+  Handshake,
+  Shield,
+  Home,
+  PieChart,
+  Calendar,
+  PenTool
 } from "lucide-react";
 
 // Type for service categories
@@ -40,40 +48,58 @@ interface ServiceCategory {
   items: ServiceItem[];
 }
 
-// Service categories with expanded options
+// Service categories with expanded options based on reference images
 const serviceCategories: ServiceCategory[] = [
   {
     title: "Business Setup",
     items: [
       {
         title: "Private Limited Company",
-        description: "Incorporate your business as a Private Limited Company",
+        description: "Register a Private Limited Company",
         to: "/services/private-limited-company",
         icon: <Building className="h-5 w-5" />
       },
       {
-        title: "LLP Registration",
-        description: "Register your business as a Limited Liability Partnership",
+        title: "Limited Liability Partnership",
+        description: "Register a Limited Liability Partnership",
         to: "/services/llp-registration",
         icon: <LandmarkIcon className="h-5 w-5" />
       },
       {
+        title: "One Person Company",
+        description: "Form a One Person Company",
+        to: "/services/one-person-company",
+        icon: <Building className="h-5 w-5" />
+      },
+      {
         title: "Sole Proprietorship",
-        description: "Start your business as a sole proprietor",
+        description: "Start a Sole Proprietorship business",
         to: "/services/sole-proprietorship",
         icon: <FileSignature className="h-5 w-5" />
       },
       {
-        title: "MSME Registration",
-        description: "Register as Micro, Small, or Medium Enterprise",
-        to: "/services/msme-registration",
-        icon: <Award className="h-5 w-5" />
+        title: "Nidhi Company",
+        description: "Register a Nidhi Company",
+        to: "/services/nidhi-company",
+        icon: <Building className="h-5 w-5" />
       },
       {
-        title: "Other Registrations",
-        description: "Additional business registration options",
-        to: "/services/business-registration",
-        icon: <FileCheck className="h-5 w-5" />
+        title: "Producer Company",
+        description: "Form a Producer Company",
+        to: "/services/producer-company",
+        icon: <Building className="h-5 w-5" />
+      },
+      {
+        title: "Partnership Firm",
+        description: "Register a Partnership Firm",
+        to: "/services/partnership-firm",
+        icon: <Handshake className="h-5 w-5" />
+      },
+      {
+        title: "Startup India Registration",
+        description: "Register under Startup India program",
+        to: "/services/startup-india-registration",
+        icon: <Award className="h-5 w-5" />
       }
     ]
   },
@@ -81,69 +107,52 @@ const serviceCategories: ServiceCategory[] = [
     title: "Tax & Compliance",
     items: [
       {
-        title: "GST Registration & Filing",
-        description: "Complete GST solution for your business",
-        to: "/services/gst-compliance",
-        icon: <BarChart className="h-5 w-5" />
+        title: "GST Registration",
+        description: "Register for Goods & Services Tax",
+        to: "/services/gst-registration",
+        icon: <FileCheck className="h-5 w-5" />
+      },
+      {
+        title: "GST Filing",
+        description: "Regular GST return filing",
+        to: "/services/gst-filing",
+        icon: <FileCheck className="h-5 w-5" />
+      },
+      {
+        title: "GST Login Portal",
+        description: "Access the GST portal",
+        to: "/services/gst-login-portal",
+        icon: <FileCheck className="h-5 w-5" />
+      },
+      {
+        title: "HSN Code Finder",
+        description: "Find the right HSN code",
+        to: "/services/hsn-code-finder",
+        icon: <Search className="h-5 w-5" />
       },
       {
         title: "TDS Filing",
-        description: "Timely and accurate TDS filing services",
+        description: "File TDS returns accurately",
         to: "/services/tds-filing",
         icon: <Calculator className="h-5 w-5" />
       },
       {
-        title: "Business Compliance",
-        description: "Annual filings and regulatory compliance",
-        to: "/services/business-compliance",
-        icon: <Check className="h-5 w-5" />
+        title: "Annual Compliance",
+        description: "Complete annual filing requirements",
+        to: "/services/annual-compliance",
+        icon: <Calendar className="h-5 w-5" />
       },
       {
         title: "ROC Compliance",
-        description: "Registrar of Companies compliance services",
+        description: "Comply with Registrar of Companies rules",
         to: "/services/roc-compliance",
-        icon: <FileCheck className="h-5 w-5" />
+        icon: <Check className="h-5 w-5" />
       },
       {
-        title: "Virtual CFO Services",
-        description: "Professional financial management",
-        to: "/services/virtual-cfo",
-        icon: <Calculator className="h-5 w-5" />
-      }
-    ]
-  },
-  {
-    title: "Legal & HR Services",
-    items: [
-      {
-        title: "HR & Payroll Compliance",
-        description: "Complete HR and payroll management solutions",
-        to: "/services/hr-payroll-compliance",
-        icon: <Users className="h-5 w-5" />
-      },
-      {
-        title: "Legal Document Drafting",
-        description: "Professional drafting of legal documents",
-        to: "/services/legal-document-drafting",
-        icon: <FileText className="h-5 w-5" />
-      },
-      {
-        title: "Employee Contracts",
-        description: "Legally sound employment agreements",
-        to: "/services/employee-contracts",
-        icon: <FileSignature className="h-5 w-5" />
-      },
-      {
-        title: "ESI & PF Registration",
-        description: "Employee benefits registration services",
-        to: "/services/esi-pf-registration",
-        icon: <Shield className="h-5 w-5" />
-      },
-      {
-        title: "Business Policies",
-        description: "Develop compliant business policies",
-        to: "/services/business-policies",
-        icon: <GraduationCap className="h-5 w-5" />
+        title: "Accounting Services",
+        description: "Professional accounting & bookkeeping",
+        to: "/services/accounting-services",
+        icon: <BarChart className="h-5 w-5" />
       }
     ]
   },
@@ -152,74 +161,165 @@ const serviceCategories: ServiceCategory[] = [
     items: [
       {
         title: "Trademark Registration",
-        description: "Protect your brand identity",
+        description: "Register your brand's trademark",
         to: "/services/trademark-registration",
         icon: <Copyright className="h-5 w-5" />
       },
       {
+        title: "Trademark Search",
+        description: "Check if your trademark is available",
+        to: "/services/trademark-search",
+        icon: <Search className="h-5 w-5" />
+      },
+      {
+        title: "Respond to TM Objection",
+        description: "Handle trademark examination reports",
+        to: "/services/trademark-objection",
+        icon: <FileText className="h-5 w-5" />
+      },
+      {
+        title: "Copyright Registration",
+        description: "Protect your creative works",
+        to: "/services/copyright-registration",
+        icon: <PenTool className="h-5 w-5" />
+      },
+      {
         title: "Patent Filing",
-        description: "Protect your inventions and innovations",
+        description: "Patent your innovations & inventions",
         to: "/services/patent-filing",
         icon: <Award className="h-5 w-5" />
       },
       {
-        title: "Copyright Protection",
-        description: "Secure your original creative works",
-        to: "/services/copyright-protection",
-        icon: <FileText className="h-5 w-5" />
+        title: "Design Registration",
+        description: "Protect your product designs",
+        to: "/services/design-registration",
+        icon: <PenTool className="h-5 w-5" />
       },
       {
-        title: "IP Advisory Services",
-        description: "Expert guidance on intellectual property",
-        to: "/services/ip-services",
-        icon: <Shield className="h-5 w-5" />
-      },
-      {
-        title: "Global IP Protection",
-        description: "International intellectual property services",
-        to: "/services/global-ip-protection",
+        title: "International Trademark",
+        description: "Global trademark protection",
+        to: "/services/international-trademark",
         icon: <Globe className="h-5 w-5" />
+      },
+      {
+        title: "Trademark Class Finder",
+        description: "Find the right trademark class",
+        to: "/services/trademark-class-finder",
+        icon: <Search className="h-5 w-5" />
       }
     ]
   },
   {
-    title: "Special Services",
+    title: "Documentation",
     items: [
       {
-        title: "Litigation Support",
-        description: "Legal representation and support",
-        to: "/services/litigation-support",
+        title: "Business Contracts",
+        description: "Essential business legal documents",
+        to: "/services/business-contracts",
+        icon: <FileText className="h-5 w-5" />
+      },
+      {
+        title: "NDA Agreement",
+        description: "Non-Disclosure Agreement drafting",
+        to: "/services/nda-agreement",
+        icon: <FileText className="h-5 w-5" />
+      },
+      {
+        title: "Service Level Agreement",
+        description: "SLA drafting and review",
+        to: "/services/service-level-agreement",
+        icon: <FileText className="h-5 w-5" />
+      },
+      {
+        title: "Shareholders Agreement",
+        description: "Structure your company ownership",
+        to: "/services/shareholders-agreement",
+        icon: <Handshake className="h-5 w-5" />
+      },
+      {
+        title: "Founders Agreement",
+        description: "Define co-founder relationships",
+        to: "/services/founders-agreement",
+        icon: <Handshake className="h-5 w-5" />
+      },
+      {
+        title: "Memorandum of Understanding",
+        description: "Document partnership intentions",
+        to: "/services/mou",
+        icon: <FileText className="h-5 w-5" />
+      },
+      {
+        title: "HR Policies",
+        description: "Develop compliant HR documents",
+        to: "/services/hr-policies",
+        icon: <Users className="h-5 w-5" />
+      },
+      {
+        title: "Legal Notice",
+        description: "Issue or respond to legal notices",
+        to: "/services/legal-notice",
+        icon: <FileCheck className="h-5 w-5" />
+      }
+    ]
+  },
+  {
+    title: "Specialized Services",
+    items: [
+      {
+        title: "Legal Consultation",
+        description: "Expert legal advice & guidance",
+        to: "/services/legal-consultation",
         icon: <Scale className="h-5 w-5" />
       },
       {
-        title: "Legal Consultation",
-        description: "Expert legal advice for your business",
-        to: "/services/legal-consultation",
-        icon: <GraduationCap className="h-5 w-5" />
+        title: "Fundraising Support",
+        description: "Legal assistance for funding rounds",
+        to: "/services/fundraising",
+        icon: <DollarSign className="h-5 w-5" />
+      },
+      {
+        title: "Business Pitch Deck",
+        description: "Create a compelling investor pitch",
+        to: "/services/pitch-deck",
+        icon: <PieChart className="h-5 w-5" />
       },
       {
         title: "Legal Retainer Plans",
-        description: "Ongoing legal support subscription",
-        to: "/services/legal-retainer-plans",
+        description: "Ongoing legal support package",
+        to: "/services/legal-retainer",
         icon: <Clock className="h-5 w-5" />
       },
       {
-        title: "Startup Legal Bundle",
-        description: "Complete legal package for startups",
-        to: "/services/startup-legal-bundle",
-        icon: <Building className="h-5 w-5" />
+        title: "Litigation Support",
+        description: "Representation in legal disputes",
+        to: "/services/litigation",
+        icon: <Scale className="h-5 w-5" />
+      },
+      {
+        title: "Property & Real Estate",
+        description: "Property law services",
+        to: "/services/property",
+        icon: <Home className="h-5 w-5" />
+      },
+      {
+        title: "NGO Registration",
+        description: "Register a non-profit organization",
+        to: "/services/ngo-registration",
+        icon: <Shield className="h-5 w-5" />
       },
       {
         title: "Business Advisory",
-        description: "Strategic business guidance services",
+        description: "Strategic business guidance",
         to: "/services/business-advisory",
-        icon: <BarChart className="h-5 w-5" />
+        icon: <GraduationCap className="h-5 w-5" />
       }
     ]
   }
 ];
 
 const EnhancedServiceDropdown = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -228,7 +328,7 @@ const EnhancedServiceDropdown = () => {
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid gap-3 p-6 md:w-[700px] lg:w-[1000px] lg:grid-cols-5 bg-white">
+            <div className="grid gap-3 p-4 md:w-[700px] lg:w-[1000px] lg:grid-cols-5 bg-white">
               {serviceCategories.map((category, categoryIndex) => (
                 <div key={categoryIndex} className="space-y-3">
                   <h3 className="text-lg font-medium text-primary border-b pb-1 mb-2">
@@ -273,29 +373,27 @@ interface ListItemProps {
   children: React.ReactNode;
 }
 
-const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
+const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
   ({ className, title, icon, children, to, ...props }, ref) => {
     return (
       <li>
-        <NavigationMenuLink asChild>
-          <Link
-            ref={ref as any}
-            className={cn(
-              "block select-none space-y-1 rounded-md p-2 hover:bg-slate-100 transition-colors no-underline outline-none",
-              className
-            )}
-            to={to}
-            {...props}
-          >
-            <div className="flex items-center gap-2">
-              <div className="text-primary">
-                {icon}
-              </div>
-              <div className="text-sm font-medium text-slate-900">{title}</div>
+        <Link
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-2 hover:bg-slate-100 transition-colors no-underline outline-none",
+            className
+          )}
+          to={to}
+          {...props}
+        >
+          <div className="flex items-center gap-2">
+            <div className="text-primary">
+              {icon}
             </div>
-            <p className="line-clamp-2 pl-7 text-xs text-slate-600">{children}</p>
-          </Link>
-        </NavigationMenuLink>
+            <div className="text-sm font-medium text-slate-900">{title}</div>
+          </div>
+          <p className="line-clamp-2 pl-7 text-xs text-slate-600">{children}</p>
+        </Link>
       </li>
     );
   }

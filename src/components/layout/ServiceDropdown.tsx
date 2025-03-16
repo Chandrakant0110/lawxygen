@@ -5,10 +5,8 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { 
@@ -20,7 +18,9 @@ import {
   Shield, 
   Copyright,
   Clock,
-  Check
+  Check,
+  Scale,
+  Search
 } from "lucide-react";
 
 // Type for service categories
@@ -161,29 +161,27 @@ interface ListItemProps {
   children: React.ReactNode;
 }
 
-const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
+const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
   ({ className, title, icon, children, to, ...props }, ref) => {
     return (
       <li>
-        <NavigationMenuLink asChild>
-          <Link
-            ref={ref as any}
-            className={cn(
-              "block select-none space-y-1 rounded-md p-3 hover:bg-accent transition-colors no-underline outline-none",
-              className
-            )}
-            to={to}
-            {...props}
-          >
-            <div className="flex items-center gap-2">
-              <div className="text-primary">
-                {icon}
-              </div>
-              <div className="text-base font-medium text-slate-900">{title}</div>
+        <Link
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 hover:bg-accent transition-colors no-underline outline-none",
+            className
+          )}
+          to={to}
+          {...props}
+        >
+          <div className="flex items-center gap-2">
+            <div className="text-primary">
+              {icon}
             </div>
-            <p className="line-clamp-2 pl-7 text-sm text-slate-600">{children}</p>
-          </Link>
-        </NavigationMenuLink>
+            <div className="text-base font-medium text-slate-900">{title}</div>
+          </div>
+          <p className="line-clamp-2 pl-7 text-sm text-slate-600">{children}</p>
+        </Link>
       </li>
     );
   }
