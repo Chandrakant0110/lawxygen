@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-20">
         <Hero />
         <ServiceCategories />
         <EnhancedServiceList />

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -8,7 +7,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 import ServiceListItem from "./ServiceListItem";
 import { 
   Building, 
@@ -117,13 +115,13 @@ const ServiceDropdown = () => {
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[600px] gap-3 p-4 md:w-[700px] md:grid-cols-3 lg:w-[900px] bg-white">
+            <div className="grid w-[600px] gap-4 p-6 md:w-[700px] md:grid-cols-3 lg:w-[900px] bg-white">
               {serviceCategories.map((category, categoryIndex) => (
                 <div key={categoryIndex} className="space-y-3">
-                  <h3 className="text-lg font-medium text-primary border-b pb-1 mb-2">
+                  <h3 className="text-lg font-medium text-primary border-b pb-2 mb-3">
                     {category.title}
                   </h3>
-                  <ul className="space-y-1">
+                  <ul className="space-y-2">
                     {category.items.map((item, itemIndex) => (
                       <ServiceListItem
                         key={itemIndex}
@@ -138,7 +136,7 @@ const ServiceDropdown = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-slate-50 p-4 border-t">
+            <div className="bg-slate-50 p-4 border-t text-center">
               <Link 
                 to="/search-results" 
                 className="block text-center text-sm font-medium text-primary hover:text-primary/80"
