@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import ServiceListItem from "./ServiceListItem";
 import { 
   Building, 
   FileCheck, 
@@ -124,14 +125,14 @@ const ServiceDropdown = () => {
                   </h3>
                   <ul className="space-y-1">
                     {category.items.map((item, itemIndex) => (
-                      <ListItem
+                      <ServiceListItem
                         key={itemIndex}
                         title={item.title}
                         to={item.to}
                         icon={item.icon}
                       >
                         {item.description}
-                      </ListItem>
+                      </ServiceListItem>
                     ))}
                   </ul>
                 </div>
@@ -151,41 +152,5 @@ const ServiceDropdown = () => {
     </NavigationMenu>
   );
 };
-
-// ListItem component for the dropdown
-interface ListItemProps {
-  className?: string;
-  title: string;
-  to: string;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-}
-
-const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
-  ({ className, title, icon, children, to, ...props }, ref) => {
-    return (
-      <li>
-        <Link
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 hover:bg-accent transition-colors no-underline outline-none",
-            className
-          )}
-          to={to}
-          {...props}
-        >
-          <div className="flex items-center gap-2">
-            <div className="text-primary">
-              {icon}
-            </div>
-            <div className="text-base font-medium text-slate-900">{title}</div>
-          </div>
-          <p className="line-clamp-2 pl-7 text-sm text-slate-600">{children}</p>
-        </Link>
-      </li>
-    );
-  }
-);
-ListItem.displayName = "ListItem";
 
 export default ServiceDropdown;

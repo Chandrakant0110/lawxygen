@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 import AuthButtons from "./AuthButtons";
 
 const Navbar = () => {
-  const { isMobile } = useIsMobile();
+  const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
