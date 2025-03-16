@@ -16,11 +16,11 @@ const EnhancedServiceDropdown = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent">
+          <NavigationMenuTrigger className="bg-transparent hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent w-full">
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid gap-3 p-4 md:w-[700px] lg:w-[1200px] lg:grid-cols-5 bg-white shadow-lg z-[200]">
+            <div className="grid gap-3 p-4 md:w-[700px] lg:w-[1200px] xl:w-[1400px] lg:grid-cols-5 bg-white shadow-lg z-[9999]">
               {serviceCategories.map((category, categoryIndex) => (
                 <ServiceCategoryGroup 
                   key={categoryIndex} 

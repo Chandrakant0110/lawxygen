@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
-            <div className="relative z-[110]">
+            <div className="relative z-[9999]">
               <EnhancedServiceDropdown />
             </div>
             <Link to="/find-lawyer" className="text-gray-700 hover:text-primary">

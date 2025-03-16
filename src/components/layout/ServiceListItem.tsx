@@ -27,7 +27,7 @@ const ServiceListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         >
           <div className="flex items-center gap-2">
             <div className="text-primary">
-              {Icon && <Icon className="h-5 w-5" />}
+              {Icon && <Icon className="h-4 w-4" />}
             </div>
             <div className="text-sm font-medium text-slate-900">{title}</div>
           </div>

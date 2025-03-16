@@ -9,11 +9,11 @@ interface ServiceCategoryGroupProps {
 
 const ServiceCategoryGroup: React.FC<ServiceCategoryGroupProps> = ({ category }) => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       <h3 className="text-lg font-medium text-primary border-b pb-1 mb-2">
         {category.title}
       </h3>
-      <ul className="space-y-2">
+      <ul className="space-y-1 max-h-[300px] overflow-y-auto">
         {category.items.map((item, itemIndex) => (
           <ServiceListItem
             key={itemIndex}

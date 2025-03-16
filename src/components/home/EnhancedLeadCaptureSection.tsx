@@ -4,8 +4,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
 
-const EnhancedLeadCaptureSection = () => {
-  const [showForm, setShowForm] = React.useState(false);
+interface EnhancedLeadCaptureSectionProps {
+  defaultService?: string;
+}
+
+const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({ defaultService }) => {
+  const [showForm, setShowForm] = React.useState(!!defaultService);
   
   return (
     <section className="py-20 bg-gray-50">
@@ -34,7 +38,11 @@ const EnhancedLeadCaptureSection = () => {
           
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
             {showForm ? (
-              <LeadCaptureForm variant="inline" className="bg-transparent border-0 shadow-none p-0" />
+              <LeadCaptureForm 
+                defaultService={defaultService} 
+                variant="inline" 
+                className="bg-transparent border-0 shadow-none p-0" 
+              />
             ) : (
               <div className="text-center p-6">
                 <h3 className="text-2xl font-bold text-black mb-4">

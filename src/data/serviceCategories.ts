@@ -9,7 +9,7 @@ import {
   Copyright,
   Clock,
   Check,
-  LandmarkIcon,
+  Landmark as LandmarkIcon,
   BarChart,
   FileSignature,
   Award,
