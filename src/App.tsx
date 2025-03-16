@@ -17,6 +17,7 @@ import FAQPage from "./pages/FAQPage";
 import BlogPage from "./pages/BlogPage";
 import Dashboard from "./pages/Dashboard";
 import ServiceCategoryPage from "./pages/ServiceCategoryPage";
+import ServiceListPage from "./pages/ServiceListPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MessagingPage from "./pages/MessagingPage";
 import CareersPage from "./pages/CareersPage";
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/find-professional" element={<FindProfessional />} />
             <Route path="/service/:id" element={<ServicePage />} />
             <Route path="/category/:category" element={<ServiceCategoryPage />} />
+            <Route path="/services" element={<ServiceListPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FAQPage />} />
@@ -77,6 +79,8 @@ const App = () => (
             <Route path="/services/llp-registration" element={<LLPRegistration />} />
             <Route path="/services/one-person-company" element={<OPCRegistration />} />
             <Route path="/services/gst-registration" element={<GSTRegistration />} />
+            
+            {/* Add routes for all other services here */}
             
             <Route path="*" element={<NotFound />} />
           </Routes>

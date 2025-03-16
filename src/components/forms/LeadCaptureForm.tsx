@@ -41,30 +41,44 @@ const formSchema = z.object({
   message: z.string().optional(),
 });
 
-// List of services for the dropdown
+// List of services for the dropdown - expanded list
 const services = [
-  { id: "company-registration", label: "Company Registration" },
-  { id: "gst-tax-compliance", label: "GST & Tax Compliance" },
-  { id: "legal-document-drafting", label: "Legal Document Drafting" },
-  { id: "business-compliance", label: "Business Compliance" },
-  { id: "startup-legal-consultation", label: "Startup Legal Consultation" },
-  { id: "hr-payroll-compliance", label: "HR & Payroll Compliance" },
+  { id: "private-limited-company", label: "Private Limited Company Registration" },
+  { id: "llp-registration", label: "Limited Liability Partnership Registration" },
+  { id: "one-person-company", label: "One Person Company Registration" },
+  { id: "sole-proprietorship", label: "Sole Proprietorship Registration" },
+  { id: "partnership-firm", label: "Partnership Firm Registration" },
+  { id: "section-8-company", label: "Section 8 Company Registration" },
+  { id: "nidhi-company", label: "Nidhi Company Registration" },
+  { id: "producer-company", label: "Producer Company Registration" },
+  { id: "gst-registration", label: "GST Registration" },
+  { id: "gst-filing", label: "GST Filing" },
+  { id: "income-tax-filing", label: "Income Tax Return Filing" },
+  { id: "company-annual-filing", label: "Company Annual Filing" },
+  { id: "trademark-registration", label: "Trademark Registration" },
+  { id: "copyright-registration", label: "Copyright Registration" },
+  { id: "patent-filing", label: "Patent Filing" },
+  { id: "legal-documentation", label: "Legal Documentation" },
+  { id: "nda-agreement", label: "Non-Disclosure Agreement Drafting" },
+  { id: "founders-agreement", label: "Founders Agreement Drafting" },
+  { id: "hr-compliance", label: "HR & Payroll Compliance" },
   { id: "government-registrations", label: "Government Registrations & Licensing" },
-  { id: "financial-compliance", label: "Financial Compliance & Virtual CFO" },
-  { id: "ip-services", label: "Intellectual Property Services" },
-  { id: "legal-retainer-plans", label: "Legal Retainer Subscription Plans" },
 ];
 
 interface LeadCaptureFormProps {
   defaultService?: string;
   variant?: "sidebar" | "inline" | "popup";
   className?: string;
+  title?: string;
+  subtitle?: string;
 }
 
 const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
   defaultService,
   variant = "inline",
   className = "",
+  title = "Get a Free Consultation",
+  subtitle = "Fill out this form, and our legal experts will get back to you within 24 hours.",
 }) => {
   // Form initialization
   const form = useForm<z.infer<typeof formSchema>>({
@@ -104,10 +118,10 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
   return (
     <div className={`${formStyles[variant]} ${className}`}>
       <h3 className="text-xl font-bold text-indigo-800 mb-2">
-        Get a Free Consultation
+        {title}
       </h3>
       <p className="text-slate-600 mb-6">
-        Fill out this form, and our legal experts will get back to you within 24 hours.
+        {subtitle}
       </p>
       
       <Form {...form}>

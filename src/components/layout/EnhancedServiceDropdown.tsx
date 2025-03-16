@@ -20,7 +20,7 @@ const EnhancedServiceDropdown = () => {
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid gap-3 p-4 md:w-[800px] lg:w-[1200px] xl:w-[1400px] lg:grid-cols-5 bg-white shadow-lg z-[9999]">
+            <div className="grid gap-4 p-6 md:w-[850px] lg:w-[1100px] xl:w-[1400px] lg:grid-cols-3 xl:grid-cols-5 bg-white shadow-lg z-[9999]">
               {serviceCategories.map((category, categoryIndex) => (
                 <ServiceCategoryGroup 
                   key={categoryIndex} 
@@ -30,7 +30,7 @@ const EnhancedServiceDropdown = () => {
             </div>
             <div className="bg-slate-50 p-4 border-t">
               <Link 
-                to="/search-results" 
+                to="/services" 
                 className="block text-center text-sm font-medium text-primary hover:text-primary/80"
               >
                 Browse All Services
