@@ -90,7 +90,13 @@ const Navbar = () => {
             Home
           </Link>
           <div className="relative">
-            <EnhancedServiceDropdown />
+            <Link
+              to="/services"
+              className="text-gray-700 hover:text-primary"
+              onClick={toggleMenu}
+            >
+              Services
+            </Link>
           </div>
           <Link
             to="/find-lawyer"

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,18 +13,15 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    /* Updated to a modern teal color */
     --primary: 180 65% 42%;
     --primary-foreground: 0 0% 100%;
 
-    /* Updated to dark teal */
     --secondary: 180 65% 25%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Updated to light teal */
     --accent: 180 65% 95%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
@@ -58,7 +54,6 @@
     --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 210 40% 98%;
 
-    /* Updated to light teal */
     --primary: 180 65% 60%;
     --primary-foreground: 240 5.9% 10%;
 
@@ -100,7 +95,6 @@
 }
 
 @layer components {
-  /* Updated gradient to teal and white */
   .hero-gradient {
     background: linear-gradient(135deg, #f8f9fa 0%, #e0f2f1 100%);
   }
@@ -113,7 +107,6 @@
     @apply py-16 md:py-24;
   }
   
-  /* Updated button colors to teal */
   .btn-primary {
     @apply px-6 py-3 font-medium text-white transition-colors rounded-md bg-primary hover:bg-secondary;
   }
@@ -122,7 +115,6 @@
     @apply px-6 py-3 font-medium transition-colors border rounded-md text-gray-800 border-gray-200 hover:bg-accent;
   }
 
-  /* Add human-friendly design elements */
   .card-humanized {
     @apply rounded-lg shadow-sm transition-all duration-300 hover:shadow-md border border-gray-100;
   }
@@ -139,7 +131,6 @@
     @apply text-gray-700 hover:text-primary transition-colors duration-200 underline-offset-2 hover:underline;
   }
 
-  /* Service cards with new color scheme */
   .service-card {
     @apply p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100;
   }
@@ -176,7 +167,6 @@
     @apply mt-6 text-center;
   }
 
-  /* Lead form styling */
   .lead-form {
     @apply p-6 bg-accent rounded-xl border border-gray-100 shadow-sm;
   }
@@ -193,32 +183,39 @@
     @apply mb-4;
   }
 
-  /* Service dropdown menu styling */
-  .service-dropdown {
-    @apply absolute z-50 mt-2 w-screen max-w-md px-4 sm:px-0 lg:max-w-3xl transform -translate-x-1/2 left-1/2;
+  .services-dropdown {
+    @apply bg-white border border-gray-100 shadow-xl rounded-md overflow-hidden;
   }
-
-  .dropdown-grid {
-    @apply grid grid-cols-2 gap-5 p-5 bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5;
+  
+  .services-dropdown-content {
+    @apply p-0 m-0 bg-white;
   }
-
-  .dropdown-category {
-    @apply p-3 flex flex-col;
+  
+  .service-category-group {
+    @apply p-4 border-b border-gray-100 last:border-b-0;
   }
-
-  .dropdown-category-header {
-    @apply text-lg font-medium text-primary mb-3 border-b pb-1 border-gray-100;
+  
+  .service-category-title {
+    @apply text-lg font-medium text-primary mb-2;
   }
-
-  .dropdown-item {
-    @apply flex items-center p-2 rounded-md hover:bg-accent transition-colors;
+  
+  .service-item {
+    @apply flex items-center p-2 rounded-md hover:bg-accent transition-colors duration-150;
   }
-
-  .dropdown-icon {
-    @apply mr-3 h-5 w-5 text-primary;
+  
+  .service-item-icon {
+    @apply text-primary mr-3;
   }
-
-  .dropdown-link-text {
-    @apply text-gray-700;
+  
+  .service-item-content {
+    @apply flex-1;
+  }
+  
+  .service-item-title {
+    @apply text-sm font-medium text-gray-800;
+  }
+  
+  .service-item-description {
+    @apply text-xs text-gray-500;
   }
 }
