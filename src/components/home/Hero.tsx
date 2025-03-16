@@ -17,7 +17,7 @@ const Hero = () => {
 
   return (
     <div className="bg-gray-50 text-black pb-10">
-      <div className="container-custom pt-16 md:pt-20 pb-16 md:pb-20">
+      <div className="container-custom pt-20 md:pt-24 pb-16 md:pb-20">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-black">
             Find Expert Legal Professionals
@@ -86,7 +86,7 @@ const Hero = () => {
                 variant="outline" 
                 className="border-gray-300 hover:bg-gray-50 text-gray-800 font-medium text-lg px-8 py-6"
               >
-                <Link to="/services/company-registration">Explore Our Services</Link>
+                <Link to="/search-results">Explore Our Services</Link>
               </Button>
             </div>
           )}

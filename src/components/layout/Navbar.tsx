@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled ? "bg-white shadow-md py-2" : "bg-white py-4"
       }`}
     >
@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
-            <div className="relative group">
+            <div className="relative z-[110]">
               <EnhancedServiceDropdown />
             </div>
             <Link to="/find-lawyer" className="text-gray-700 hover:text-primary">
@@ -81,7 +81,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMobile && isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-6 flex flex-col space-y-4">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-6 flex flex-col space-y-4 z-[100]">
           <Link
             to="/"
             className="text-gray-700 hover:text-primary"
