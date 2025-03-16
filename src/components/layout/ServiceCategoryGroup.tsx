@@ -13,7 +13,7 @@ const ServiceCategoryGroup: React.FC<ServiceCategoryGroupProps> = ({ category })
       <h3 className="text-lg font-medium text-primary border-b pb-1 mb-2">
         {category.title}
       </h3>
-      <ul className="space-y-1 max-h-[300px] overflow-y-auto">
+      <ul className="space-y-1 max-h-[300px] overflow-y-auto pr-2">
         {category.items.map((item, itemIndex) => (
           <ServiceListItem
             key={itemIndex}

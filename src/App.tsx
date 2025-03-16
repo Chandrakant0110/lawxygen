@@ -27,11 +27,15 @@ import FindLawyer from "./pages/FindLawyer";
 import FindProfessional from "./pages/FindProfessional";
 import AuthPage from "./pages/AuthPage";
 
+// Service Pages
 import CompanyRegistration from "./pages/services/CompanyRegistration";
 import HRPayrollCompliance from "./pages/services/HRPayrollCompliance";
 import FinancialCompliance from "./pages/services/FinancialCompliance";
 import TrademarkRegistration from "./pages/services/TrademarkRegistration";
 import PrivateLimitedCompany from "./pages/services/PrivateLimitedCompany";
+import LLPRegistration from "./pages/services/LLPRegistration";
+import OPCRegistration from "./pages/services/OPCRegistration";
+import GSTRegistration from "./pages/services/GSTRegistration";
 
 const queryClient = new QueryClient();
 
@@ -64,11 +68,15 @@ const App = () => (
             <Route path="/legal" element={<LegalPage />} />
             <Route path="/auth" element={<AuthPage />} />
             
+            {/* Service Pages */}
             <Route path="/services/company-registration" element={<CompanyRegistration />} />
             <Route path="/services/hr-payroll-compliance" element={<HRPayrollCompliance />} />
             <Route path="/services/financial-compliance" element={<FinancialCompliance />} />
             <Route path="/services/trademark-registration" element={<TrademarkRegistration />} />
             <Route path="/services/private-limited-company" element={<PrivateLimitedCompany />} />
+            <Route path="/services/llp-registration" element={<LLPRegistration />} />
+            <Route path="/services/one-person-company" element={<OPCRegistration />} />
+            <Route path="/services/gst-registration" element={<GSTRegistration />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>

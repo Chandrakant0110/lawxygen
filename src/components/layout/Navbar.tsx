@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
-            <div className="relative z-[9999]">
+            <div className="relative z-[999]">
               <EnhancedServiceDropdown />
             </div>
             <Link to="/find-lawyer" className="text-gray-700 hover:text-primary">
@@ -81,7 +81,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMobile && isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-6 flex flex-col space-y-4 z-[100]">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-6 flex flex-col space-y-4 z-[9999]">
           <Link
             to="/"
             className="text-gray-700 hover:text-primary"
