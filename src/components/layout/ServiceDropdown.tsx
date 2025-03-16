@@ -31,7 +31,7 @@ interface ServiceCategory {
     title: string;
     description: string;
     to: string;
-    icon: React.ReactNode;
+    icon: React.ComponentType<any>;
   }[];
 }
 
@@ -44,19 +44,19 @@ const serviceCategories: ServiceCategory[] = [
         title: "Company Registration",
         description: "Register your business as a Private Limited, LLP, or OPC",
         to: "/services/company-registration",
-        icon: <Building className="h-5 w-5" />
+        icon: Building
       },
       {
         title: "Government Registrations",
         description: "GST, PAN, TAN, and other essential registrations",
         to: "/services/government-registrations",
-        icon: <FileCheck className="h-5 w-5" />
+        icon: FileCheck
       },
       {
         title: "Business Compliance",
         description: "Annual filings and regulatory compliance",
         to: "/services/business-compliance",
-        icon: <Check className="h-5 w-5" />
+        icon: Check
       }
     ]
   },
@@ -67,19 +67,19 @@ const serviceCategories: ServiceCategory[] = [
         title: "Legal Document Drafting",
         description: "Contracts, agreements, and legal documents",
         to: "/services/legal-document-drafting",
-        icon: <FileText className="h-5 w-5" />
+        icon: FileText
       },
       {
         title: "HR & Payroll Compliance",
         description: "Employee contracts, HR policies, and payroll",
         to: "/services/hr-payroll-compliance",
-        icon: <Users className="h-5 w-5" />
+        icon: Users
       },
       {
         title: "Financial Compliance",
         description: "Virtual CFO, accounting, and financial management",
         to: "/services/financial-compliance",
-        icon: <Calculator className="h-5 w-5" />
+        icon: Calculator
       }
     ]
   },
@@ -90,19 +90,19 @@ const serviceCategories: ServiceCategory[] = [
         title: "Intellectual Property",
         description: "Trademark, patent, and copyright registration",
         to: "/services/ip-services",
-        icon: <Copyright className="h-5 w-5" />
+        icon: Copyright
       },
       {
         title: "Legal Retainer Plans",
         description: "Monthly subscription for ongoing legal support",
         to: "/services/legal-retainer-plans",
-        icon: <Clock className="h-5 w-5" />
+        icon: Clock
       },
       {
         title: "Startup Legal Consultation",
         description: "Specialized legal services for startups",
         to: "/services/startup-legal-consultation",
-        icon: <Shield className="h-5 w-5" />
+        icon: Shield
       }
     ]
   }
