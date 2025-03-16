@@ -31,7 +31,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   to: string;
-  icon: React.ReactNode;
+  icon: React.ComponentType<any>;
 }
 
 export interface ServiceCategory {
@@ -48,49 +48,49 @@ export const serviceCategories: ServiceCategory[] = [
         title: "Private Limited Company",
         description: "Register a Private Limited Company",
         to: "/services/private-limited-company",
-        icon: <Building className="h-5 w-5" />
+        icon: Building
       },
       {
         title: "Limited Liability Partnership",
         description: "Register a Limited Liability Partnership",
         to: "/services/llp-registration",
-        icon: <LandmarkIcon className="h-5 w-5" />
+        icon: LandmarkIcon
       },
       {
         title: "One Person Company",
         description: "Form a One Person Company",
         to: "/services/one-person-company",
-        icon: <Building className="h-5 w-5" />
+        icon: Building
       },
       {
         title: "Sole Proprietorship",
         description: "Start a Sole Proprietorship business",
         to: "/services/sole-proprietorship",
-        icon: <FileSignature className="h-5 w-5" />
+        icon: FileSignature
       },
       {
         title: "Nidhi Company",
         description: "Register a Nidhi Company",
         to: "/services/nidhi-company",
-        icon: <Building className="h-5 w-5" />
+        icon: Building
       },
       {
         title: "Producer Company",
         description: "Form a Producer Company",
         to: "/services/producer-company",
-        icon: <Building className="h-5 w-5" />
+        icon: Building
       },
       {
         title: "Partnership Firm",
         description: "Register a Partnership Firm",
         to: "/services/partnership-firm",
-        icon: <Handshake className="h-5 w-5" />
+        icon: Handshake
       },
       {
         title: "Startup India Registration",
         description: "Register under Startup India program",
         to: "/services/startup-india-registration",
-        icon: <Award className="h-5 w-5" />
+        icon: Award
       }
     ]
   },
@@ -101,49 +101,49 @@ export const serviceCategories: ServiceCategory[] = [
         title: "GST Registration",
         description: "Register for Goods & Services Tax",
         to: "/services/gst-registration",
-        icon: <FileCheck className="h-5 w-5" />
+        icon: FileCheck
       },
       {
         title: "GST Filing",
         description: "Regular GST return filing",
         to: "/services/gst-filing",
-        icon: <FileCheck className="h-5 w-5" />
+        icon: FileCheck
       },
       {
         title: "GST Login Portal",
         description: "Access the GST portal",
         to: "/services/gst-login-portal",
-        icon: <FileCheck className="h-5 w-5" />
+        icon: FileCheck
       },
       {
         title: "HSN Code Finder",
         description: "Find the right HSN code",
         to: "/services/hsn-code-finder",
-        icon: <Search className="h-5 w-5" />
+        icon: Search
       },
       {
         title: "TDS Filing",
         description: "File TDS returns accurately",
         to: "/services/tds-filing",
-        icon: <Calculator className="h-5 w-5" />
+        icon: Calculator
       },
       {
         title: "Annual Compliance",
         description: "Complete annual filing requirements",
         to: "/services/annual-compliance",
-        icon: <Calendar className="h-5 w-5" />
+        icon: Calendar
       },
       {
         title: "ROC Compliance",
         description: "Comply with Registrar of Companies rules",
         to: "/services/roc-compliance",
-        icon: <Check className="h-5 w-5" />
+        icon: Check
       },
       {
         title: "Accounting Services",
         description: "Professional accounting & bookkeeping",
         to: "/services/accounting-services",
-        icon: <BarChart className="h-5 w-5" />
+        icon: BarChart
       }
     ]
   },
@@ -154,49 +154,49 @@ export const serviceCategories: ServiceCategory[] = [
         title: "Trademark Registration",
         description: "Register your brand's trademark",
         to: "/services/trademark-registration",
-        icon: <Copyright className="h-5 w-5" />
+        icon: Copyright
       },
       {
         title: "Trademark Search",
         description: "Check if your trademark is available",
         to: "/services/trademark-search",
-        icon: <Search className="h-5 w-5" />
+        icon: Search
       },
       {
         title: "Respond to TM Objection",
         description: "Handle trademark examination reports",
         to: "/services/trademark-objection",
-        icon: <FileText className="h-5 w-5" />
+        icon: FileText
       },
       {
         title: "Copyright Registration",
         description: "Protect your creative works",
         to: "/services/copyright-registration",
-        icon: <PenTool className="h-5 w-5" />
+        icon: PenTool
       },
       {
         title: "Patent Filing",
         description: "Patent your innovations & inventions",
         to: "/services/patent-filing",
-        icon: <Award className="h-5 w-5" />
+        icon: Award
       },
       {
         title: "Design Registration",
         description: "Protect your product designs",
         to: "/services/design-registration",
-        icon: <PenTool className="h-5 w-5" />
+        icon: PenTool
       },
       {
         title: "International Trademark",
         description: "Global trademark protection",
         to: "/services/international-trademark",
-        icon: <Globe className="h-5 w-5" />
+        icon: Globe
       },
       {
         title: "Trademark Class Finder",
         description: "Find the right trademark class",
         to: "/services/trademark-class-finder",
-        icon: <Search className="h-5 w-5" />
+        icon: Search
       }
     ]
   },
@@ -207,49 +207,49 @@ export const serviceCategories: ServiceCategory[] = [
         title: "Business Contracts",
         description: "Essential business legal documents",
         to: "/services/business-contracts",
-        icon: <FileText className="h-5 w-5" />
+        icon: FileText
       },
       {
         title: "NDA Agreement",
         description: "Non-Disclosure Agreement drafting",
         to: "/services/nda-agreement",
-        icon: <FileText className="h-5 w-5" />
+        icon: FileText
       },
       {
         title: "Service Level Agreement",
         description: "SLA drafting and review",
         to: "/services/service-level-agreement",
-        icon: <FileText className="h-5 w-5" />
+        icon: FileText
       },
       {
         title: "Shareholders Agreement",
         description: "Structure your company ownership",
         to: "/services/shareholders-agreement",
-        icon: <Handshake className="h-5 w-5" />
+        icon: Handshake
       },
       {
         title: "Founders Agreement",
         description: "Define co-founder relationships",
         to: "/services/founders-agreement",
-        icon: <Handshake className="h-5 w-5" />
+        icon: Handshake
       },
       {
         title: "Memorandum of Understanding",
         description: "Document partnership intentions",
         to: "/services/mou",
-        icon: <FileText className="h-5 w-5" />
+        icon: FileText
       },
       {
         title: "HR Policies",
         description: "Develop compliant HR documents",
         to: "/services/hr-policies",
-        icon: <Users className="h-5 w-5" />
+        icon: Users
       },
       {
         title: "Legal Notice",
         description: "Issue or respond to legal notices",
         to: "/services/legal-notice",
-        icon: <FileCheck className="h-5 w-5" />
+        icon: FileCheck
       }
     ]
   },
@@ -260,49 +260,49 @@ export const serviceCategories: ServiceCategory[] = [
         title: "Legal Consultation",
         description: "Expert legal advice & guidance",
         to: "/services/legal-consultation",
-        icon: <Scale className="h-5 w-5" />
+        icon: Scale
       },
       {
         title: "Fundraising Support",
         description: "Legal assistance for funding rounds",
         to: "/services/fundraising",
-        icon: <DollarSign className="h-5 w-5" />
+        icon: DollarSign
       },
       {
         title: "Business Pitch Deck",
         description: "Create a compelling investor pitch",
         to: "/services/pitch-deck",
-        icon: <PieChart className="h-5 w-5" />
+        icon: PieChart
       },
       {
         title: "Legal Retainer Plans",
         description: "Ongoing legal support package",
         to: "/services/legal-retainer",
-        icon: <Clock className="h-5 w-5" />
+        icon: Clock
       },
       {
         title: "Litigation Support",
         description: "Representation in legal disputes",
         to: "/services/litigation",
-        icon: <Scale className="h-5 w-5" />
+        icon: Scale
       },
       {
         title: "Property & Real Estate",
         description: "Property law services",
         to: "/services/property",
-        icon: <Home className="h-5 w-5" />
+        icon: Home
       },
       {
         title: "NGO Registration",
         description: "Register a non-profit organization",
         to: "/services/ngo-registration",
-        icon: <Shield className="h-5 w-5" />
+        icon: Shield
       },
       {
         title: "Business Advisory",
         description: "Strategic business guidance",
         to: "/services/business-advisory",
-        icon: <GraduationCap className="h-5 w-5" />
+        icon: GraduationCap
       }
     ]
   }

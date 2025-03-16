@@ -8,12 +8,12 @@ export interface ListItemProps {
   className?: string;
   title: string;
   to: string;
-  icon?: React.ReactNode;
+  icon?: React.ComponentType<any>;
   children: React.ReactNode;
 }
 
 const ServiceListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
-  ({ className, title, icon, children, to, ...props }, ref) => {
+  ({ className, title, icon: Icon, children, to, ...props }, ref) => {
     return (
       <li>
         <Link
@@ -27,7 +27,7 @@ const ServiceListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         >
           <div className="flex items-center gap-2">
             <div className="text-primary">
-              {icon}
+              {Icon && <Icon className="h-5 w-5" />}
             </div>
             <div className="text-sm font-medium text-slate-900">{title}</div>
           </div>
