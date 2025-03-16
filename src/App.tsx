@@ -38,6 +38,18 @@ import LLPRegistration from "./pages/services/LLPRegistration";
 import OPCRegistration from "./pages/services/OPCRegistration";
 import GSTRegistration from "./pages/services/GSTRegistration";
 
+// Additional service pages
+import SoleProprietorship from "./pages/services/SoleProprietorship";
+import NidhiCompany from "./pages/services/NidhiCompany";
+import ProducerCompany from "./pages/services/ProducerCompany";
+import Section8Company from "./pages/services/Section8Company";
+import PartnershipFirm from "./pages/services/PartnershipFirm";
+import StartupIndia from "./pages/services/StartupIndia";
+import TaxFilingServices from "./pages/services/TaxFilingServices";
+import IPRServices from "./pages/services/IPRServices";
+import ImportExportCode from "./pages/services/ImportExportCode";
+import LegalDocuments from "./pages/services/LegalDocuments";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -80,7 +92,17 @@ const App = () => (
             <Route path="/services/one-person-company" element={<OPCRegistration />} />
             <Route path="/services/gst-registration" element={<GSTRegistration />} />
             
-            {/* Add routes for all other services here */}
+            {/* Additional Service Pages */}
+            <Route path="/services/sole-proprietorship" element={<SoleProprietorship />} />
+            <Route path="/services/nidhi-company" element={<NidhiCompany />} />
+            <Route path="/services/producer-company" element={<ProducerCompany />} />
+            <Route path="/services/section-8-company" element={<Section8Company />} />
+            <Route path="/services/partnership-firm" element={<PartnershipFirm />} />
+            <Route path="/services/startup-india" element={<StartupIndia />} />
+            <Route path="/services/tax-filing-services" element={<TaxFilingServices />} />
+            <Route path="/services/ipr-services" element={<IPRServices />} />
+            <Route path="/services/import-export-code" element={<ImportExportCode />} />
+            <Route path="/services/legal-documents" element={<LegalDocuments />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
