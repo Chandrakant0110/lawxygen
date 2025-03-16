@@ -41,7 +41,7 @@ import GSTRegistration from "./pages/services/GSTRegistration";
 // Additional service pages
 import SoleProprietorship from "./pages/services/SoleProprietorship";
 import NidhiCompany from "./pages/services/NidhiCompany";
-import ProducerCompany from "./pages/services/ProducerCompany";
+import ProducerCompany from "./pages/services/ProducerCompany.tsx";
 import Section8Company from "./pages/services/Section8Company";
 import PartnershipFirm from "./pages/services/PartnershipFirm";
 import StartupIndia from "./pages/services/StartupIndia";
