@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useMobile } from "@/hooks/use-mobile";
 import EnhancedServiceDropdown from "@/components/layout/EnhancedServiceDropdown";
 import { Menu, X } from "lucide-react";
 import AuthButtons from "./AuthButtons";
 
 const Navbar = () => {
-  const isMobile = useIsMobile();
+  const { isMobile } = useMobile();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
