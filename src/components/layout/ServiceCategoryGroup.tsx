@@ -10,25 +10,25 @@ interface ServiceCategoryGroupProps {
 
 const ServiceCategoryGroup: React.FC<ServiceCategoryGroupProps> = ({ category }) => {
   return (
-    <div className="space-y-3">
-      <h3 className="text-lg font-medium text-primary border-b pb-2">
+    <div className="service-category-container">
+      <h3 className="service-category-title">
         {category.title}
       </h3>
-      <ul className="space-y-1">
+      <ul className="service-items-list">
         {category.items.map((item, index) => (
           <li key={index}>
             <Link
               to={item.to}
-              className="flex items-start p-2 rounded-md hover:bg-slate-50 group"
+              className="service-item-link"
             >
-              <div className="flex-shrink-0 w-5 h-5 mt-0.5 text-primary">
-                {React.createElement(item.icon, { size: 18 })}
+              <div className="service-item-icon">
+                {React.createElement(item.icon, { size: 16 })}
               </div>
-              <div className="ml-3">
-                <div className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors">
+              <div className="service-item-content">
+                <div className="service-item-title">
                   {item.title}
                 </div>
-                <p className="text-xs text-gray-500 line-clamp-1">
+                <p className="service-item-description">
                   {item.description}
                 </p>
               </div>

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import ServiceCategoryGroup from "./ServiceCategoryGroup";
 import { serviceCategories } from "@/data/serviceCategories";
+import { ChevronRight } from "lucide-react";
 
 const EnhancedServiceDropdown = () => {
   return (
@@ -20,21 +21,24 @@ const EnhancedServiceDropdown = () => {
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid gap-6 p-6 md:w-[900px] lg:w-[1200px] xl:w-[1400px] lg:grid-cols-5 bg-white shadow-lg z-[9999]">
-              {serviceCategories.map((category, categoryIndex) => (
-                <ServiceCategoryGroup 
-                  key={categoryIndex} 
-                  category={category}
-                />
-              ))}
-            </div>
-            <div className="bg-slate-50 p-4 border-t">
-              <Link 
-                to="/services" 
-                className="block text-center text-sm font-medium text-primary hover:text-primary/80"
-              >
-                Browse All Services
-              </Link>
+            <div className="services-mega-dropdown">
+              <div className="services-mega-dropdown-grid">
+                {serviceCategories.map((category, categoryIndex) => (
+                  <ServiceCategoryGroup 
+                    key={categoryIndex} 
+                    category={category}
+                  />
+                ))}
+              </div>
+              <div className="bg-slate-50 p-4 border-t">
+                <Link 
+                  to="/services" 
+                  className="flex items-center justify-center text-sm font-medium text-primary hover:text-primary/80 gap-1"
+                >
+                  View all services
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
