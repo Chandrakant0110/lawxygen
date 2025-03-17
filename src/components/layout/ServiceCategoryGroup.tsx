@@ -2,7 +2,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ServiceCategory } from "@/data/serviceCategories";
-import { cn } from "@/lib/utils";
 
 interface ServiceCategoryGroupProps {
   category: ServiceCategory;
@@ -19,7 +18,7 @@ const ServiceCategoryGroup: React.FC<ServiceCategoryGroupProps> = ({ category })
           <li key={index}>
             <Link
               to={item.to}
-              className="service-item-link"
+              className="service-item-link group" // Added the 'group' class directly here
             >
               <div className="service-item-icon">
                 {React.createElement(item.icon, { size: 16 })}

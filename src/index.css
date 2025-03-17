@@ -213,7 +213,8 @@
   }
 
   .service-item-link {
-    @apply group;
+    @apply flex items-start;
+    @apply hover:bg-slate-50;
   }
 
   .service-item-icon {
