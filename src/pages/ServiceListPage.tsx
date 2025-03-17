@@ -1,7 +1,7 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { services, categories } from "@/mock/mockData";
+import { categories } from "@/mock/mockData";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const ServiceListPage = () => {
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   
   return (
     <>
@@ -72,7 +72,6 @@ const ServiceListPage = () => {
               <div key={category.id} className="mb-16">
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`p-2 rounded-lg ${category.color}`}>
-                    {/* Here you'd ideally render the category icon dynamically */}
                     <Search className="h-5 w-5" />
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900">{category.name}</h2>
@@ -97,7 +96,6 @@ const ServiceListPage = () => {
                             {service}
                           </h3>
                           <p className="text-slate-500 mb-4 text-sm">
-                            {/* Placeholder description */}
                             Complete assistance with {service.toLowerCase()}.
                           </p>
                           <div className="flex justify-between items-center mt-auto">
@@ -124,21 +122,7 @@ const ServiceListPage = () => {
                 Our legal experts are here to help you identify the right service for your business needs. 
                 Schedule a free consultation and get personalized guidance.
               </p>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="flex -space-x-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-violet-300 border-2 border-white flex items-center justify-center text-violet-700 font-medium">
-                      {String.fromCharCode(64 + i)}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-slate-600">Join 2000+ satisfied clients</span>
-              </div>
               <div className="flex gap-4">
-                <Button variant="outline" className="gap-2">
-                  <ExternalLink size={16} />
-                  Schedule a Call
-                </Button>
                 <Button className="gap-2">
                   Get Free Consultation
                   <ArrowRight size={16} />

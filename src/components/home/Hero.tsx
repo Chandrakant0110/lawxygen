@@ -86,7 +86,7 @@ const Hero = () => {
                 variant="outline" 
                 className="border-gray-300 hover:bg-gray-50 text-gray-800 font-medium text-lg px-8 py-6"
               >
-                <Link to="/search-results">Explore Our Services</Link>
+                <Link to="/services">Explore Our Services</Link>
               </Button>
             </div>
           )}
