@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -210,7 +209,11 @@
   }
 
   .service-item-link {
-    @apply flex items-start p-2 rounded-md hover:bg-slate-50 group transition-all duration-150;
+    @apply flex items-start p-2 rounded-md hover:bg-slate-50 transition-all duration-150;
+  }
+
+  .service-item-link {
+    @apply group;
   }
 
   .service-item-icon {
@@ -222,7 +225,11 @@
   }
 
   .service-item-title {
-    @apply text-sm font-medium text-gray-900 group-hover:text-primary transition-colors truncate;
+    @apply text-sm font-medium text-gray-900 transition-colors truncate;
+  }
+
+  .group:hover .service-item-title {
+    @apply text-primary;
   }
 
   .service-item-description {
