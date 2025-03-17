@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,7 +62,32 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated modern color palette to black and white
+				// Apple-inspired color palette
+				apple: {
+					blue: '#0077ED',
+					darkblue: '#0066CC',
+					indigo: '#5856D6',
+					purple: '#AF52DE',
+					pink: '#FF2D55',
+					red: '#FF3B30',
+					orange: '#FF9500',
+					yellow: '#FFCC00',
+					green: '#34C759',
+					teal: '#5AC8FA',
+					gray: {
+						50: '#F9F9F9',
+						100: '#F2F2F2',
+						200: '#E3E3E3',
+						300: '#D1D1D1',
+						400: '#AEAEB2',
+						500: '#8E8E93',
+						600: '#636366',
+						700: '#48484A',
+						800: '#3A3A3C',
+						900: '#1C1C1E',
+					}
+				},
+				// Keep existing color definitions
 				indigo: {
 					50: '#f8fafc',
 					100: '#f1f5f9',
@@ -155,6 +179,10 @@ export default {
 					900: '#0f172a',
 					950: '#020617',
 				},
+				lawpurple: {
+					600: 'var(--apple-blue, #0077ED)',
+					700: 'var(--apple-darkblue, #0066CC)',
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -182,7 +210,20 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+			},
+			fontFamily: {
+				sans: [
+					'-apple-system',
+					'BlinkMacSystemFont',
+					'San Francisco',
+					'Helvetica Neue',
+					'Helvetica',
+					'Ubuntu',
+					'Roboto',
+					'Arial',
+					'sans-serif',
+				],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

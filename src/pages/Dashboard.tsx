@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -23,56 +24,56 @@ const Dashboard = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
-      <main className="flex-grow bg-gray-50 py-8 px-4">
+      <main className="flex-grow bg-apple-gray-50 py-8 px-4">
         <div className="container-custom max-w-7xl">
-          {/* Dashboard Header */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+          {/* Dashboard Header - Apple-style */}
+          <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <Avatar className="h-16 w-16">
+              <div className="flex items-center gap-5">
+                <Avatar className="h-16 w-16 rounded-xl">
                   <AvatarImage src={userProfile.avatar} alt={userProfile.name} />
-                  <AvatarFallback>{userProfile.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  <AvatarFallback className="bg-apple-blue/10 text-apple-blue">{userProfile.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{userProfile.name}</h1>
-                  <p className="text-gray-600">{userProfile.email}</p>
-                  <p className="text-sm text-gray-500">Member since {userProfile.memberSince}</p>
+                  <h1 className="text-2xl font-semibold text-apple-gray-900">{userProfile.name}</h1>
+                  <p className="text-apple-gray-500">{userProfile.email}</p>
+                  <p className="text-sm text-apple-gray-400">Member since {userProfile.memberSince}</p>
                 </div>
               </div>
-              <Button className="bg-lawpurple-600 hover:bg-lawpurple-700">Edit Profile</Button>
+              <Button className="bg-apple-blue hover:bg-apple-darkblue rounded-lg">Edit Profile</Button>
             </div>
           </div>
           
-          {/* Dashboard Tabs */}
+          {/* Dashboard Tabs - Apple-style */}
           <Tabs defaultValue="overview" className="w-full" value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2 bg-white p-2 rounded-lg mb-6">
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="services">Services</TabsTrigger>
-              <TabsTrigger value="messages">Messages</TabsTrigger>
-              <TabsTrigger value="payments">Payments</TabsTrigger>
-              <TabsTrigger value="settings">Settings</TabsTrigger>
+            <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2 bg-white p-2 rounded-xl mb-8">
+              <TabsTrigger value="overview" className="data-[state=active]:bg-apple-blue data-[state=active]:text-white">Overview</TabsTrigger>
+              <TabsTrigger value="services" className="data-[state=active]:bg-apple-blue data-[state=active]:text-white">Services</TabsTrigger>
+              <TabsTrigger value="messages" className="data-[state=active]:bg-apple-blue data-[state=active]:text-white">Messages</TabsTrigger>
+              <TabsTrigger value="payments" className="data-[state=active]:bg-apple-blue data-[state=active]:text-white">Payments</TabsTrigger>
+              <TabsTrigger value="settings" className="data-[state=active]:bg-apple-blue data-[state=active]:text-white">Settings</TabsTrigger>
             </TabsList>
             
-            {/* Overview Tab - Empty State */}
+            {/* Overview Tab - Empty State with Apple styling */}
             <TabsContent value="overview">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Active Services Card - Empty State */}
-                <Card>
+                <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                   <CardHeader className="pb-4">
-                    <CardTitle className="flex items-center gap-2">
-                      <Package className="h-5 w-5 text-lawpurple-600" />
+                    <CardTitle className="flex items-center gap-2 text-apple-gray-800">
+                      <Package className="h-5 w-5 text-apple-blue" />
                       Active Services
                     </CardTitle>
-                    <CardDescription>Your current active services and their status</CardDescription>
+                    <CardDescription className="text-apple-gray-500">Your current active services and their status</CardDescription>
                   </CardHeader>
-                  <CardContent className="py-8">
+                  <CardContent className="py-10">
                     <div className="text-center">
-                      <div className="mx-auto bg-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
-                        <Package className="h-8 w-8 text-gray-400" />
+                      <div className="mx-auto bg-apple-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
+                        <Package className="h-8 w-8 text-apple-gray-400" />
                       </div>
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">No active services</h3>
-                      <p className="text-gray-500 mb-4">You don't have any active services at the moment</p>
-                      <Button className="bg-lawpurple-600 hover:bg-lawpurple-700">
+                      <h3 className="text-lg font-medium text-apple-gray-800 mb-2">No active services</h3>
+                      <p className="text-apple-gray-500 mb-6">You don't have any active services at the moment</p>
+                      <Button className="bg-apple-blue hover:bg-apple-darkblue rounded-lg">
                         <Plus className="h-4 w-4 mr-2" />
                         Browse Services
                       </Button>
@@ -81,61 +82,61 @@ const Dashboard = () => {
                 </Card>
                 
                 {/* Recent Messages Card - Empty State */}
-                <Card>
+                <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                   <CardHeader className="pb-4">
-                    <CardTitle className="flex items-center gap-2">
-                      <MessageSquare className="h-5 w-5 text-lawpurple-600" />
+                    <CardTitle className="flex items-center gap-2 text-apple-gray-800">
+                      <MessageSquare className="h-5 w-5 text-apple-blue" />
                       Recent Messages
                     </CardTitle>
-                    <CardDescription>Latest communications from your service providers</CardDescription>
+                    <CardDescription className="text-apple-gray-500">Latest communications from your service providers</CardDescription>
                   </CardHeader>
-                  <CardContent className="py-8">
+                  <CardContent className="py-10">
                     <div className="text-center">
-                      <div className="mx-auto bg-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
-                        <MessageSquare className="h-8 w-8 text-gray-400" />
+                      <div className="mx-auto bg-apple-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
+                        <MessageSquare className="h-8 w-8 text-apple-gray-400" />
                       </div>
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">No messages yet</h3>
-                      <p className="text-gray-500 mb-4">Your messages will appear here when you start communicating with service providers</p>
+                      <h3 className="text-lg font-medium text-apple-gray-800 mb-2">No messages yet</h3>
+                      <p className="text-apple-gray-500 mb-4">Your messages will appear here when you start communicating with service providers</p>
                     </div>
                   </CardContent>
                 </Card>
                 
                 {/* Recent Payments Card - Empty State */}
-                <Card>
+                <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                   <CardHeader className="pb-4">
-                    <CardTitle className="flex items-center gap-2">
-                      <CreditCard className="h-5 w-5 text-lawpurple-600" />
+                    <CardTitle className="flex items-center gap-2 text-apple-gray-800">
+                      <CreditCard className="h-5 w-5 text-apple-blue" />
                       Recent Payments
                     </CardTitle>
-                    <CardDescription>Your recent payment history</CardDescription>
+                    <CardDescription className="text-apple-gray-500">Your recent payment history</CardDescription>
                   </CardHeader>
-                  <CardContent className="py-8">
+                  <CardContent className="py-10">
                     <div className="text-center">
-                      <div className="mx-auto bg-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
-                        <CreditCard className="h-8 w-8 text-gray-400" />
+                      <div className="mx-auto bg-apple-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
+                        <CreditCard className="h-8 w-8 text-apple-gray-400" />
                       </div>
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">No payment history</h3>
-                      <p className="text-gray-500 mb-4">Your payment history will be displayed here once you make a purchase</p>
+                      <h3 className="text-lg font-medium text-apple-gray-800 mb-2">No payment history</h3>
+                      <p className="text-apple-gray-500 mb-4">Your payment history will be displayed here once you make a purchase</p>
                     </div>
                   </CardContent>
                 </Card>
                 
                 {/* Completed Services Card - Empty State */}
-                <Card>
+                <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                   <CardHeader className="pb-4">
-                    <CardTitle className="flex items-center gap-2">
-                      <FileText className="h-5 w-5 text-lawpurple-600" />
+                    <CardTitle className="flex items-center gap-2 text-apple-gray-800">
+                      <FileText className="h-5 w-5 text-apple-blue" />
                       Completed Services
                     </CardTitle>
-                    <CardDescription>Services you've completed recently</CardDescription>
+                    <CardDescription className="text-apple-gray-500">Services you've completed recently</CardDescription>
                   </CardHeader>
-                  <CardContent className="py-8">
+                  <CardContent className="py-10">
                     <div className="text-center">
-                      <div className="mx-auto bg-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
-                        <FileText className="h-8 w-8 text-gray-400" />
+                      <div className="mx-auto bg-apple-gray-100 rounded-full h-20 w-20 flex items-center justify-center mb-4">
+                        <FileText className="h-8 w-8 text-apple-gray-400" />
                       </div>
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">No completed services</h3>
-                      <p className="text-gray-500 mb-4">Your completed services will be displayed here</p>
+                      <h3 className="text-lg font-medium text-apple-gray-800 mb-2">No completed services</h3>
+                      <p className="text-apple-gray-500 mb-4">Your completed services will be displayed here</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -144,21 +145,21 @@ const Dashboard = () => {
             
             {/* Other tabs with empty states */}
             <TabsContent value="services">
-              <Card>
+              <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                 <CardHeader>
-                  <CardTitle>Services</CardTitle>
-                  <CardDescription>Manage your active and completed services</CardDescription>
+                  <CardTitle className="text-apple-gray-800">Services</CardTitle>
+                  <CardDescription className="text-apple-gray-500">Manage your active and completed services</CardDescription>
                 </CardHeader>
                 <CardContent className="py-16">
                   <div className="text-center">
-                    <div className="mx-auto bg-gray-100 rounded-full h-24 w-24 flex items-center justify-center mb-6">
-                      <Package className="h-10 w-10 text-gray-400" />
+                    <div className="mx-auto bg-apple-gray-100 rounded-full h-24 w-24 flex items-center justify-center mb-6">
+                      <Package className="h-10 w-10 text-apple-gray-400" />
                     </div>
-                    <h3 className="text-xl font-medium text-gray-900 mb-3">No services yet</h3>
-                    <p className="text-gray-500 mb-6 max-w-md mx-auto">
+                    <h3 className="text-xl font-medium text-apple-gray-800 mb-3">No services yet</h3>
+                    <p className="text-apple-gray-500 mb-6 max-w-md mx-auto">
                       You haven't purchased any services yet. Browse our services to get started with legal assistance.
                     </p>
-                    <Button className="bg-lawpurple-600 hover:bg-lawpurple-700">
+                    <Button className="bg-apple-blue hover:bg-apple-darkblue rounded-lg">
                       <Plus className="h-4 w-4 mr-2" />
                       Browse Services
                     </Button>
@@ -168,18 +169,18 @@ const Dashboard = () => {
             </TabsContent>
             
             <TabsContent value="messages">
-              <Card>
+              <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                 <CardHeader>
-                  <CardTitle>Messages</CardTitle>
-                  <CardDescription>Your conversations with service providers</CardDescription>
+                  <CardTitle className="text-apple-gray-800">Messages</CardTitle>
+                  <CardDescription className="text-apple-gray-500">Your conversations with service providers</CardDescription>
                 </CardHeader>
                 <CardContent className="py-16">
                   <div className="text-center">
-                    <div className="mx-auto bg-gray-100 rounded-full h-24 w-24 flex items-center justify-center mb-6">
-                      <MessageSquare className="h-10 w-10 text-gray-400" />
+                    <div className="mx-auto bg-apple-gray-100 rounded-full h-24 w-24 flex items-center justify-center mb-6">
+                      <MessageSquare className="h-10 w-10 text-apple-gray-400" />
                     </div>
-                    <h3 className="text-xl font-medium text-gray-900 mb-3">No messages yet</h3>
-                    <p className="text-gray-500 mb-6 max-w-md mx-auto">
+                    <h3 className="text-xl font-medium text-apple-gray-800 mb-3">No messages yet</h3>
+                    <p className="text-apple-gray-500 mb-6 max-w-md mx-auto">
                       Your messages will appear here once you start communicating with service providers.
                     </p>
                   </div>
@@ -188,18 +189,18 @@ const Dashboard = () => {
             </TabsContent>
             
             <TabsContent value="payments">
-              <Card>
+              <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                 <CardHeader>
-                  <CardTitle>Payments</CardTitle>
-                  <CardDescription>Your payment history and billing information</CardDescription>
+                  <CardTitle className="text-apple-gray-800">Payments</CardTitle>
+                  <CardDescription className="text-apple-gray-500">Your payment history and billing information</CardDescription>
                 </CardHeader>
                 <CardContent className="py-16">
                   <div className="text-center">
-                    <div className="mx-auto bg-gray-100 rounded-full h-24 w-24 flex items-center justify-center mb-6">
-                      <CreditCard className="h-10 w-10 text-gray-400" />
+                    <div className="mx-auto bg-apple-gray-100 rounded-full h-24 w-24 flex items-center justify-center mb-6">
+                      <CreditCard className="h-10 w-10 text-apple-gray-400" />
                     </div>
-                    <h3 className="text-xl font-medium text-gray-900 mb-3">No payment history</h3>
-                    <p className="text-gray-500 mb-6 max-w-md mx-auto">
+                    <h3 className="text-xl font-medium text-apple-gray-800 mb-3">No payment history</h3>
+                    <p className="text-apple-gray-500 mb-6 max-w-md mx-auto">
                       Your payment history will be displayed here once you make a purchase.
                     </p>
                   </div>
@@ -208,26 +209,26 @@ const Dashboard = () => {
             </TabsContent>
             
             <TabsContent value="settings">
-              <Card>
+              <Card className="rounded-xl border-apple-gray-200 overflow-hidden">
                 <CardHeader>
-                  <CardTitle>Settings</CardTitle>
-                  <CardDescription>Manage your account preferences</CardDescription>
+                  <CardTitle className="text-apple-gray-800">Settings</CardTitle>
+                  <CardDescription className="text-apple-gray-500">Manage your account preferences</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Profile Information</h3>
-                      <p className="text-sm text-gray-500 mb-4">Update your account profile information</p>
+                      <h3 className="text-lg font-medium mb-3 text-apple-gray-800">Profile Information</h3>
+                      <p className="text-sm text-apple-gray-500 mb-4">Update your account profile information</p>
                       <div className="flex flex-wrap gap-4">
-                        <Button variant="outline">Edit Profile</Button>
-                        <Button variant="outline">Change Password</Button>
+                        <Button variant="outline" className="border-apple-gray-200 text-apple-gray-700 hover:bg-apple-gray-100">Edit Profile</Button>
+                        <Button variant="outline" className="border-apple-gray-200 text-apple-gray-700 hover:bg-apple-gray-100">Change Password</Button>
                       </div>
                     </div>
                     
                     <div>
-                      <h3 className="text-lg font-medium mb-2">Notification Preferences</h3>
-                      <p className="text-sm text-gray-500 mb-4">Manage how you receive notifications</p>
-                      <Button variant="outline">Manage Notifications</Button>
+                      <h3 className="text-lg font-medium mb-3 text-apple-gray-800">Notification Preferences</h3>
+                      <p className="text-sm text-apple-gray-500 mb-4">Manage how you receive notifications</p>
+                      <Button variant="outline" className="border-apple-gray-200 text-apple-gray-700 hover:bg-apple-gray-100">Manage Notifications</Button>
                     </div>
                   </div>
                 </CardContent>
