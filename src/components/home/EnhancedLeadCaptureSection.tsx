@@ -12,14 +12,14 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
   const [showForm, setShowForm] = React.useState(!!defaultService);
   
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-gradient-to-b from-apple-gray-50 to-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="text-black">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Need Expert Legal Assistance?
             </h2>
-            <p className="text-lg mb-8 text-gray-600">
+            <p className="text-xl mb-10 text-apple-gray-600 leading-relaxed">
               Our team of experienced legal professionals is ready to help you navigate 
               complex business and legal challenges. Get started with a free consultation.
             </p>
@@ -28,7 +28,7 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
               <Button 
                 onClick={() => setShowForm(true)}
                 size="lg" 
-                className="bg-black text-white hover:bg-gray-800 py-6 px-8 text-lg"
+                className="bg-apple-blue text-white hover:bg-apple-darkblue py-6 px-8 text-lg rounded-full shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -36,7 +36,7 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
             )}
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-2xl shadow-lg border border-apple-gray-100 p-8">
             {showForm ? (
               <LeadCaptureForm 
                 defaultService={defaultService} 
@@ -45,17 +45,17 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
               />
             ) : (
               <div className="text-center p-6">
-                <h3 className="text-2xl font-bold text-black mb-4">
+                <h3 className="text-3xl font-bold text-apple-gray-800 mb-5">
                   How Can We Help You?
                 </h3>
-                <p className="text-gray-600 mb-8">
+                <p className="text-apple-gray-600 mb-10 text-lg">
                   Fill out our simple form to get a free consultation with our legal experts. 
                   We'll get back to you within 24 hours.
                 </p>
                 <Button 
                   onClick={() => setShowForm(true)}
                   size="lg" 
-                  className="bg-black text-white hover:bg-gray-800 w-full py-6 text-lg"
+                  className="bg-apple-blue text-white hover:bg-apple-darkblue w-full py-6 text-lg rounded-full shadow-md hover:shadow-lg"
                 >
                   Start Your Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />

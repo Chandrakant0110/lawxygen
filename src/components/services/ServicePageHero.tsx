@@ -16,26 +16,26 @@ interface ServicePageHeroProps {
 const ServicePageHero: React.FC<ServicePageHeroProps> = ({
   title,
   subtitle,
-  bgColorClass = "bg-violet-50",
+  bgColorClass = "bg-gradient-to-b from-white to-apple-gray-50",
   imageUrl,
   serviceId,
 }) => {
   const [showLeadForm, setShowLeadForm] = React.useState(false);
   
   return (
-    <div className={`py-12 ${bgColorClass}`}>
+    <div className={`py-16 ${bgColorClass}`}>
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-apple-gray-800 mb-5">
               {title}
             </h1>
-            <p className="text-lg text-slate-600 mb-8">
+            <p className="text-xl text-apple-gray-600 mb-10 leading-relaxed">
               {subtitle}
             </p>
             
             {showLeadForm ? (
-              <div className="bg-white p-6 rounded-lg shadow-md border border-violet-100 mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-apple-gray-100 mb-6">
                 <LeadCaptureForm 
                   variant="inline" 
                   defaultService={serviceId}
@@ -44,7 +44,7 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
                 <Button 
                   onClick={() => setShowLeadForm(false)} 
                   variant="outline" 
-                  className="mt-4 w-full"
+                  className="mt-5 w-full border-apple-gray-200 rounded-full"
                 >
                   Cancel
                 </Button>
@@ -55,26 +55,31 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
                   onClick={() => setShowLeadForm(true)}
                   variant="primary" 
                   size="lg"
-                  className="bg-violet-600 hover:bg-violet-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-apple-blue hover:bg-apple-darkblue shadow-md hover:shadow-lg transition-all duration-300 rounded-full"
                 >
                   Get Started Today
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-apple-gray-300 rounded-full"
+                >
                   <Link to="#services">Explore Services</Link>
                 </Button>
               </div>
             )}
           </div>
-          <div className="md:w-1/2 mt-8 md:mt-0">
+          <div className="md:w-1/2 mt-10 md:mt-0">
             {imageUrl ? (
               <img 
                 src={imageUrl} 
                 alt={`${title} Service`} 
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto rounded-2xl shadow-lg"
               />
             ) : (
-              <div className="aspect-video bg-gradient-to-r from-violet-500 to-purple-500 opacity-80 rounded-lg shadow-lg flex items-center justify-center">
+              <div className="aspect-video bg-gradient-to-r from-apple-blue to-apple-darkblue opacity-90 rounded-2xl shadow-lg flex items-center justify-center">
                 <span className="text-white text-2xl font-bold">
                   {title}
                 </span>
