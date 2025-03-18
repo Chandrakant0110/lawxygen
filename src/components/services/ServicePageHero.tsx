@@ -40,6 +40,7 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
                   variant="inline" 
                   defaultService={serviceId}
                   className="bg-transparent p-0 border-0 shadow-none" 
+                  onSubmitSuccess={() => setShowLeadForm(false)}
                 />
                 <Button 
                   onClick={() => setShowLeadForm(false)} 
@@ -57,7 +58,7 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
                   size="lg"
                   className="bg-apple-blue hover:bg-apple-darkblue shadow-md hover:shadow-lg transition-all duration-300 rounded-full"
                 >
-                  Get Started Today
+                  Get a Free Consultation Now
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button 

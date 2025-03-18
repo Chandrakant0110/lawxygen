@@ -30,7 +30,7 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
                 size="lg" 
                 className="bg-apple-blue text-white hover:bg-apple-darkblue py-6 px-8 text-lg rounded-full shadow-md hover:shadow-lg transition-all duration-300"
               >
-                Get Free Consultation
+                Get Free Consultation Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             )}
@@ -42,6 +42,7 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
                 defaultService={defaultService} 
                 variant="inline" 
                 className="bg-transparent border-0 shadow-none p-0" 
+                onSubmitSuccess={() => setShowForm(false)}
               />
             ) : (
               <div className="text-center p-6">
@@ -57,7 +58,7 @@ const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({
                   size="lg" 
                   className="bg-apple-blue text-white hover:bg-apple-darkblue w-full py-6 text-lg rounded-full shadow-md hover:shadow-lg"
                 >
-                  Start Your Free Consultation
+                  Talk to Us Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>

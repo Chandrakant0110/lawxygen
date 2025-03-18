@@ -24,6 +24,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 // Schema for form validation
 const formSchema = z.object({
@@ -71,6 +72,7 @@ interface LeadCaptureFormProps {
   className?: string;
   title?: string;
   subtitle?: string;
+  onSubmitSuccess?: () => void;
 }
 
 const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
@@ -79,7 +81,10 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
   className = "",
   title = "Get a Free Consultation",
   subtitle = "Fill out this form, and our legal experts will get back to you within 24 hours.",
+  onSubmitSuccess,
 }) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   // Form initialization
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -94,18 +99,42 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
   });
 
   // Form submission handler
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    
-    // In a real implementation, this would send the data to a backend service
-    // For now, we'll just show a toast notification
-    
-    toast({
-      title: "Consultation Request Submitted!",
-      description: "Thank you for reaching out. Our legal expert will contact you within 24 hours.",
-    });
-    
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    try {
+      // Insert the lead into Supabase
+      const { error } = await supabase.from("leads").insert({
+        full_name: values.fullName,
+        email: values.email,
+        phone: values.phone || null,
+        company: values.company || null,
+        service: values.service,
+        message: values.message || null,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Consultation Request Submitted!",
+        description: "Thank you for reaching out. Our legal expert will contact you within 24 hours.",
+      });
+
+      form.reset();
+      if (onSubmitSuccess) {
+        onSubmitSuccess();
+      }
+    } catch (error) {
+      toast({
+        title: "Submission failed",
+        description: "There was a problem submitting your request. Please try again.",
+        variant: "destructive",
+      });
+      console.error("Lead submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   // Determine form styling based on variant
@@ -238,9 +267,10 @@ const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
             className="w-full" 
             variant="primary" 
             size="lg"
+            disabled={isSubmitting}
           >
-            Get Free Consultation
-            <ArrowRight className="ml-2 h-4 w-4" />
+            {isSubmitting ? "Submitting..." : "Get Free Consultation"}
+            {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
           </Button>
           
           <p className="text-xs text-slate-500 text-center pt-2">

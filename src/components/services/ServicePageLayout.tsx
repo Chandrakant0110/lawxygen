@@ -66,6 +66,7 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({
           title={title}
           subtitle={subtitle}
           imageUrl={heroImage}
+          serviceId={serviceId}
         />
         
         {/* Top Lead Capture Form */}
@@ -94,7 +95,11 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({
                 </div>
               </div>
               
-              <LeadCaptureForm defaultService={serviceId} />
+              <LeadCaptureForm 
+                defaultService={serviceId} 
+                title="Talk to Us Today"
+                subtitle="Get expert advice tailored to your specific needs. Our team will contact you within 24 hours."
+              />
             </div>
           </div>
         </section>
@@ -163,7 +168,7 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({
                       className={`w-full ${tier.popular ? 'bg-black text-white hover:bg-gray-800' : 'border-gray-300 text-gray-800 hover:bg-gray-50'}`}
                     >
                       <Link to={tier.buttonLink || "#consultation"}>
-                        {tier.buttonText || "Get Started"}
+                        {tier.buttonText || "Talk to Us Now"}
                       </Link>
                     </Button>
                   </div>
@@ -233,7 +238,13 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({
             </div>
             
             <div className="max-w-2xl mx-auto">
-              <LeadCaptureForm defaultService={serviceId} variant="inline" className="bg-white" />
+              <LeadCaptureForm 
+                defaultService={serviceId} 
+                variant="inline" 
+                className="bg-white" 
+                title="Get a Free Consultation Now"
+                subtitle="Our experts are ready to answer your questions and provide personalized guidance."
+              />
             </div>
           </div>
         </section>
