@@ -14,10 +14,13 @@ interface ProviderCardProps {
     reviews: number;
     specialties: string[];
   };
-  categoryName?: string;
+  category?: {
+    id: string;
+    name: string;
+  };
 }
 
-const ProviderCard: React.FC<ProviderCardProps> = ({ provider, categoryName }) => {
+const ProviderCard: React.FC<ProviderCardProps> = ({ provider, category }) => {
   return (
     <div className="bg-white border rounded-lg p-6">
       <div className="flex items-center mb-4">
@@ -41,7 +44,7 @@ const ProviderCard: React.FC<ProviderCardProps> = ({ provider, categoryName }) =
       <div className="mb-4">
         <h4 className="font-medium text-gray-900 mb-2">About the Provider</h4>
         <p className="text-gray-700 text-sm">
-          {provider.name} is a highly experienced professional in {categoryName || "legal services"} with over {provider.title.match(/\d+/)?.[0] || "5"} years of expertise. Specializing in {provider.specialties.join(", ")}.
+          {provider.name} is a highly experienced professional in {category?.name || "legal services"} with over {provider.title.match(/\d+/)?.[0] || "5"} years of expertise. Specializing in {provider.specialties.join(", ")}.
         </p>
       </div>
       

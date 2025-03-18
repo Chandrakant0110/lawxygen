@@ -12,6 +12,7 @@ import ServicePricingCard from "@/components/services/ServicePricingCard";
 import ProviderCard from "@/components/services/ProviderCard";
 import ServiceFAQSection from "@/components/services/ServiceFAQSection";
 import RelatedServices from "@/components/services/RelatedServices";
+import LoadingSpinner from "@/components/common/LoadingSpinner";
 
 const ServicePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,45 +23,39 @@ const ServicePage = () => {
   const [category, setCategory] = useState<any>(null);
 
   useEffect(() => {
-    // Find the service and provider data based on the ID
-    const foundService = services.find(s => s.id === id);
-    
-    if (foundService) {
-      setService(foundService);
+    // Simulate network request with a small delay
+    const timer = setTimeout(() => {
+      // Find the service and provider data based on the ID
+      const foundService = services.find(s => s.id === id);
       
-      // Find the provider for this service
-      const foundProvider = professionals.find(p => p.id === foundService.providerId);
-      setProvider(foundProvider);
+      if (foundService) {
+        setService(foundService);
+        
+        // Find the provider for this service
+        const foundProvider = professionals.find(p => p.id === foundService.providerId);
+        setProvider(foundProvider);
+        
+        // Find the category for this service
+        const foundCategory = categories.find(c => c.id === foundService.category || foundService.tags.includes(c.name));
+        setCategory(foundCategory);
+        
+        // Find related services (same category, different service)
+        const related = services
+          .filter(s => (s.category === foundService.category || 
+                        s.tags.some(tag => foundService.tags.includes(tag))) && 
+                        s.id !== foundService.id)
+          .slice(0, 3);
+        setRelatedServices(related);
+      }
       
-      // Find the category for this service
-      const foundCategory = categories.find(c => c.id === foundService.category || foundService.tags.includes(c.name));
-      setCategory(foundCategory);
-      
-      // Find related services (same category, different service)
-      const related = services
-        .filter(s => (s.category === foundService.category || 
-                      s.tags.some(tag => foundService.tags.includes(tag))) && 
-                      s.id !== foundService.id)
-        .slice(0, 3);
-      setRelatedServices(related);
-    }
-    
-    setLoading(false);
+      setLoading(false);
+    }, 300); // Short delay for data loading simulation
+
+    return () => clearTimeout(timer);
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin w-8 h-8 border-4 border-lawpurple-600 border-t-transparent rounded-full mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading service details...</p>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!service) {
@@ -109,7 +104,7 @@ const ServicePage = () => {
               </div>
               
               {/* FAQ Section */}
-              <ServiceFAQSection />
+              <ServiceFAQSection service={service} details={details} />
               
               {/* Related Services */}
               <RelatedServices services={relatedServices} />
@@ -120,7 +115,7 @@ const ServicePage = () => {
               {/* Pricing Card */}
               <ServicePricingCard 
                 service={service} 
-                category={category} 
+                categoryName={category?.name} 
                 details={details} 
               />
               

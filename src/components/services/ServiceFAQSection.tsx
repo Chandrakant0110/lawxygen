@@ -3,7 +3,7 @@ import React from "react";
 import { HelpCircle } from "lucide-react";
 
 interface ServiceFAQSectionProps {
-  service: {
+  service?: {
     title: string;
   };
   details?: {
@@ -20,7 +20,7 @@ const ServiceFAQSection: React.FC<ServiceFAQSectionProps> = ({ service, details 
         <div className="border-b pb-4">
           <h4 className="font-medium text-gray-900 mb-2 flex items-center">
             <HelpCircle className="w-5 h-5 text-lawpurple-500 mr-2" />
-            What is the typical timeframe for {service.title}?
+            What is the typical timeframe for {service?.title || "this service"}?
           </h4>
           <p className="text-gray-700 pl-7">
             {details?.timeline ? 

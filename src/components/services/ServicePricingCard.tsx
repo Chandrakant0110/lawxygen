@@ -10,10 +10,10 @@ interface ServicePricingCardProps {
     price: number;
     providerId: string;
   };
-  categoryName?: string;
   details?: {
     timeline?: string;
   };
+  categoryName?: string;
 }
 
 const ServicePricingCard: React.FC<ServicePricingCardProps> = ({ service, categoryName, details }) => {
