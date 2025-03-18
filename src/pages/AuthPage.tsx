@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -17,9 +17,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "sonner";
-import { Lock, Mail, User, ArrowRight } from "lucide-react";
+import { Lock, Mail, User, ArrowRight, AlertCircle } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { useAuth } from "@/hooks/useAuth";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 // Form schema for validation
 const loginSchema = z.object({
@@ -39,7 +41,16 @@ const signupSchema = loginSchema.extend({
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  
+  // Redirect if already logged in
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
 
   // Login form
   const loginForm = useForm<z.infer<typeof loginSchema>>({
@@ -62,16 +73,24 @@ const AuthPage = () => {
     },
   });
 
+  // Reset error when switching forms
+  useEffect(() => {
+    setAuthError(null);
+  }, [isLogin]);
+
   // Handle login
   const handleLogin = async (values: z.infer<typeof loginSchema>) => {
     try {
       setIsLoading(true);
+      setAuthError(null);
+      
       const { error } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
       });
 
       if (error) {
+        setAuthError(error.message);
         toast.error(error.message);
         return;
       }
@@ -79,6 +98,7 @@ const AuthPage = () => {
       toast.success("Login successful!");
       navigate("/dashboard");
     } catch (error: any) {
+      setAuthError(error.message || "An error occurred during login");
       toast.error(error.message || "An error occurred during login");
     } finally {
       setIsLoading(false);
@@ -89,6 +109,8 @@ const AuthPage = () => {
   const handleSignup = async (values: z.infer<typeof signupSchema>) => {
     try {
       setIsLoading(true);
+      setAuthError(null);
+      
       const { error } = await supabase.auth.signUp({
         email: values.email,
         password: values.password,
@@ -101,6 +123,7 @@ const AuthPage = () => {
       });
 
       if (error) {
+        setAuthError(error.message);
         toast.error(error.message);
         return;
       }
@@ -108,6 +131,7 @@ const AuthPage = () => {
       toast.success("Registration successful! Please verify your email.");
       setIsLogin(true);
     } catch (error: any) {
+      setAuthError(error.message || "An error occurred during signup");
       toast.error(error.message || "An error occurred during signup");
     } finally {
       setIsLoading(false);
@@ -130,6 +154,13 @@ const AuthPage = () => {
                   : "Fill in your details to create an account"}
               </p>
             </div>
+
+            {authError && (
+              <Alert variant="destructive" className="mb-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>{authError}</AlertDescription>
+              </Alert>
+            )}
 
             {isLogin ? (
               <Form {...loginForm}>
