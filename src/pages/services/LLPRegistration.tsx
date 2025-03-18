@@ -1,4 +1,3 @@
-
 import React from "react";
 import ServiceTemplate from "./ServiceTemplate";
 
@@ -69,7 +68,6 @@ const LLPRegistration = () => {
       title={title}
       subtitle={subtitle}
       description={description}
-      heroImage={heroImage}
       FAQs={FAQs}
       relatedServices={relatedServices}
     />

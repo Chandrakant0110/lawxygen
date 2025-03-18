@@ -10,6 +10,7 @@ interface ServiceTemplateProps {
   description: string;
   FAQs: Array<{ question: string; answer: string }>;
   relatedServices: Array<{ title: string; link: string }>;
+  // We're removing heroImage from the interface
 }
 
 const ServiceTemplate = ({
