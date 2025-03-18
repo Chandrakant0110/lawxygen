@@ -1,4 +1,3 @@
-
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
@@ -72,7 +71,6 @@ const queryClient = new QueryClient({
       gcTime: 1000 * 60 * 60, // 1 hour (formerly cacheTime)
       retry: 1,
       refetchOnWindowFocus: false, // Prevent unnecessary refetches
-      suspense: true, // Enable React Suspense mode
     }
   }
 });
