@@ -1,17 +1,10 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-
-interface ServiceItem {
-  title: string;
-  to: string;
-}
+import { ServiceCategory, ServiceItem } from "@/data/serviceCategories";
 
 interface ServiceCategoryProps {
-  category: {
-    title: string;
-    items: ServiceItem[];
-  }
+  category: ServiceCategory;
 }
 
 const ServiceCategoryGroup = ({ category }: ServiceCategoryProps) => {

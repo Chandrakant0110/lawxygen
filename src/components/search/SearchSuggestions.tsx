@@ -42,9 +42,11 @@ const SearchSuggestions: React.FC<SearchSuggestionsProps> = ({
               className="px-4 py-3 hover:bg-apple-gray-50 cursor-pointer border-b border-apple-gray-100 last:border-none"
             >
               <div className="flex items-start">
-                <div className="mr-3 text-apple-gray-400 mt-1">
-                  <suggestion.icon className="h-4 w-4" />
-                </div>
+                {suggestion.icon && (
+                  <div className="mr-3 text-apple-gray-400 mt-1">
+                    <suggestion.icon className="h-4 w-4" />
+                  </div>
+                )}
                 <div>
                   <div className="font-medium text-apple-gray-800">
                     {highlightMatch(suggestion.title, searchTerm)}
