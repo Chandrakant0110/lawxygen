@@ -1,7 +1,5 @@
 
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import React, { memo } from "react";
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
 
 interface ServicePageHeroProps {
@@ -11,7 +9,7 @@ interface ServicePageHeroProps {
   serviceId?: string;
 }
 
-const ServicePageHero: React.FC<ServicePageHeroProps> = ({
+const ServicePageHero: React.FC<ServicePageHeroProps> = memo(({
   title,
   subtitle,
   bgColorClass = "bg-gradient-to-b from-white to-apple-gray-50",
@@ -45,6 +43,6 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
       </div>
     </div>
   );
-};
+});
 
 export default ServicePageHero;
