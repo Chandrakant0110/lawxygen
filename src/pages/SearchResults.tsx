@@ -98,7 +98,7 @@ const SearchResults = () => {
             <div className="mt-4">
               <CategoryTabs 
                 searchType="services" 
-                setSearchType={setSearchType as (type: "services") => void} 
+                setSearchType={(type) => setSearchType(type)}
               />
             </div>
           </div>
