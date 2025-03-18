@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,6 +35,19 @@ const ResetPasswordPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Check if there's a valid reset token in the URL
+  useEffect(() => {
+    const hashParams = new URLSearchParams(location.hash.substring(1));
+    const accessToken = hashParams.get("access_token");
+    const type = hashParams.get("type");
+    
+    if (!accessToken || type !== "recovery") {
+      setError("Invalid or expired password reset link. Please request a new password reset.");
+      toast.error("Invalid or expired password reset link");
+    }
+  }, [location]);
 
   const form = useForm<z.infer<typeof resetPasswordSchema>>({
     resolver: zodResolver(resetPasswordSchema),

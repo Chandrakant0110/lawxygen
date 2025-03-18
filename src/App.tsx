@@ -26,6 +26,7 @@ import LegalPage from "./pages/LegalPage";
 import FindLawyer from "./pages/FindLawyer";
 import FindProfessional from "./pages/FindProfessional";
 import AuthPage from "./pages/AuthPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 // Service Pages
 import CompanyRegistration from "./pages/services/CompanyRegistration";
@@ -53,11 +54,11 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/search-results" element={<SearchResults />} />
@@ -80,6 +81,7 @@ const App = () => (
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/legal" element={<LegalPage />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
             
             {/* Service Pages */}
             <Route path="/services/company-registration" element={<CompanyRegistration />} />
@@ -105,9 +107,9 @@ const App = () => (
             
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
+        </TooltipProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 
