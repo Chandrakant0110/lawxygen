@@ -4,12 +4,11 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { services, professionals, categories, serviceDetails } from "@/mock/mockData";
+import { services, categories, serviceDetails } from "@/mock/mockData";
 import ServiceBreadcrumbs from "@/components/services/ServiceBreadcrumbs";
 import ServiceHeader from "@/components/services/ServiceHeader";
 import ServiceTabs from "@/components/services/ServiceTabs";
 import ServicePricingCard from "@/components/services/ServicePricingCard";
-import ProviderCard from "@/components/services/ProviderCard";
 import ServiceFAQSection from "@/components/services/ServiceFAQSection";
 import RelatedServices from "@/components/services/RelatedServices";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
@@ -19,7 +18,6 @@ import EnhancedLoadingSpinner from "@/components/common/EnhancedLoadingSpinner";
 const ServicePage = () => {
   const { id } = useParams<{ id: string }>();
   const [service, setService] = useState<any>(null);
-  const [provider, setProvider] = useState<any>(null);
   const [relatedServices, setRelatedServices] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState<any>(null);
@@ -33,15 +31,11 @@ const ServicePage = () => {
     // Simulate network request with a small delay
     const timer = setTimeout(() => {
       try {
-        // Find the service and provider data based on the ID
+        // Find the service data based on the ID
         const foundService = services.find(s => s.id === id);
         
         if (foundService) {
           setService(foundService);
-          
-          // Find the provider for this service
-          const foundProvider = professionals.find(p => p.id === foundService.providerId);
-          setProvider(foundProvider);
           
           // Find the category for this service
           const foundCategory = categories.find(c => c.id === foundService.category || foundService.tags.includes(c.name));
@@ -151,8 +145,14 @@ const ServicePage = () => {
                   details={details} 
                 />
                 
-                {/* Provider Card */}
-                {provider && <ProviderCard provider={provider} category={category} />}
+                {/* Added CTA for consultation */}
+                <div className="bg-white p-6 mt-6 rounded-lg border shadow-sm">
+                  <h3 className="text-xl font-semibold mb-3">Need Help?</h3>
+                  <p className="text-gray-600 mb-4">Our legal experts are ready to assist you with this service. Get personalized advice today.</p>
+                  <Button asChild className="w-full bg-lawpurple-600 hover:bg-lawpurple-700">
+                    <Link to="/contact">Get Free Consultation</Link>
+                  </Button>
+                </div>
               </ErrorBoundary>
             </div>
           </div>

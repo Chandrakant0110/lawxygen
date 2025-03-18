@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Filter, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,7 @@ import ViewToggle from "@/components/search/ViewToggle";
 import ResultsGrid from "@/components/search/ResultsGrid";
 import ResultsPagination from "@/components/search/ResultsPagination";
 import { useSearchFilters } from "@/hooks/useSearchFilters";
+import { ServiceCardProps } from "@/components/ui/ServiceCard";
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
@@ -39,18 +40,16 @@ const SearchResults = () => {
     setView,
     currentPage,
     paginatedServices,
-    paginatedProfessionals,
     totalServicesPages,
-    totalProfessionalsPages,
     handleResetFilters,
     handleApplyFilters,
     handlePageChange
   } = useSearchFilters();
   
-  // Get the appropriate results and total pages based on search type
-  const results = searchType === "professionals" ? paginatedProfessionals : paginatedServices;
-  const totalPages = searchType === "professionals" ? totalProfessionalsPages : totalServicesPages;
-  const resultCount = searchType === "professionals" ? paginatedProfessionals.length : paginatedServices.length;
+  // We're only using services now
+  const results = paginatedServices;
+  const totalPages = totalServicesPages;
+  const resultCount = results.length;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -98,8 +97,8 @@ const SearchResults = () => {
             
             <div className="mt-4">
               <CategoryTabs 
-                searchType={searchType} 
-                setSearchType={setSearchType} 
+                searchType="services" 
+                setSearchType={setSearchType as (type: "services") => void} 
               />
             </div>
           </div>
@@ -110,14 +109,12 @@ const SearchResults = () => {
           <div className="container-custom">
             <ResultsHeader 
               resultCount={resultCount}
-              searchType={searchType}
               sortBy={sortBy}
               setSortBy={setSortBy}
             />
             
             <ResultsGrid 
-              searchType={searchType}
-              results={results}
+              results={results as ServiceCardProps[]}
               view={view}
             />
             
