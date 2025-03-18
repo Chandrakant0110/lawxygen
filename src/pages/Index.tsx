@@ -2,7 +2,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
+import ConsultationSection from "@/components/home/FeaturedProfessionals";
 import ServiceCategories from "@/components/home/ServiceCategories";
 import HowItWorks from "@/components/home/HowItWorks";
 import EnhancedServiceList from "@/components/services/EnhancedServiceList";
@@ -17,7 +17,7 @@ const Index = () => {
         <ServiceCategories />
         <EnhancedServiceList />
         <EnhancedLeadCaptureSection />
-        <FeaturedProfessionals />
+        <ConsultationSection />
         <HowItWorks />
       </main>
       <Footer />

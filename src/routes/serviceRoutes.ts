@@ -25,14 +25,6 @@ const serviceRoutes: RouteConfig[] = [
     component: lazy(() => import(/* webpackChunkName: "service-pages" */ '../pages/ServiceCategoryPage'))
   },
   { 
-    path: "/find-lawyer", 
-    component: lazy(() => import(/* webpackChunkName: "professional-pages" */ '../pages/FindLawyer'))
-  },
-  { 
-    path: "/find-professional", 
-    component: lazy(() => import(/* webpackChunkName: "professional-pages" */ '../pages/FindProfessional'))
-  },
-  { 
     path: "/search", 
     component: lazy(() => import(/* webpackChunkName: "search" */ '../pages/SearchResults'))
   },

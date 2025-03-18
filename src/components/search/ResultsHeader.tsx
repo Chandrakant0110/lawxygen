@@ -3,21 +3,19 @@ import React from "react";
 
 interface ResultsHeaderProps {
   resultCount: number;
-  searchType: "professionals" | "services";
   sortBy: string;
   setSortBy: (sortBy: string) => void;
 }
 
 const ResultsHeader: React.FC<ResultsHeaderProps> = ({ 
   resultCount, 
-  searchType, 
   sortBy, 
   setSortBy 
 }) => {
   return (
     <div className="flex justify-between items-center mb-6">
       <h2 className="text-xl font-semibold text-gray-900">
-        {searchType === "professionals" ? "Professional Legal Experts" : "Legal Services"} 
+        Legal Services 
         <span className="text-gray-500 ml-2 text-lg font-normal">
           ({resultCount} results)
         </span>
