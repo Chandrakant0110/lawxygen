@@ -1,5 +1,5 @@
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Session, User } from "@supabase/supabase-js";
 import { useNavigate } from "react-router-dom";
@@ -43,8 +43,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // Only use navigate when inside Router context
   const navigate = useNavigate();
 
-  // Fetch user profile data
-  const fetchUserProfile = async (userId: string) => {
+  // Fetch user profile data - memoized to prevent unnecessary recreations
+  const fetchUserProfile = useCallback(async (userId: string) => {
     try {
       const { data, error } = await supabase
         .from("profiles")
@@ -62,17 +62,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.error("Error fetching user profile:", error);
       return null;
     }
-  };
+  }, []);
 
-  // Refresh user profile data
-  const refreshProfile = async () => {
+  // Refresh user profile data - memoized
+  const refreshProfile = useCallback(async () => {
     if (user?.id) {
       const profile = await fetchUserProfile(user.id);
       if (profile) {
         setUserProfile(profile);
       }
     }
-  };
+  }, [user?.id, fetchUserProfile]);
 
   useEffect(() => {
     // Get the current session
@@ -124,9 +124,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return () => {
       authListener.subscription.unsubscribe();
     };
-  }, [navigate]);
+  }, [fetchUserProfile, navigate]);
 
-  const signOut = async () => {
+  const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
       toast.error("Error signing out");
@@ -136,8 +136,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(null);
       setUserProfile(null);
     }
-  };
+  }, []);
 
+  // Memoize the context value to prevent unnecessary rerenders
   const value = {
     session,
     user,
@@ -159,7 +160,7 @@ export const useAuth = () => {
   return context;
 };
 
-// Protected route component
+// Protected route component with performance optimizations
 export const ProtectedRoute = ({ 
   children,
   redirectTo = "/auth"

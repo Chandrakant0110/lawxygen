@@ -9,6 +9,7 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Log the error only once when component mounts
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname

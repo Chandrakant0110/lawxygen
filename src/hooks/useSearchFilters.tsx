@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { professionals, services } from "@/mock/mockData";
 
@@ -31,8 +32,8 @@ export const useSearchFilters = ({ initialSearchType = "services" }: UseSearchFi
     }
   }, [searchParams]);
   
-  // Filter services based on selected filters
-  const filteredServices = services.filter(service => {
+  // Filter services based on selected filters - using useMemo to prevent recalculation
+  const filteredServices = useMemo(() => services.filter(service => {
     // Search query filter
     if (searchQuery && !service.title.toLowerCase().includes(searchQuery.toLowerCase())) {
       return false;
@@ -55,10 +56,10 @@ export const useSearchFilters = ({ initialSearchType = "services" }: UseSearchFi
     if (rating === "2+" && service.rating < 2) return false;
     
     return true;
-  });
+  }), [searchQuery, category, priceRange, rating]);
 
-  // Filter professionals based on selected filters
-  const filteredProfessionals = professionals.filter(professional => {
+  // Filter professionals based on selected filters - using useMemo
+  const filteredProfessionals = useMemo(() => professionals.filter(professional => {
     // Search query filter
     if (searchQuery && !professional.name.toLowerCase().includes(searchQuery.toLowerCase())) {
       return false;
@@ -81,24 +82,24 @@ export const useSearchFilters = ({ initialSearchType = "services" }: UseSearchFi
     if (rating === "2+" && professional.rating < 2) return false;
     
     return true;
-  });
+  }), [searchQuery, category, priceRange, rating]);
 
-  // Sort services and professionals
-  const sortedServices = [...filteredServices].sort((a, b) => {
+  // Sort services and professionals - using useMemo
+  const sortedServices = useMemo(() => [...filteredServices].sort((a, b) => {
     if (sortBy === "highest") return b.rating - a.rating;
     if (sortBy === "price-low") return a.price - b.price;
     if (sortBy === "price-high") return b.price - a.price;
     // Default: most relevant
     return 0;
-  });
+  }), [filteredServices, sortBy]);
 
-  const sortedProfessionals = [...filteredProfessionals].sort((a, b) => {
+  const sortedProfessionals = useMemo(() => [...filteredProfessionals].sort((a, b) => {
     if (sortBy === "highest") return b.rating - a.rating;
     if (sortBy === "price-low") return a.hourlyRate - b.hourlyRate;
     if (sortBy === "price-high") return b.hourlyRate - a.hourlyRate;
     // Default: most relevant
     return 0;
-  });
+  }), [filteredProfessionals, sortBy]);
 
   const handleResetFilters = useCallback(() => {
     setPriceRange("any");
@@ -124,21 +125,29 @@ export const useSearchFilters = ({ initialSearchType = "services" }: UseSearchFi
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   
-  // Apply pagination
+  // Apply pagination - using useMemo to prevent recalculation
   const ITEMS_PER_PAGE = 12;
-  const paginatedServices = sortedServices.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
   
-  const paginatedProfessionals = sortedProfessionals.slice(
+  const paginatedServices = useMemo(() => sortedServices.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
-  );
+  ), [sortedServices, currentPage]);
+  
+  const paginatedProfessionals = useMemo(() => sortedProfessionals.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  ), [sortedProfessionals, currentPage]);
   
   // Calculate total pages
-  const totalServicesPages = Math.ceil(sortedServices.length / ITEMS_PER_PAGE);
-  const totalProfessionalsPages = Math.ceil(sortedProfessionals.length / ITEMS_PER_PAGE);
+  const totalServicesPages = useMemo(() => 
+    Math.ceil(sortedServices.length / ITEMS_PER_PAGE), 
+    [sortedServices.length]
+  );
+  
+  const totalProfessionalsPages = useMemo(() => 
+    Math.ceil(sortedProfessionals.length / ITEMS_PER_PAGE),
+    [sortedProfessionals.length]
+  );
   
   return {
     searchQuery,
