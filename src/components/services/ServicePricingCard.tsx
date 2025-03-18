@@ -14,9 +14,10 @@ interface ServicePricingCardProps {
     timeline?: string;
   };
   categoryName?: string;
+  category?: any; // Add this to match how it's used in ServicePage.tsx
 }
 
-const ServicePricingCard: React.FC<ServicePricingCardProps> = ({ service, categoryName, details }) => {
+const ServicePricingCard: React.FC<ServicePricingCardProps> = ({ service, categoryName, details, category }) => {
   return (
     <div className="bg-white border rounded-lg p-6 mb-6 sticky top-4">
       <h3 className="text-xl font-bold text-gray-900 mb-4">Service Package</h3>
