@@ -23,7 +23,7 @@ const ServicePricingCard: React.FC<ServicePricingCardProps> = ({ service, catego
       <h3 className="text-xl font-bold text-gray-900 mb-4">Service Package</h3>
       
       <div className="flex items-baseline mb-6">
-        <span className="text-3xl font-bold text-gray-900">${service.price}</span>
+        <span className="text-3xl font-bold text-gray-900">₹{service.price}</span>
         <span className="text-gray-500 ml-2">one-time fee</span>
       </div>
       
