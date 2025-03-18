@@ -12,8 +12,8 @@ const ServiceCategoryGroup = ({ category }: ServiceCategoryProps) => {
     <div className="p-4">
       <h3 className="text-base font-semibold mb-3 text-slate-800">{category.title}</h3>
       <ul className="space-y-2">
-        {category.items.map((item, index) => (
-          <li key={index}>
+        {category.items.map((item) => (
+          <li key={item.to}>
             <Link
               to={item.to}
               className="block text-sm text-slate-600 hover:text-primary transition-colors duration-200 py-1"
@@ -27,4 +27,4 @@ const ServiceCategoryGroup = ({ category }: ServiceCategoryProps) => {
   );
 };
 
-export default ServiceCategoryGroup;
+export default React.memo(ServiceCategoryGroup);

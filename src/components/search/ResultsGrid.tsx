@@ -9,7 +9,11 @@ interface ResultsGridProps {
   view: "grid" | "list";
 }
 
-const ResultsGrid: React.FC<ResultsGridProps> = ({ searchType, results, view }) => {
+// Create memoized item components for better performance
+const MemoizedServiceCard = React.memo(ServiceCard);
+const MemoizedProfessionalCard = React.memo(ProfessionalCard);
+
+const ResultsGrid: React.FC<ResultsGridProps> = React.memo(({ searchType, results, view }) => {
   const gridClass = view === "grid" 
     ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" 
     : "grid-cols-1";
@@ -18,7 +22,7 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ searchType, results, view }) 
     <div className={`grid gap-6 ${gridClass}`}>
       {searchType === "professionals" ? (
         results.map((professional) => (
-          <ProfessionalCard 
+          <MemoizedProfessionalCard 
             key={professional.id}
             id={professional.id}
             name={professional.name}
@@ -33,7 +37,7 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ searchType, results, view }) 
         ))
       ) : (
         results.map((service: ServiceCardProps) => (
-          <ServiceCard 
+          <MemoizedServiceCard 
             key={service.id}
             id={service.id}
             title={service.title}
@@ -52,6 +56,6 @@ const ResultsGrid: React.FC<ResultsGridProps> = ({ searchType, results, view }) 
       )}
     </div>
   );
-};
+});
 
 export default ResultsGrid;

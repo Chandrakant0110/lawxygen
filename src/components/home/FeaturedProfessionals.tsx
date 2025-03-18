@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -101,12 +101,17 @@ const professionals = [
   },
 ];
 
+const MemoizedProfessionalCard = React.memo(ProfessionalCard);
+
 const FeaturedProfessionals = () => {
   const [category, setCategory] = useState("all");
 
-  const filteredProfessionals = category === "all" 
-    ? professionals.slice(0, 4) 
-    : professionals.filter(prof => prof.category === category).slice(0, 4);
+  // Use useMemo to prevent unnecessary re-filtering
+  const filteredProfessionals = useMemo(() => {
+    return category === "all" 
+      ? professionals.slice(0, 4) 
+      : professionals.filter(prof => prof.category === category).slice(0, 4);
+  }, [category]);
 
   return (
     <section className="section-padding bg-gray-50">
@@ -132,7 +137,7 @@ const FeaturedProfessionals = () => {
           <TabsContent value="all" className="mt-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {filteredProfessionals.map((professional) => (
-                <ProfessionalCard key={professional.id} {...professional} />
+                <MemoizedProfessionalCard key={professional.id} {...professional} />
               ))}
             </div>
           </TabsContent>
@@ -140,7 +145,7 @@ const FeaturedProfessionals = () => {
           <TabsContent value="corporate" className="mt-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {filteredProfessionals.map((professional) => (
-                <ProfessionalCard key={professional.id} {...professional} />
+                <MemoizedProfessionalCard key={professional.id} {...professional} />
               ))}
             </div>
           </TabsContent>
@@ -148,7 +153,7 @@ const FeaturedProfessionals = () => {
           <TabsContent value="ip" className="mt-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {filteredProfessionals.map((professional) => (
-                <ProfessionalCard key={professional.id} {...professional} />
+                <MemoizedProfessionalCard key={professional.id} {...professional} />
               ))}
             </div>
           </TabsContent>
@@ -156,7 +161,7 @@ const FeaturedProfessionals = () => {
           <TabsContent value="family" className="mt-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {filteredProfessionals.map((professional) => (
-                <ProfessionalCard key={professional.id} {...professional} />
+                <MemoizedProfessionalCard key={professional.id} {...professional} />
               ))}
             </div>
           </TabsContent>
@@ -164,7 +169,7 @@ const FeaturedProfessionals = () => {
           <TabsContent value="realestate" className="mt-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {filteredProfessionals.map((professional) => (
-                <ProfessionalCard key={professional.id} {...professional} />
+                <MemoizedProfessionalCard key={professional.id} {...professional} />
               ))}
             </div>
           </TabsContent>
