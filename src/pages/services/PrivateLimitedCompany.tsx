@@ -10,8 +10,6 @@ const PrivateLimitedCompany = () => {
   
   const description = "Our Private Limited Company registration service offers a complete end-to-end solution for entrepreneurs looking to incorporate their business. We handle all legal formalities from name approval to certificate of incorporation, ensuring a smooth and hassle-free registration process.";
   
-  const heroImage = "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80";
-  
   const FAQs = [
     {
       question: "What are the benefits of registering as a Private Limited Company?",

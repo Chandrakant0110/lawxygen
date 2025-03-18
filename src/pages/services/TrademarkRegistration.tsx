@@ -10,8 +10,6 @@ const TrademarkRegistration = () => {
   
   const description = "Our trademark registration service provides comprehensive protection for your brand elements, ensuring exclusive rights to use your marks in commerce. We handle the entire process from trademark search to registration certificate, helping you build and protect your brand identity.";
   
-  const heroImage = "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80";
-  
   const FAQs = [
     {
       question: "How long does trademark registration take in India?",

@@ -10,8 +10,6 @@ const GSTRegistration = () => {
   
   const description = "Our comprehensive GST registration service helps businesses obtain their GSTIN quickly and efficiently. We handle the entire process from application to certificate delivery, ensuring you meet all legal requirements.";
   
-  const heroImage = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80";
-  
   const FAQs = [
     {
       question: "Who needs to register for GST?",

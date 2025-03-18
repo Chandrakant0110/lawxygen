@@ -10,8 +10,6 @@ const LLPRegistration = () => {
   
   const description = "Our LLP registration service offers a complete solution for entrepreneurs looking to form a Limited Liability Partnership. We handle all legal formalities from partner agreements to certificate of incorporation, ensuring a hassle-free registration process.";
   
-  const heroImage = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80";
-  
   const FAQs = [
     {
       question: "What are the benefits of registering as an LLP?",

@@ -1,4 +1,3 @@
-
 import React from "react";
 import ServicePageTemplate from "@/components/layout/ServicePageTemplate";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -10,7 +9,6 @@ interface ServiceTemplateProps {
   description: string;
   FAQs: Array<{ question: string; answer: string }>;
   relatedServices: Array<{ title: string; link: string }>;
-  // We're removing heroImage from the interface
 }
 
 const ServiceTemplate = ({

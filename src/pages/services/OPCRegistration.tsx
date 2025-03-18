@@ -10,8 +10,6 @@ const OPCRegistration = () => {
   
   const description = "Our One Person Company registration service provides end-to-end assistance for solo entrepreneurs looking to incorporate their business with limited liability protection, perpetual succession, and other corporate benefits.";
   
-  const heroImage = "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80";
-  
   const FAQs = [
     {
       question: "What is a One Person Company?",

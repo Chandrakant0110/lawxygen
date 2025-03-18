@@ -32,7 +32,6 @@ interface ServicePageLayoutProps {
   title: string;
   subtitle: string;
   description: string;
-  heroImage?: string;
   steps: Step[];
   pricingTiers?: PricingTier[];
   faqs: FAQ[];
