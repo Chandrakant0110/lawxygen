@@ -1,36 +1,31 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { ServiceCategory } from "@/data/serviceCategories";
 
-interface ServiceCategoryGroupProps {
-  category: ServiceCategory;
+interface ServiceItem {
+  title: string;
+  to: string;
 }
 
-const ServiceCategoryGroup: React.FC<ServiceCategoryGroupProps> = ({ category }) => {
+interface ServiceCategoryProps {
+  category: {
+    title: string;
+    items: ServiceItem[];
+  }
+}
+
+const ServiceCategoryGroup = ({ category }: ServiceCategoryProps) => {
   return (
-    <div className="service-category-container">
-      <h3 className="service-category-title">
-        {category.title}
-      </h3>
-      <ul className="service-items-list">
+    <div className="p-4">
+      <h3 className="text-base font-semibold mb-3 text-slate-800">{category.title}</h3>
+      <ul className="space-y-2">
         {category.items.map((item, index) => (
           <li key={index}>
             <Link
               to={item.to}
-              className="service-item-link group" // Added the 'group' class directly here
+              className="block text-sm text-slate-600 hover:text-primary transition-colors duration-200 py-1"
             >
-              <div className="service-item-icon">
-                {React.createElement(item.icon, { size: 16 })}
-              </div>
-              <div className="service-item-content">
-                <div className="service-item-title">
-                  {item.title}
-                </div>
-                <p className="service-item-description">
-                  {item.description}
-                </p>
-              </div>
+              {item.title}
             </Link>
           </li>
         ))}

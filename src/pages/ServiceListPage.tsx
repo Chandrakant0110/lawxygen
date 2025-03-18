@@ -1,12 +1,12 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { categories } from "@/mock/mockData";
+import { mockData } from "@/data/serviceCategories";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
 import { Badge } from "@/components/ui/badge";
-import { Search, ArrowRight, ExternalLink } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -39,9 +39,9 @@ const ServiceListPage = () => {
           </div>
 
           <div className="flex flex-wrap gap-4 justify-center mb-12">
-            {categories.map((category) => (
+            {mockData.categories.map((category) => (
               <Link 
-                to={`/category/${category.id}`} 
+                to={`/services/${category.id}`} 
                 key={category.id}
                 className="no-underline"
               >
@@ -59,7 +59,7 @@ const ServiceListPage = () => {
 
       <div className="py-12 bg-white">
         <div className="container-custom">
-          {categories.map((category) => {
+          {mockData.categories.map((category) => {
             // Filter services based on search term if provided
             const displayServices = category.services.filter(service => 
               !searchTerm || service.toLowerCase().includes(searchTerm.toLowerCase())
@@ -123,14 +123,14 @@ const ServiceListPage = () => {
                 Schedule a free consultation and get personalized guidance.
               </p>
               <div className="flex gap-4">
-                <Button className="gap-2">
+                <Button className="gap-2" onClick={() => document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' })}>
                   Get Free Consultation
                   <ArrowRight size={16} />
                 </Button>
               </div>
             </div>
             
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6" id="consultation-form">
               <LeadCaptureForm variant="inline" className="bg-transparent border-0 shadow-none p-0" />
             </div>
           </div>
