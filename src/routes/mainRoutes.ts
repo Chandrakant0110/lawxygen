@@ -44,6 +44,14 @@ const mainRoutes: RouteConfig[] = [
     component: FindProfessional,
   },
   {
+    path: "/find-lawyer",
+    component: FindProfessional,
+  },
+  {
+    path: "/find-lawyer/:category",
+    component: FindProfessional,
+  },
+  {
     path: "/auth",
     component: AuthPage,
   },

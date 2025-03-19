@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import EnhancedServiceDropdown from "@/components/layout/EnhancedServiceDropdown";
+import FindLawyerDropdown from "@/components/layout/FindLawyerDropdown";
 import { Menu, X } from "lucide-react";
 import AuthButtons from "./AuthButtons";
 
@@ -48,9 +49,9 @@ const Navbar = () => {
             <div className="services-dropdown-container">
               <EnhancedServiceDropdown />
             </div>
-            <Link to="/find-lawyer" className="text-gray-700 hover:text-primary">
-              Find a Lawyer
-            </Link>
+            <div className="find-lawyer-dropdown-container">
+              <FindLawyerDropdown />
+            </div>
             <Link to="/about" className="text-gray-700 hover:text-primary">
               About
             </Link>
