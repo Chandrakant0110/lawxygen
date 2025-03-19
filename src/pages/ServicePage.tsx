@@ -52,16 +52,34 @@ const ServicePage = () => {
     );
   }
 
+  // Get related services (filtering out the current service)
+  const relatedServicesData = services
+    .filter(s => s.category === service.category && s.id !== service.id)
+    .slice(0, 3);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <ServiceBreadcrumbs service={service} />
-        <ServicePageHero service={service} />
-        <ServicePageLayout service={service}>
+        <ServiceBreadcrumbs serviceTitle={service.title} category={service.categoryInfo} />
+        <ServicePageHero 
+          title={service.title} 
+          subtitle={service.description} 
+          serviceId={service.id} 
+        />
+        <ServicePageLayout 
+          serviceId={service.id}
+          title={service.title}
+          subtitle={service.shortDescription || service.description}
+          description={service.description}
+          steps={service.steps || []}
+          pricingTiers={service.pricingTiers}
+          faqs={service.faqs || []}
+          relatedServices={service.relatedServices}
+        >
           <ServiceTabs service={service} />
           {/* Related Services Section */}
-          <RelatedServices currentServiceId={service.id} category={service.category} />
+          <RelatedServices services={relatedServicesData} />
         </ServicePageLayout>
       </main>
       <Footer />
