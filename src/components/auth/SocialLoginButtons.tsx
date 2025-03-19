@@ -1,11 +1,10 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Apple, Linkedin } from "lucide-react";
 
 interface SocialLoginButtonsProps {
   isLoading: boolean;
-  onSocialLogin: (provider: 'google' | 'apple' | 'linkedin_oidc') => Promise<void>;
+  onSocialLogin: (provider: 'google') => Promise<void>;
 }
 
 const SocialLoginButtons: React.FC<SocialLoginButtonsProps> = ({ 
@@ -28,26 +27,6 @@ const SocialLoginButtons: React.FC<SocialLoginButtonsProps> = ({
           <path d="M8.00005 3.00589C9.47178 3.00589 10.4527 3.6289 11.0255 4.16332L13.1289 2.16175C11.9071 1.0391 10.1144 0.399902 8.00005 0.399902C4.8717 0.399902 2.21396 2.2243 1.05835 4.85692L3.57091 6.80048C4.17612 4.93853 5.93431 3.00589 8.00005 3.00589Z" fill="#EB4335"/>
         </svg>
         Continue with Google
-      </Button>
-      <Button
-        type="button"
-        variant="outline"
-        className="w-full flex items-center justify-center gap-2"
-        disabled={isLoading}
-        onClick={() => onSocialLogin('apple')}
-      >
-        <Apple className="h-4 w-4" />
-        Continue with Apple
-      </Button>
-      <Button
-        type="button"
-        variant="outline"
-        className="w-full flex items-center justify-center gap-2"
-        disabled={isLoading}
-        onClick={() => onSocialLogin('linkedin_oidc')}
-      >
-        <Linkedin className="h-4 w-4" />
-        Continue with LinkedIn
       </Button>
     </div>
   );

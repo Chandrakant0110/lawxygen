@@ -120,8 +120,8 @@ export const useAuthForms = () => {
     }
   };
 
-  // Handle social login
-  const handleSocialLogin = async (provider: 'google' | 'apple' | 'linkedin_oidc') => {
+  // Handle social login - only Google now
+  const handleSocialLogin = async (provider: 'google') => {
     try {
       setIsLoading(true);
       const { error } = await supabase.auth.signInWithOAuth({
