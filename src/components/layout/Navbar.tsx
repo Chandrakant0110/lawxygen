@@ -46,6 +46,7 @@ const Navbar = () => {
             <Link 
               to="/" 
               className="text-gray-700 hover:text-primary"
+              id="home-link"
             >
               Home
             </Link>
