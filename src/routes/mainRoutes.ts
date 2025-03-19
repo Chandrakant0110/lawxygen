@@ -5,13 +5,13 @@ import { RouteConfig } from "./routeTypes";
 const Index = lazy(() => import("../pages/Index"));
 const AboutPage = lazy(() => import("../pages/AboutPage"));
 const SearchResults = lazy(() => import("../pages/SearchResults"));
-const ServicePage = lazy(() => import("../pages/ServicePage"));
 const ContactPage = lazy(() => import("../pages/ContactPage"));
 const FAQPage = lazy(() => import("../pages/FAQPage"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const FindProfessional = lazy(() => import("../pages/FindProfessional"));
 const AuthPage = lazy(() => import("../pages/AuthPage"));
 const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+const ServicesPage = lazy(() => import("../pages/ServicesPage"));
 
 const mainRoutes: RouteConfig[] = [
   {
@@ -28,8 +28,8 @@ const mainRoutes: RouteConfig[] = [
     component: SearchResults,
   },
   {
-    path: "/service/:id",
-    component: ServicePage,
+    path: "/services",
+    component: ServicesPage,
   },
   {
     path: "/contact",

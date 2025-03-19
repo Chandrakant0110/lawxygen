@@ -1,44 +1,21 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
-import { serviceCategories, ServiceItem } from "@/data/serviceCategories";
-import SearchSuggestions from "@/components/search/SearchSuggestions";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [filteredSuggestions, setFilteredSuggestions] = useState<ServiceItem[]>([]);
   const searchRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  // Create a flat array of all services for search
-  const allServices = serviceCategories.flatMap(category => category.items);
-
-  // Handle search filter as user types
-  useEffect(() => {
-    if (searchTerm.trim() === '') {
-      setFilteredSuggestions([]);
-      return;
-    }
-    
-    const searchLower = searchTerm.toLowerCase();
-    const filtered = allServices.filter(service => 
-      service.title.toLowerCase().includes(searchLower) || 
-      service.description.toLowerCase().includes(searchLower)
-    ).slice(0, 8); // Limit to 8 suggestions
-    
-    setFilteredSuggestions(filtered);
-    setShowSuggestions(true);
-  }, [searchTerm]);
 
   // Handle click outside to close suggestions
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setShowSuggestions(false);
+        // Close any open elements if needed
       }
     };
 
@@ -51,11 +28,6 @@ const Hero = () => {
     if (searchTerm.trim()) {
       navigate(`/search-results?q=${encodeURIComponent(searchTerm)}`);
     }
-  };
-
-  const handleSuggestionClick = (suggestion: ServiceItem) => {
-    navigate(suggestion.to);
-    setShowSuggestions(false);
   };
 
   return (
@@ -85,11 +57,6 @@ const Hero = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="block w-full py-4 pl-12 pr-4 text-apple-gray-800 border-none focus:outline-none focus:ring-0"
                     placeholder="Search for legal services..."
-                    onFocus={() => {
-                      if (searchTerm.trim() && filteredSuggestions.length > 0) {
-                        setShowSuggestions(true);
-                      }
-                    }}
                   />
                 </div>
                 <Button 
@@ -99,23 +66,15 @@ const Hero = () => {
                   Search
                 </Button>
               </form>
-              
-              {showSuggestions && filteredSuggestions.length > 0 && (
-                <SearchSuggestions 
-                  suggestions={filteredSuggestions} 
-                  onSuggestionClick={handleSuggestionClick}
-                  searchTerm={searchTerm}
-                />
-              )}
             </div>
             
             <div className="flex flex-wrap mt-5 gap-4 text-sm text-apple-gray-500 justify-center">
               <span>Popular:</span>
-              <Link to="/services/trademark-registration" className="hover:text-apple-blue transition-colors">Trademark Registration</Link>
+              <Link to="/contact" className="hover:text-apple-blue transition-colors">Trademark Registration</Link>
               <span>•</span>
-              <Link to="/services/private-limited-company" className="hover:text-apple-blue transition-colors">Company Registration</Link>
+              <Link to="/contact" className="hover:text-apple-blue transition-colors">Company Registration</Link>
               <span>•</span>
-              <Link to="/services/gst-registration" className="hover:text-apple-blue transition-colors">GST Registration</Link>
+              <Link to="/contact" className="hover:text-apple-blue transition-colors">GST Registration</Link>
             </div>
           </div>
           
@@ -145,7 +104,7 @@ const Hero = () => {
                 variant="outline" 
                 className="border-apple-gray-300 hover:bg-apple-gray-50 text-apple-gray-800 font-medium text-lg px-8 py-6 rounded-full"
               >
-                <Link to="/services">Explore Our Services</Link>
+                <Link to="/contact">Explore Our Services</Link>
               </Button>
             </div>
           )}

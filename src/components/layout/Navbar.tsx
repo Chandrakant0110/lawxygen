@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import EnhancedServiceDropdown from "@/components/layout/EnhancedServiceDropdown";
 import FindLawyerDropdown from "@/components/layout/FindLawyerDropdown";
 import { Menu, X } from "lucide-react";
 import AuthButtons from "./AuthButtons";
@@ -50,7 +49,9 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <EnhancedServiceDropdown />
+            <Link to="/services" className="text-gray-700 hover:text-primary">
+              Services
+            </Link>
             <FindLawyerDropdown />
             <Link to="/about" className="text-gray-700 hover:text-primary">
               About
