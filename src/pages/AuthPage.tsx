@@ -1,36 +1,25 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useAuth } from "@/hooks/useAuth";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
-import { AlertCircle } from "lucide-react";
-import { AuthTabType, useAuthForms } from "@/hooks/useAuthForms";
-import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
-import LoginForm from "@/components/auth/LoginForm";
-import SignupForm from "@/components/auth/SignupForm";
-import ResetPasswordForm from "@/components/auth/ResetPasswordForm";
-import ResetPasswordSent from "@/components/auth/ResetPasswordSent";
+import { AlertCircle, Mail, Lock, ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
+import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
 
 const AuthPage = () => {
-  const {
-    activeTab,
-    isLoading,
-    authError,
-    resetEmailSent,
-    setActiveTab,
-    handleLogin,
-    handleSignup,
-    handleResetPassword,
-    handleSocialLogin
-  } = useAuthForms();
-  
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+  
+  const [isLoading, setIsLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   
   // Redirect if already logged in
   useEffect(() => {
@@ -39,9 +28,87 @@ const AuthPage = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  // Handle Google authentication
-  const handleGoogleAuth = () => {
-    handleSocialLogin('google');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      setIsLoading(true);
+      setAuthError(null);
+      
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        setAuthError(error.message);
+        toast.error(error.message);
+        return;
+      }
+
+      toast.success("Login successful!");
+    } catch (error: any) {
+      setAuthError(error.message || "An error occurred during login");
+      toast.error(error.message || "An error occurred during login");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSignup = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    try {
+      setIsLoading(true);
+      setAuthError(null);
+      
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            first_name: "",
+            last_name: "",
+          },
+        },
+      });
+
+      if (error) {
+        setAuthError(error.message);
+        toast.error(error.message);
+        return;
+      }
+
+      toast.success("Registration successful! Please verify your email.");
+    } catch (error: any) {
+      setAuthError(error.message || "An error occurred during signup");
+      toast.error(error.message || "An error occurred during signup");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Handle social login - only Google now
+  const handleSocialLogin = async (provider: 'google') => {
+    try {
+      setIsLoading(true);
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/dashboard`,
+        },
+      });
+
+      if (error) {
+        setAuthError(error.message);
+        toast.error(error.message);
+      }
+    } catch (error: any) {
+      setAuthError(error.message || `An error occurred during ${provider} login`);
+      toast.error(error.message || `An error occurred during ${provider} login`);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -55,32 +122,21 @@ const AuthPage = () => {
                 Welcome to LawXygen
               </h1>
               <p className="text-gray-600">
-                {activeTab === "signin" && "Sign in to access your account"}
-                {activeTab === "signup" && "Create an account to get started"}
-                {activeTab === "reset" && "Reset your password"}
+                Sign in to access your account
               </p>
             </div>
 
-            {/* Single Authentication Button at top */}
+            {/* Google Sign In Button */}
             <div className="mb-6">
-              <Button 
-                onClick={handleGoogleAuth}
-                className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700"
-                disabled={isLoading}
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
-                  <path d="M15.4001 8.116C15.4001 7.48636 15.3478 7.02688 15.2346 6.5504H8.00005V9.08946H12.2618C12.1793 9.82936 11.7344 10.9026 10.7172 11.6125L10.6911 11.7689L12.9234 13.4963L13.0775 13.5115C14.5411 12.1608 15.4001 10.3152 15.4001 8.116Z" fill="#ffffff"/>
-                  <path d="M8.00005 15.5999C10.1143 15.5999 11.9143 14.9115 13.0775 13.5114L10.7172 11.6125C10.0527 12.079 9.17611 12.4021 8.00005 12.4021C5.9343 12.4021 4.17611 11.0615 3.57873 9.19946L3.42902 9.20675L1.0909 11.0012L1.05835 11.1428C2.21396 13.7755 4.8717 15.5999 8.00005 15.5999Z" fill="#ffffff"/>
-                  <path d="M3.57868 9.19951C3.42639 8.72294 3.33896 8.21746 3.33896 7.70003C3.33896 7.18226 3.42639 6.67712 3.57085 6.20055L3.56423 6.03421L1.19879 4.21185L1.05829 4.25699C0.670543 5.33734 0.4436 6.4955 0.4436 7.70003C0.4436 8.90457 0.670543 10.0626 1.05829 11.1428L3.57868 9.19951Z" fill="#ffffff"/>
-                  <path d="M8.00005 3.00589C9.47178 3.00589 10.4527 3.6289 11.0255 4.16332L13.1289 2.16175C11.9071 1.0391 10.1144 0.399902 8.00005 0.399902C4.8717 0.399902 2.21396 2.2243 1.05835 4.85692L3.57091 6.80048C4.17612 4.93853 5.93431 3.00589 8.00005 3.00589Z" fill="#ffffff"/>
-                </svg>
-                Sign in with Google
-              </Button>
+              <SocialLoginButtons 
+                isLoading={isLoading} 
+                onSocialLogin={handleSocialLogin} 
+              />
             </div>
 
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
-                <Separator className="w-full" />
+                <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center">
                 <span className="bg-white px-2 text-sm text-gray-500">
@@ -96,41 +152,64 @@ const AuthPage = () => {
               </Alert>
             )}
 
-            <Tabs 
-              value={activeTab} 
-              onValueChange={(value) => setActiveTab(value as AuthTabType)}
-            >
-              <TabsList className="grid grid-cols-3 mb-6">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-                <TabsTrigger value="reset">Reset</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="signin">
-                <LoginForm 
-                  onSubmit={handleLogin} 
-                  isLoading={isLoading} 
-                />
-              </TabsContent>
-
-              <TabsContent value="signup">
-                <SignupForm 
-                  onSubmit={handleSignup} 
-                  isLoading={isLoading} 
-                />
-              </TabsContent>
-
-              <TabsContent value="reset">
-                {resetEmailSent ? (
-                  <ResetPasswordSent onBack={() => setActiveTab("signin")} />
-                ) : (
-                  <ResetPasswordForm 
-                    onSubmit={handleResetPassword} 
-                    isLoading={isLoading} 
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="email@example.com"
+                    className="pl-10"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
-                )}
-              </TabsContent>
-            </Tabs>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                  Password
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="••••••"
+                    className="pl-10"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <Button
+                  type="submit"
+                  className="w-full bg-black text-white hover:bg-gray-800 mb-2 sm:mb-0 sm:w-auto"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Signing in..." : "Sign In"}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                  onClick={handleSignup}
+                  disabled={isLoading}
+                >
+                  Sign Up
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </main>

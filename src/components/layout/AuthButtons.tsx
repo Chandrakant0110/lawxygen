@@ -68,11 +68,8 @@ const AuthButtons = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <Button asChild variant="outline" className="font-medium">
-        <Link to="/auth">Sign In</Link>
-      </Button>
       <Button asChild className="font-medium bg-primary text-white hover:bg-secondary">
-        <Link to="/auth">Sign Up</Link>
+        <Link to="/auth">Sign In</Link>
       </Button>
     </div>
   );
