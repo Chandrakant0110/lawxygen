@@ -23,7 +23,6 @@ const FindLawyerDropdown = () => {
           <NavigationMenuContent className="lawyer-dropdown-content">
             <div className="lawyer-mega-dropdown">
               <div className="lawyer-mega-dropdown-grid">
-                {/* All categories with no extra left spacing */}
                 {LawyerCategories.map((category, index) => (
                   <div key={index} className="lawyer-category-container">
                     <h4 className="lawyer-category-title">
