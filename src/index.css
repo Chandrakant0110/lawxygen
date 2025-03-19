@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -256,19 +255,36 @@
     @apply backdrop-blur-xl bg-white/80 border border-white/20 shadow-sm;
   }
 
-  /* Lawyer Dropdown Styling */
-  .find-lawyer-dropdown-container {
-    @apply static;
+  /* Navbar positioning */
+  .navbar-container {
+    position: relative;
+  }
+  
+  .navbar-menu {
+    position: relative;
   }
 
-  /* Override radix navigation menu styles for FindLawyerDropdown */
-  .find-lawyer-dropdown-container [data-radix-navigation-menu-viewport] {
-    left: 0 !important;
+  /* Find Lawyer Dropdown Positioning */
+  .find-lawyer-dropdown-wrapper {
+    position: static;
+  }
+  
+  .find-lawyer-nav-menu {
+    position: static;
+  }
+  
+  .find-lawyer-nav-menu [data-radix-navigation-menu-viewport] {
+    position: absolute;
+    left: 0 !important; 
+    width: 95vw !important;
+    max-width: 1200px !important;
     transform-origin: top left !important;
+    overflow: visible !important;
   }
-
+  
+  /* Lawyer Dropdown Styling */
   .lawyer-mega-dropdown {
-    @apply bg-white border border-gray-200 shadow-xl rounded-lg overflow-visible max-h-[80vh] w-[95vw] max-w-[1200px];
+    @apply bg-white border border-gray-200 shadow-xl rounded-lg overflow-hidden max-h-[80vh] w-[95vw] max-w-[1200px];
   }
 
   .lawyer-mega-dropdown-grid {

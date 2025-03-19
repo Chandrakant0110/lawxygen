@@ -32,7 +32,7 @@ const Navbar = () => {
         isScrolled ? "bg-white shadow-md py-2" : "bg-white py-4"
       }`}
     >
-      <div className="container-custom flex justify-between items-center">
+      <div className="container-custom flex justify-between items-center navbar-container">
         {/* Logo */}
         <div>
           <Link to="/" className="text-2xl font-bold text-primary">
@@ -42,12 +42,14 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         {!isMobile && (
-          <nav className="flex items-center space-x-6">
+          <nav className="flex items-center space-x-6 navbar-menu">
             <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
             <EnhancedServiceDropdown />
-            <FindLawyerDropdown />
+            <div className="find-lawyer-dropdown-wrapper">
+              <FindLawyerDropdown />
+            </div>
             <Link to="/about" className="text-gray-700 hover:text-primary">
               About
             </Link>
