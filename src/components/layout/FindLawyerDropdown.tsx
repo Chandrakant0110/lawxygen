@@ -21,10 +21,10 @@ const FindLawyerDropdown = () => {
             Find a Lawyer
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid grid-cols-6 w-[95vw] max-w-[1200px] gap-3 p-4 bg-white shadow-lg rounded-md">
-              {/* First 5 columns for categories */}
+            <div className="grid grid-cols-6 w-[95vw] max-w-[1200px] gap-0 p-4 bg-white shadow-lg rounded-md">
+              {/* All categories with no extra left spacing */}
               {LawyerCategories.map((category, index) => (
-                <div key={index} className="space-y-2">
+                <div key={index} className="space-y-1 px-3">
                   <h4 className="font-medium text-sm text-primary border-b pb-1 mb-2">
                     {category.title}
                   </h4>
@@ -45,7 +45,7 @@ const FindLawyerDropdown = () => {
                 </div>
               ))}
               
-              {/* 6th column for CTA */}
+              {/* CTA column */}
               <div className="bg-gray-50 rounded-md p-4 flex flex-col justify-center items-center space-y-3">
                 <h4 className="font-medium text-center">
                   Need help finding the right lawyer?
