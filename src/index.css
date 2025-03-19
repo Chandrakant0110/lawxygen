@@ -264,13 +264,20 @@
     position: relative;
   }
 
-  /* Find Lawyer Dropdown Positioning */
+  /* Find Lawyer Dropdown Positioning - Updated */
   .find-lawyer-dropdown-wrapper {
     position: static;
   }
   
   .find-lawyer-nav-menu {
     position: static;
+  }
+  
+  .find-lawyer-viewport-wrapper {
+    position: absolute;
+    left: 0 !important; 
+    margin-left: calc(var(--homepage-link-position, 0px) - 10px) !important;
+    width: 100% !important;
   }
   
   .find-lawyer-nav-menu [data-radix-navigation-menu-viewport] {
@@ -280,6 +287,10 @@
     max-width: 1200px !important;
     transform-origin: top left !important;
     overflow: visible !important;
+  }
+  
+  .lawyer-dropdown-content {
+    position: relative;
   }
   
   /* Lawyer Dropdown Styling */

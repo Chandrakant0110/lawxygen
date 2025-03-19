@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -12,6 +12,7 @@ const Navbar = () => {
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const homeRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,14 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Set the CSS variable for dropdown positioning based on the Home link position
+  useEffect(() => {
+    if (homeRef.current) {
+      const homePosition = homeRef.current.getBoundingClientRect().left;
+      document.documentElement.style.setProperty('--homepage-link-position', `${homePosition}px`);
+    }
+  }, [isScrolled, isMobile]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -43,7 +52,11 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         {!isMobile && (
           <nav className="flex items-center space-x-6 navbar-menu">
-            <Link to="/" className="text-gray-700 hover:text-primary">
+            <Link 
+              to="/" 
+              className="text-gray-700 hover:text-primary"
+              ref={homeRef}
+            >
               Home
             </Link>
             <EnhancedServiceDropdown />

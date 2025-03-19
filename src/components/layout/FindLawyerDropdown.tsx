@@ -20,7 +20,7 @@ const FindLawyerDropdown = () => {
           <NavigationMenuTrigger className="text-gray-700 hover:text-primary">
             Find a Lawyer
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
+          <NavigationMenuContent className="lawyer-dropdown-content">
             <div className="lawyer-mega-dropdown">
               <div className="lawyer-mega-dropdown-grid">
                 {/* All categories with no extra left spacing */}
