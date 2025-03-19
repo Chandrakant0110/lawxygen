@@ -46,12 +46,8 @@ const Navbar = () => {
             <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
-            <div className="services-dropdown-container">
-              <EnhancedServiceDropdown />
-            </div>
-            <div className="find-lawyer-dropdown-container">
-              <FindLawyerDropdown />
-            </div>
+            <EnhancedServiceDropdown />
+            <FindLawyerDropdown />
             <Link to="/about" className="text-gray-700 hover:text-primary">
               About
             </Link>

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -103,7 +104,7 @@
 @layer components {
   /* Apple-inspired styling components */
   .hero-gradient {
-    background: linear-gradient(135deg, #F5F5F7 0%, #E5E5E7 100%);
+    @apply bg-gradient-to-br from-[#F5F5F7] to-[#E5E5E7];
   }
   
   .container-custom {
@@ -257,7 +258,13 @@
 
   /* Lawyer Dropdown Styling */
   .find-lawyer-dropdown-container {
-    @apply relative z-[999];
+    @apply static;
+  }
+
+  /* Override radix navigation menu styles for FindLawyerDropdown */
+  .find-lawyer-dropdown-container [data-radix-navigation-menu-viewport] {
+    left: 0 !important;
+    transform-origin: top left !important;
   }
 
   .lawyer-mega-dropdown {
