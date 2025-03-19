@@ -11,9 +11,7 @@ export const useSearchFilters = ({ initialSearchType = "services" }: UseSearchFi
   
   // Search and filter state
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchType, setSearchType] = useState<"services">(
-    initialSearchType
-  );
+  const [searchType, setSearchType] = useState<"services">(initialSearchType);
   const [filterOpen, setFilterOpen] = useState(false);
   const [priceRange, setPriceRange] = useState("any");
   const [rating, setRating] = useState("any");

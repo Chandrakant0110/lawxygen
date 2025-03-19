@@ -10,6 +10,8 @@ const ContactPage = lazy(() => import("../pages/ContactPage"));
 const FAQPage = lazy(() => import("../pages/FAQPage"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const FindProfessional = lazy(() => import("../pages/FindProfessional"));
+const AuthPage = lazy(() => import("../pages/AuthPage"));
+const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
 
 const mainRoutes: RouteConfig[] = [
   {
@@ -40,6 +42,14 @@ const mainRoutes: RouteConfig[] = [
   {
     path: "/find-professional",
     component: FindProfessional,
+  },
+  {
+    path: "/auth",
+    component: AuthPage,
+  },
+  {
+    path: "/reset-password",
+    component: ResetPasswordPage,
   },
   {
     path: "*",
