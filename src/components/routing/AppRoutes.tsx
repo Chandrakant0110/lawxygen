@@ -1,7 +1,7 @@
 
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { mainRoutes, infoRoutes, serviceRoutes } from '@/routes';
+import { mainRoutes, infoRoutes } from '@/routes';
 import EnhancedLoadingSpinner from '@/components/common/EnhancedLoadingSpinner';
 import ErrorBoundary from '@/components/common/ErrorBoundary';
 
@@ -17,7 +17,6 @@ const AppRoutes: React.FC = () => {
   const allRoutes = [
     ...mainRoutes,
     ...infoRoutes,
-    ...serviceRoutes
   ];
   
   return (
