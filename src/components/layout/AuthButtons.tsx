@@ -10,34 +10,30 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, LogOut, Settings, UserCircle } from "lucide-react";
+import { User, LogOut, Settings } from "lucide-react";
 
 const AuthButtons = () => {
-  const { user, signOut, userProfile } = useAuth();
+  const { user, signOut } = useAuth();
 
   if (user) {
-    const displayName = userProfile?.first_name 
-      ? `${userProfile.first_name} ${userProfile.last_name || ''}`
-      : user.email?.split('@')[0] || "User";
-      
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="rounded-full h-10 w-10 p-0 overflow-hidden">
-            {userProfile?.avatar_url ? (
+            {user.user_metadata?.avatar_url ? (
               <img 
-                src={userProfile.avatar_url} 
-                alt={displayName} 
+                src={user.user_metadata.avatar_url} 
+                alt={user.email || "User"} 
                 className="h-full w-full object-cover"
               />
             ) : (
-              <UserCircle className="h-5 w-5" />
+              <User className="h-5 w-5" />
             )}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56 bg-white">
           <div className="flex flex-col space-y-1 p-2">
-            <p className="text-sm font-medium leading-none">{displayName}</p>
+            <p className="text-sm font-medium leading-none">{user.user_metadata?.first_name || "User"}</p>
             <p className="text-xs leading-none text-gray-500">{user.email}</p>
           </div>
           <DropdownMenuSeparator />
@@ -68,8 +64,11 @@ const AuthButtons = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <Button asChild className="font-medium bg-primary text-white hover:bg-secondary">
+      <Button asChild variant="outline" className="font-medium">
         <Link to="/auth">Sign In</Link>
+      </Button>
+      <Button asChild className="font-medium bg-primary text-white hover:bg-secondary">
+        <Link to="/auth">Sign Up</Link>
       </Button>
     </div>
   );

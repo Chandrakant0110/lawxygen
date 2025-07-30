@@ -9,22 +9,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
-import { Check, CreditCard, Info, Lock, Clock, AlertCircle } from "lucide-react";
-import { toast } from "sonner";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import EnhancedLoadingSpinner from "@/components/common/EnhancedLoadingSpinner";
+import { Check, CreditCard, Info, Lock, Clock } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const CheckoutPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
-  // Add error state
-  const [error, setError] = useState<string | null>(null);
-  const [isServiceLoading, setIsServiceLoading] = useState(false);
+  const { toast } = useToast();
   
   // Mock service data based on the id parameter
   const service = {
-    id: id || "default",
+    id: id,
     title: "Legal Contract Review",
     provider: "Sarah Johnson, Esq.",
     providerAvatar: "https://randomuser.me/api/portraits/women/33.jpg",
@@ -44,42 +39,25 @@ const CheckoutPage = () => {
     cvv: ""
   });
   
-  // State for form validation
-  const [formErrors, setFormErrors] = useState({
-    cardNumber: "",
-    cardName: "",
-    expiryDate: "",
-    cvv: "",
-    address: ""
-  });
-  
   // State for additional options
   const [options, setOptions] = useState({
     expeditedDelivery: false,
     additionalRevision: false
   });
   
-  const handleOptionChange = (option: string) => {
+  const handleOptionChange = (option) => {
     setOptions({
       ...options,
-      [option]: !options[option as keyof typeof options]
+      [option]: !options[option]
     });
   };
   
-  const handleCardInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCardInfoChange = (e) => {
     const { name, value } = e.target;
     setCardInfo({
       ...cardInfo,
       [name]: value
     });
-    
-    // Clear error when user types
-    if (formErrors[name as keyof typeof formErrors]) {
-      setFormErrors({
-        ...formErrors,
-        [name]: ""
-      });
-    }
   };
   
   const calculateTotal = () => {
@@ -89,57 +67,17 @@ const CheckoutPage = () => {
     return total;
   };
   
-  const validateForm = () => {
-    const errors = {
-      cardNumber: "",
-      cardName: "",
-      expiryDate: "",
-      cvv: "",
-      address: ""
-    };
-    let isValid = true;
-    
-    if (!cardInfo.cardNumber) {
-      errors.cardNumber = "Card number is required";
-      isValid = false;
-    }
-    
-    if (!cardInfo.cardName) {
-      errors.cardName = "Cardholder name is required";
-      isValid = false;
-    }
-    
-    if (!cardInfo.expiryDate) {
-      errors.expiryDate = "Expiry date is required";
-      isValid = false;
-    }
-    
-    if (!cardInfo.cvv) {
-      errors.cvv = "CVV is required";
-      isValid = false;
-    }
-    
-    setFormErrors(errors);
-    return isValid;
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Validate form
-    if (!validateForm()) {
-      setError("Please complete all required fields");
-      return;
-    }
-    
-    setError(null);
     setLoading(true);
     
     // Simulate payment processing
     setTimeout(() => {
       setLoading(false);
-      toast.success("Payment Successful", {
+      toast({
+        title: "Payment Successful",
         description: "Your payment has been processed. You'll receive a confirmation email shortly.",
+        variant: "default",
       });
       
       // Redirect to dashboard after successful payment
@@ -149,19 +87,6 @@ const CheckoutPage = () => {
     }, 2000);
   };
   
-  // Loading state while fetching service details
-  if (isServiceLoading) {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow flex items-center justify-center">
-          <EnhancedLoadingSpinner size="large" message="Loading checkout details..." />
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-  
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -169,13 +94,6 @@ const CheckoutPage = () => {
       <main className="flex-grow py-12 bg-gray-50">
         <div className="container-custom max-w-6xl">
           <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
-          
-          {error && (
-            <Alert variant="destructive" className="mb-4">
-              <AlertCircle className="h-4 w-4" />
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Payment Form */}

@@ -1,22 +1,12 @@
 
-import React, { Suspense } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
-import ConsultationSection from "@/components/home/FeaturedProfessionals";
+import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
+import ServiceCategories from "@/components/home/ServiceCategories";
 import HowItWorks from "@/components/home/HowItWorks";
-import EnhancedLoadingSpinner from "@/components/common/EnhancedLoadingSpinner";
-
-// Lazy load less critical components
-const LazyEnhancedLeadCaptureSection = React.lazy(() => 
-  import("@/components/home/EnhancedLeadCaptureSection")
-);
-
-const LoadingFallback = () => (
-  <div className="w-full py-12 flex justify-center">
-    <EnhancedLoadingSpinner />
-  </div>
-);
+import EnhancedServiceList from "@/components/services/EnhancedServiceList";
+import EnhancedLeadCaptureSection from "@/components/home/EnhancedLeadCaptureSection";
 
 const Index = () => {
   return (
@@ -24,12 +14,10 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        
-        <Suspense fallback={<LoadingFallback />}>
-          <LazyEnhancedLeadCaptureSection />
-        </Suspense>
-        
-        <ConsultationSection />
+        <ServiceCategories />
+        <EnhancedServiceList />
+        <EnhancedLeadCaptureSection />
+        <FeaturedProfessionals />
         <HowItWorks />
       </main>
       <Footer />

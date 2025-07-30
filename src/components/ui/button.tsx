@@ -24,16 +24,13 @@ const buttonVariants = cva(
         teal: "bg-teal-600 text-white hover:bg-teal-700 shadow-sm",
         rose: "bg-rose-600 text-white hover:bg-rose-700 shadow-sm",
         amber: "bg-amber-600 text-white hover:bg-amber-700 shadow-sm",
-        // Button variants
+        // New button variants
         primary: "bg-apple-blue text-white hover:bg-apple-darkblue shadow-sm",
         success: "bg-apple-green text-white hover:bg-apple-green/90 shadow-sm",
         warning: "bg-apple-orange text-white hover:bg-apple-orange/90 shadow-sm",
         danger: "bg-apple-red text-white hover:bg-apple-red/90 shadow-sm",
         light: "bg-white text-apple-gray-800 hover:bg-apple-gray-50 border border-apple-gray-200",
         dark: "bg-black text-white hover:bg-apple-gray-900 shadow-sm",
-        // Add lawpurple variants
-        lawpurple: "bg-lawpurple-600 text-white hover:bg-lawpurple-700 shadow-sm",
-        lawpurpleOutline: "border border-lawpurple-600 text-lawpurple-600 hover:bg-lawpurple-50",
       },
       size: {
         default: "h-10 rounded-lg px-4 py-2",
@@ -41,10 +38,6 @@ const buttonVariants = cva(
         lg: "h-11 rounded-lg px-8",
         xl: "h-12 rounded-lg px-10 text-base",
         icon: "h-10 w-10 rounded-full",
-        // Add more sizes
-        xxs: "h-7 text-xs rounded px-2.5 py-1",
-        xs: "h-8 text-xs rounded-md px-2.5",
-        "2xl": "h-14 rounded-xl px-12 text-lg",
       },
     },
     defaultVariants: {

@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -32,6 +33,7 @@ interface ServicePageLayoutProps {
   title: string;
   subtitle: string;
   description: string;
+  heroImage?: string;
   steps: Step[];
   pricingTiers?: PricingTier[];
   faqs: FAQ[];
@@ -47,6 +49,7 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({
   title,
   subtitle,
   description,
+  heroImage,
   steps,
   pricingTiers,
   faqs,
@@ -62,6 +65,7 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({
         <ServicePageHero
           title={title}
           subtitle={subtitle}
+          imageUrl={heroImage}
           serviceId={serviceId}
         />
         

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import FindLawyerDropdown from "@/components/layout/FindLawyerDropdown";
+import EnhancedServiceDropdown from "@/components/layout/EnhancedServiceDropdown";
 import { Menu, X } from "lucide-react";
 import AuthButtons from "./AuthButtons";
 
@@ -31,7 +31,7 @@ const Navbar = () => {
         isScrolled ? "bg-white shadow-md py-2" : "bg-white py-4"
       }`}
     >
-      <div className="container-custom flex justify-between items-center navbar-container">
+      <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <div>
           <Link to="/" className="text-2xl font-bold text-primary">
@@ -41,18 +41,16 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         {!isMobile && (
-          <nav className="flex items-center space-x-6 navbar-menu">
-            <Link 
-              to="/" 
-              className="text-gray-700 hover:text-primary"
-              id="home-link"
-            >
+          <nav className="flex items-center space-x-6">
+            <Link to="/" className="text-gray-700 hover:text-primary">
               Home
             </Link>
-            <Link to="/services" className="text-gray-700 hover:text-primary">
-              Services
+            <div className="services-dropdown-container">
+              <EnhancedServiceDropdown />
+            </div>
+            <Link to="/find-lawyer" className="text-gray-700 hover:text-primary">
+              Find a Lawyer
             </Link>
-            <FindLawyerDropdown />
             <Link to="/about" className="text-gray-700 hover:text-primary">
               About
             </Link>

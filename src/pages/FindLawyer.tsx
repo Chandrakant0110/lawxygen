@@ -10,30 +10,23 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProfessionalCard from "@/components/ui/ProfessionalCard";
 import { professionals } from "@/mock/mockData";
 
-// Define professional categories
-const professionalCategories = [
-  "Business Incorporation", 
-  "Government Registrations", 
-  "Compliance", 
-  "Taxation", 
-  "Intellectual Property", 
-  "Legal Documents", 
-  "Advisory",
-  "Specialized Services"
+// Filter lawyers from professionals (those with legal specialties)
+const legalSpecialties = [
+  "Corporate Law", "Litigation", "Family Law", "Criminal Law", 
+  "Intellectual Property", "Real Estate Law", "Tax Law", "Immigration Law"
 ];
 
-const FindProfessional = () => {
-  const [filterOpen, setFilterOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+const lawyers = professionals.filter(pro => 
+  pro.specialties.some(specialty => legalSpecialties.includes(specialty))
+);
 
-  // For demonstration, we'll use the existing professionals data
-  const filteredProfessionals = selectedCategory === "all" 
-    ? professionals 
-    : professionals.filter(pro => 
-        pro.specialties.some(specialty => 
-          specialty.toLowerCase().includes(selectedCategory.toLowerCase())
-        )
-      );
+const FindLawyer = () => {
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedSpecialty, setSelectedSpecialty] = useState<string>("all");
+
+  const filteredLawyers = selectedSpecialty === "all" 
+    ? lawyers 
+    : lawyers.filter(lawyer => lawyer.specialties.includes(selectedSpecialty));
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -41,12 +34,12 @@ const FindProfessional = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-teal-600 to-sky-600 text-white">
+        <section className="bg-gradient-to-r from-blue-700 to-teal-600 text-white">
           <div className="container-custom py-16">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-3xl font-bold md:text-4xl">Find Your Legal Professional</h1>
+              <h1 className="text-3xl font-bold md:text-4xl">Find Your Perfect Lawyer</h1>
               <p className="mt-4 text-lg text-white/90">
-                Connect with specialized professionals for all your business and legal service needs
+                Connect with experienced legal professionals specialized in various fields of law
               </p>
               
               <div className="mt-8 p-4 bg-white/10 backdrop-blur-sm rounded-lg">
@@ -57,7 +50,7 @@ const FindProfessional = () => {
                     </div>
                     <Input 
                       type="search" 
-                      placeholder="Search for business services or professionals..." 
+                      placeholder="Search for lawyers by name or specialty..." 
                       className="pl-10 bg-white text-gray-900"
                     />
                   </div>
@@ -80,29 +73,34 @@ const FindProfessional = () => {
           </div>
         </section>
         
-        {/* Service Categories */}
+        {/* Specialties */}
         <section className="py-8 bg-gray-50">
           <div className="container-custom">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Service Category</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Legal Specialty</h2>
             
             <Tabs 
               defaultValue="all" 
               className="w-full"
-              onValueChange={(value) => setSelectedCategory(value)}
+              onValueChange={(value) => setSelectedSpecialty(value)}
             >
               <TabsList className="mb-8 flex flex-wrap h-auto">
-                <TabsTrigger value="all">All Categories</TabsTrigger>
-                {professionalCategories.map(category => (
-                  <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
-                ))}
+                <TabsTrigger value="all">All Specialties</TabsTrigger>
+                <TabsTrigger value="Corporate Law">Corporate Law</TabsTrigger>
+                <TabsTrigger value="Litigation">Litigation</TabsTrigger>
+                <TabsTrigger value="Family Law">Family Law</TabsTrigger>
+                <TabsTrigger value="Criminal Law">Criminal Law</TabsTrigger>
+                <TabsTrigger value="Intellectual Property">Intellectual Property</TabsTrigger>
+                <TabsTrigger value="Real Estate Law">Real Estate Law</TabsTrigger>
+                <TabsTrigger value="Tax Law">Tax Law</TabsTrigger>
+                <TabsTrigger value="Immigration Law">Immigration Law</TabsTrigger>
               </TabsList>
             </Tabs>
             
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-semibold text-gray-900">
-                Available Professionals 
+                Available Lawyers 
                 <span className="text-gray-500 ml-2 text-lg font-normal">
-                  ({filteredProfessionals.length} results)
+                  ({filteredLawyers.length} results)
                 </span>
               </h3>
               
@@ -170,104 +168,72 @@ const FindProfessional = () => {
             )}
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProfessionals.map((professional) => (
+              {filteredLawyers.map((lawyer) => (
                 <ProfessionalCard 
-                  key={professional.id}
-                  id={professional.id}
-                  name={professional.name}
-                  title={professional.title}
-                  rating={professional.rating}
-                  reviews={professional.reviews}
-                  hourlyRate={professional.hourlyRate}
-                  avatar={professional.avatar}
-                  specialties={professional.specialties}
-                  isTopRated={professional.isTopRated}
+                  key={lawyer.id}
+                  id={lawyer.id}
+                  name={lawyer.name}
+                  title={lawyer.title}
+                  rating={lawyer.rating}
+                  reviews={lawyer.reviews}
+                  hourlyRate={lawyer.hourlyRate}
+                  avatar={lawyer.avatar}
+                  specialties={lawyer.specialties}
+                  isTopRated={lawyer.isTopRated}
                 />
               ))}
             </div>
             
-            {filteredProfessionals.length === 0 && (
+            {filteredLawyers.length === 0 && (
               <div className="text-center py-12">
-                <h3 className="text-xl font-medium text-gray-900 mb-2">No professionals found</h3>
+                <h3 className="text-xl font-medium text-gray-900 mb-2">No lawyers found</h3>
                 <p className="text-gray-600 mb-6">
-                  We couldn't find any professionals matching your selected category.
+                  We couldn't find any lawyers matching your selected specialty.
                 </p>
                 <Button
-                  onClick={() => setSelectedCategory("all")}
+                  onClick={() => setSelectedSpecialty("all")}
                 >
-                  View All Professionals
+                  View All Lawyers
                 </Button>
               </div>
             )}
           </div>
         </section>
         
-        {/* Services Details */}
+        {/* How It Works */}
         <section className="py-16 bg-white">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Professional Services</h2>
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">How It Works</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-6 border rounded-lg bg-gray-50">
-                <h3 className="text-xl font-semibold mb-4">Business Incorporation Services</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Private Limited Company Registration</li>
-                  <li>• Limited Liability Partnership (LLP) Registration</li>
-                  <li>• One Person Company (OPC) Registration</li>
-                  <li>• Partnership Firm Registration</li>
-                  <li>• Sole Proprietorship Registration</li>
-                  <li>• Section 8 Company Registration</li>
-                </ul>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 text-teal-600 mb-4">
+                  <Search className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">1. Search for a Lawyer</h3>
+                <p className="text-gray-600">
+                  Browse our directory of qualified lawyers or search by specialty, location, or keywords.
+                </p>
               </div>
               
-              <div className="p-6 border rounded-lg bg-gray-50">
-                <h3 className="text-xl font-semibold mb-4">Government Registrations & Licenses</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• GST Registration</li>
-                  <li>• Import Export Code (IEC) Registration</li>
-                  <li>• Professional Tax Registration</li>
-                  <li>• Shops and Establishments Registration</li>
-                  <li>• FSSAI (Food License) Registration</li>
-                  <li>• MSME (Udyam) Registration</li>
-                </ul>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 text-teal-600 mb-4">
+                  <Filter className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">2. Compare and Choose</h3>
+                <p className="text-gray-600">
+                  Review profiles, ratings, and experience to find the perfect lawyer for your needs.
+                </p>
               </div>
               
-              <div className="p-6 border rounded-lg bg-gray-50">
-                <h3 className="text-xl font-semibold mb-4">Compliance & Taxation Services</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Annual ROC Filings for Companies and LLPs</li>
-                  <li>• GST Return Filing</li>
-                  <li>• Tax Audits</li>
-                  <li>• Income Tax Return (ITR) Filing</li>
-                  <li>• Tax Planning and Advisory</li>
-                  <li>• Representation in Tax Assessments</li>
-                </ul>
-              </div>
-              
-              <div className="p-6 border rounded-lg bg-gray-50">
-                <h3 className="text-xl font-semibold mb-4">Intellectual Property & Legal Documents</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Trademark Search and Registration</li>
-                  <li>• Patent Search and Registration</li>
-                  <li>• Copyright Registration</li>
-                  <li>• Shareholders Agreements</li>
-                  <li>• Non-Disclosure Agreements (NDA)</li>
-                  <li>• Employment Contracts</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="mt-12 text-center">
-              <p className="text-lg text-gray-700 mb-6">
-                Looking for a specific service? Browse all our service categories or contact us directly.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild>
-                  <Link to="/search-results">Browse All Services</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link to="/contact">Contact Us</Link>
-                </Button>
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 text-teal-600 mb-4">
+                  <MessageSquare className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">3. Connect and Consult</h3>
+                <p className="text-gray-600">
+                  Contact your chosen lawyer directly through our platform and get the legal help you need.
+                </p>
               </div>
             </div>
           </div>
@@ -279,4 +245,4 @@ const FindProfessional = () => {
   );
 };
 
-export default FindProfessional;
+export default FindLawyer;
