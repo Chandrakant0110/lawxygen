@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
 
 interface ServicePageHeroProps {
   title: string;
@@ -20,7 +19,15 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
   imageUrl,
   serviceId,
 }) => {
-  const [showLeadForm, setShowLeadForm] = React.useState(false);
+  const scrollToConsultation = () => {
+    const consultationSection = document.querySelector('#consultation');
+    if (consultationSection) {
+      consultationSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   
   return (
     <div className={`py-16 ${bgColorClass}`}>
@@ -34,43 +41,25 @@ const ServicePageHero: React.FC<ServicePageHeroProps> = ({
               {subtitle}
             </p>
             
-            {showLeadForm ? (
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-apple-gray-100 mb-6">
-                <LeadCaptureForm 
-                  variant="inline" 
-                  defaultService={serviceId}
-                  className="bg-transparent p-0 border-0 shadow-none" 
-                  onSubmitSuccess={() => setShowLeadForm(false)}
-                />
-                <Button 
-                  onClick={() => setShowLeadForm(false)} 
-                  variant="outline" 
-                  className="mt-5 w-full border-apple-gray-200 rounded-full"
-                >
-                  Cancel
-                </Button>
-              </div>
-            ) : (
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button 
-                  onClick={() => setShowLeadForm(true)}
-                  variant="primary" 
-                  size="lg"
-                  className="bg-apple-blue hover:bg-apple-darkblue shadow-md hover:shadow-lg transition-all duration-300 rounded-full"
-                >
-                  Get a Free Consultation Now
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button 
-                  asChild 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-apple-gray-300 rounded-full"
-                >
-                  <Link to="#services">Explore Services</Link>
-                </Button>
-              </div>
-            )}
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <Button 
+                onClick={scrollToConsultation}
+                variant="primary" 
+                size="lg"
+                className="bg-apple-blue hover:bg-apple-darkblue shadow-md hover:shadow-lg transition-all duration-300 rounded-full"
+              >
+                Get a Free Consultation Now
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button 
+                asChild 
+                variant="outline" 
+                size="lg" 
+                className="border-apple-gray-300 rounded-full"
+              >
+                <Link to="#services">Explore Services</Link>
+              </Button>
+            </div>
           </div>
           <div className="md:w-1/2 mt-10 md:mt-0">
             {imageUrl ? (

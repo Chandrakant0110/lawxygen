@@ -49,6 +49,36 @@ import IPRServices from "./pages/services/IPRServices";
 import ImportExportCode from "./pages/services/ImportExportCode";
 import LegalDocuments from "./pages/services/LegalDocuments";
 
+// New Missing Service Pages
+import AccountingServices from "./pages/services/AccountingServices";
+import GSTFiling from "./pages/services/GSTFiling";
+import TDSFiling from "./pages/services/TDSFiling";
+import AnnualCompliance from "./pages/services/AnnualCompliance";
+import ROCCompliance from "./pages/services/ROCCompliance";
+import CopyrightRegistration from "./pages/services/CopyrightRegistration";
+import PatentFiling from "./pages/services/PatentFiling";
+import LegalConsultation from "./pages/services/LegalConsultation";
+import NDAgreement from "./pages/services/NDAgreement";
+import BusinessContracts from "./pages/services/BusinessContracts";
+import TrademarkSearch from "./pages/services/TrademarkSearch";
+
+// Specialized Services
+import Fundraising from "./pages/services/Fundraising";
+import PitchDeck from "./pages/services/PitchDeck";
+import LegalRetainer from "./pages/services/LegalRetainer";
+import Litigation from "./pages/services/Litigation";
+import Property from "./pages/services/Property";
+import NGORegistration from "./pages/services/NGORegistration";
+import BusinessAdvisory from "./pages/services/BusinessAdvisory";
+
+// Documentation Services  
+import ServiceLevelAgreement from "./pages/services/ServiceLevelAgreement";
+import ShareholdersAgreement from "./pages/services/ShareholdersAgreement";
+import FoundersAgreement from "./pages/services/FoundersAgreement";
+import MOU from "./pages/services/MOU";
+import HRPolicies from "./pages/services/HRPolicies";
+import LegalNotice from "./pages/services/LegalNotice";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -98,10 +128,41 @@ const App = () => (
             <Route path="/services/section-8-company" element={<Section8Company />} />
             <Route path="/services/partnership-firm" element={<PartnershipFirm />} />
             <Route path="/services/startup-india" element={<StartupIndia />} />
+            <Route path="/services/startup-india-registration" element={<StartupIndia />} />
             <Route path="/services/tax-filing-services" element={<TaxFilingServices />} />
             <Route path="/services/ipr-services" element={<IPRServices />} />
             <Route path="/services/import-export-code" element={<ImportExportCode />} />
             <Route path="/services/legal-documents" element={<LegalDocuments />} />
+            
+            {/* New Missing Service Routes */}
+            <Route path="/services/accounting-services" element={<AccountingServices />} />
+            <Route path="/services/gst-filing" element={<GSTFiling />} />
+            <Route path="/services/tds-filing" element={<TDSFiling />} />
+            <Route path="/services/annual-compliance" element={<AnnualCompliance />} />
+            <Route path="/services/roc-compliance" element={<ROCCompliance />} />
+            <Route path="/services/copyright-registration" element={<CopyrightRegistration />} />
+            <Route path="/services/patent-filing" element={<PatentFiling />} />
+            <Route path="/services/legal-consultation" element={<LegalConsultation />} />
+            <Route path="/services/nda-agreement" element={<NDAgreement />} />
+            <Route path="/services/business-contracts" element={<BusinessContracts />} />
+            <Route path="/services/trademark-search" element={<TrademarkSearch />} />
+            
+            {/* Specialized Services Routes */}
+            <Route path="/services/fundraising" element={<Fundraising />} />
+            <Route path="/services/pitch-deck" element={<PitchDeck />} />
+            <Route path="/services/legal-retainer" element={<LegalRetainer />} />
+            <Route path="/services/litigation" element={<Litigation />} />
+            <Route path="/services/property" element={<Property />} />
+            <Route path="/services/ngo-registration" element={<NGORegistration />} />
+            <Route path="/services/business-advisory" element={<BusinessAdvisory />} />
+            
+            {/* Documentation Services Routes */}
+            <Route path="/services/service-level-agreement" element={<ServiceLevelAgreement />} />
+            <Route path="/services/shareholders-agreement" element={<ShareholdersAgreement />} />
+            <Route path="/services/founders-agreement" element={<FoundersAgreement />} />
+            <Route path="/services/mou" element={<MOU />} />
+            <Route path="/services/hr-policies" element={<HRPolicies />} />
+            <Route path="/services/legal-notice" element={<LegalNotice />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>

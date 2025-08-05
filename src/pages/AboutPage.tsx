@@ -15,8 +15,8 @@ const AboutPage = () => {
         <section className="bg-gradient-to-r from-lawblue-950 to-lawpurple-900 text-white py-16 md:py-24">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl font-bold md:text-5xl mb-4">About Lawxygen</h1>
-              <p className="text-xl text-gray-200 mb-8">
+              <h1 className="text-4xl font-bold md:text-5xl mb-4 text-black">About Lawxygen</h1>
+              <p className="text-xl mb-8 text-black">
                 Connecting businesses and individuals with top legal professionals since 2018
               </p>
             </div>
@@ -188,14 +188,14 @@ const AboutPage = () => {
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-              <p className="text-xl text-gray-200 mb-8">
+              <p className="text-xl text-black mb-8">
                 Join thousands of satisfied clients who have found the perfect legal professional for their needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-lawpurple-600 hover:bg-lawpurple-700">
+                <Button asChild size="lg" className="text-white">
                   <Link to="/search-results">Find a Professional</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="text-black border-black hover:bg-white/10">
                   <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>

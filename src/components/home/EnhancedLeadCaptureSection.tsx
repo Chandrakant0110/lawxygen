@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
@@ -11,8 +11,20 @@ interface EnhancedLeadCaptureSectionProps {
 const EnhancedLeadCaptureSection: React.FC<EnhancedLeadCaptureSectionProps> = ({ defaultService }) => {
   const [showForm, setShowForm] = React.useState(!!defaultService);
   
+  useEffect(() => {
+    const handleShowLeadForm = () => {
+      setShowForm(true);
+    };
+    
+    window.addEventListener('showLeadForm', handleShowLeadForm);
+    
+    return () => {
+      window.removeEventListener('showLeadForm', handleShowLeadForm);
+    };
+  }, []);
+  
   return (
-    <section className="py-24 bg-gradient-to-b from-apple-gray-50 to-white">
+    <section data-section="lead-capture" className="py-24 bg-gradient-to-b from-apple-gray-50 to-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="text-black">

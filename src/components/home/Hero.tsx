@@ -3,15 +3,31 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-import LeadCaptureForm from "@/components/forms/LeadCaptureForm";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [showLeadForm, setShowLeadForm] = useState(false);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Searching for:", searchTerm);
+  };
+
+  const scrollToLeadCapture = () => {
+    // Find the lead capture section and scroll to it smoothly
+    const leadCaptureSection = document.querySelector('[data-section="lead-capture"]');
+    if (leadCaptureSection) {
+      // Trigger the form to show first
+      const event = new CustomEvent('showLeadForm');
+      window.dispatchEvent(event);
+      
+      // Then scroll to the section with a slight delay to ensure form is shown
+      setTimeout(() => {
+        leadCaptureSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
   };
 
   return (
@@ -44,7 +60,7 @@ const Hero = () => {
               </div>
               <Button 
                 type="submit" 
-                className="px-8 py-6 bg-apple-blue hover:bg-apple-darkblue text-white font-medium text-lg"
+                className="px-8 py-7 bg-apple-blue hover:bg-apple-darkblue text-white font-medium text-lg"
               >
                 Search
               </Button>
@@ -60,36 +76,23 @@ const Hero = () => {
             </div>
           </div>
           
-          {showLeadForm ? (
-            <div className="mt-14 bg-white p-8 rounded-2xl border border-apple-gray-200 shadow-lg max-w-md mx-auto">
-              <LeadCaptureForm variant="popup" className="bg-transparent border-0 shadow-none p-0" />
-              <Button 
-                onClick={() => setShowLeadForm(false)} 
-                variant="outline" 
-                className="mt-5 border-apple-gray-300 hover:bg-apple-gray-50 text-apple-gray-700"
-              >
-                Cancel
-              </Button>
-            </div>
-          ) : (
-            <div className="flex flex-col sm:flex-row gap-4 mt-14 justify-center">
-              <Button 
-                onClick={() => setShowLeadForm(true)} 
-                size="lg" 
-                className="bg-apple-blue hover:bg-apple-darkblue text-white font-medium text-lg px-8 py-6 rounded-full shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                Get a Free Consultation
-              </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline" 
-                className="border-apple-gray-300 hover:bg-apple-gray-50 text-apple-gray-800 font-medium text-lg px-8 py-6 rounded-full"
-              >
-                <Link to="/services">Explore Our Services</Link>
-              </Button>
-            </div>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 mt-14 justify-center">
+            <Button 
+              onClick={scrollToLeadCapture} 
+              size="lg" 
+              className="bg-apple-blue hover:bg-apple-darkblue text-white font-medium text-lg px-8 py-6 rounded-full shadow-sm hover:shadow-md transition-all duration-300"
+            >
+              Get a Free Consultation
+            </Button>
+            <Button 
+              asChild 
+              size="lg" 
+              variant="outline" 
+              className="border-apple-gray-300 hover:bg-apple-gray-50 text-apple-gray-800 font-medium text-lg px-8 py-6 rounded-full"
+            >
+              <Link to="/services">Explore Our Services</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
